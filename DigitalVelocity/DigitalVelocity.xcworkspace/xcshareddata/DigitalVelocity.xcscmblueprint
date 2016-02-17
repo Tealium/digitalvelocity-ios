@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B49FFFD3AD26AA541C53D01D3FB6EB86F77B44B3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B49FFFD3AD26AA541C53D01D3FB6EB86F77B44B3" : 0,
+    "38D77C7B97756BF7ABAA3E633535D1D5866E6173" : 0,
+    "722693398A8BC0DA20347C9A1D8D2D18F5708683" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FFB57328-E3D7-49B9-8B6A-79792BCCCD84",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B49FFFD3AD26AA541C53D01D3FB6EB86F77B44B3" : "mobile-projects",
+    "38D77C7B97756BF7ABAA3E633535D1D5866E6173" : "ios-utilities",
+    "722693398A8BC0DA20347C9A1D8D2D18F5708683" : "audiencestream-ios"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DigitalVelocity",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DV2015\/iOS\/DigitalVelocity\/DigitalVelocity.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Tealium\/ios-utilities.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "38D77C7B97756BF7ABAA3E633535D1D5866E6173"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ethyreal\/audiencestream-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "722693398A8BC0DA20347C9A1D8D2D18F5708683"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Tealium\/mobile-projects.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B49FFFD3AD26AA541C53D01D3FB6EB86F77B44B3"
+    }
+  ]
+}

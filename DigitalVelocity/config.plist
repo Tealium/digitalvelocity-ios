@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NoContactsFoundMessage</key>
+	<string>No more new contacts have started using the app. Why not invite them now?
+</string>
+	<key>AppChatEnabled</key>
+	<true/>
+	<key>AppChatTitle</key>
+	<string>Chat</string>
+	<key>AppContactsEnabled</key>
+	<true/>
+	<key>AppContactsTitle</key>
+	<string>Contacts</string>
+	<key>AppMessagesTitle</key>
+	<string>Messages</string>
+	<key>DeleteContactEnabled</key>
+	<true/>
+	<key>DisplayHistoricLocalNotification</key>
+	<false/>
+	<key>EnableInternalNotifications</key>
+	<true/>
+	<key>FindContactsEnabled</key>
+	<true/>
+	<key>IdentifierType</key>
+	<string>ExternalUserId</string>
+	<key>InviteEnabled</key>
+	<true/>
+	<key>InvitationMessage</key>
+	<string>To be defined</string>
+	<key>LocationTrackingEnabled</key>
+	<true/>
+	<key>LogSensitiveInformationEnabled</key>
+	<false/>
+	<key>ManualContactInviteEnabled</key>
+	<true/>
+	<key>MessageRateExceededMessage</key>
+	<string>Too many messages sent in too short a period, your messages will be sent shortly.</string>
+	<key>NavigationEnabled</key>
+	<true/>
+	<key>NoPushMessage</key>
+	<string>We recommend you enable push notifications otherwise your messaging experience will be severely impacted!</string>
+	<key>PublicServiceHostname</key>
+	<string>https://client-api.mobiledonky.com/</string>
+	<key>DefaultSoundFilename</key>
+	<string>pling.aac</string>
+	<key>NewDeviceMessage</key>
+	<string>A new {DeviceName} has been registered against your account; if you did not register this device please let us know immediately.</string>
+	<key>NewDeviceTitle</key>
+	<string>New device registered</string>
+	<key>PathToCoreLibraryBundle</key>
+	<string></string>
+	<key>PathToUILibraryBundle</key>
+	<string></string>
+	<key>ShareMessage</key>
+	<string>Have a look at this: {UrlToShare}</string>
+	<key>ShowVersionNumberInSettings</key>
+	<true/>
+	<key>SoundsDirectoryPath</key>
+	<string>DonkySDKResources.bundle/Sounds</string>
+	<key>SuspendedUserMessage</key>
+	<string>Unfortunately you have been suspended, please contact support to be reactivated.</string>
+	<key>TagTitle</key>
+	<string>Tag</string>
+	<key>MinTimeBetweenLocationUpdates</key>
+	<integer>30</integer>
+	<key>ShouldDisplayLocalizedCountryNames</key>
+	<false/>
+</dict>
+</plist>

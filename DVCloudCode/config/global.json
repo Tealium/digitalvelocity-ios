@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "DigitalVelocity": {
+            "applicationId": "BN5eu7w060O8U9X5hWQYSd22IPOUJxhGJYYIs3qj", 
+            "masterKey": "waFTgSRxwVb6MpuyooJJxF0p61QguhOgiwHyzdOj"
+        }, 
+        "_default": {
+            "link": "DigitalVelocity"
+        }
+    }
+}

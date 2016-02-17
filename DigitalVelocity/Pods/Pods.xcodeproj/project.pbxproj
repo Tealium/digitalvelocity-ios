@@ -1,0 +1,1176 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		032F1F4217C0C8FD0DF77361 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA07063DB4AC374E1F9186B /* MobileCoreServices.framework */; };
+		033CA10D5017B8243CFE8FFB /* PFPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D9AC15EF4783E8B102871C7 /* PFPush.h */; };
+		0376A94A6F7977309684946A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF22880059D4306D7C2B900 /* Foundation.framework */; };
+		053CBD0C2877BE7BEDF6DD3E /* Pods-DigitalVelocity-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F54DCE3B7503E9A6D9242 /* Pods-DigitalVelocity-dummy.m */; };
+		07857002C91F4848B334C743 /* PFNullability.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8093DAD50FC6D74B18EA99 /* PFNullability.h */; };
+		0C75216F7B8D5A76B2F1B771 /* PFObject+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 18D81AD33E6DA7ED78724FF9 /* PFObject+Subclass.h */; };
+		0CCA518D785C5337C259ACB5 /* PFPush.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D9AC15EF4783E8B102871C7 /* PFPush.h */; };
+		0FCD868ABDF583A48FEDF38F /* BFExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = E822B8D412C5E0FC6345B784 /* BFExecutor.h */; };
+		11C6EB30FA30A9F8B4C56993 /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = CC324EFA624ECA5EC69CE3AE /* BFTask.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		12A35B071954BFC55FCC9755 /* PFCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 52474427CD6805C7BC06E725 /* PFCloud.h */; };
+		1651941852BE371217F30C17 /* PFConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 400344CDEA192D49E411E847 /* PFConfig.h */; };
+		1AD15954A81DF6C3C38B6608 /* PFCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 52474427CD6805C7BC06E725 /* PFCloud.h */; };
+		1D488A5294EABB08B730F0F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB688EEFD36785A10A80AE7 /* Security.framework */; };
+		1DF146205F6EB519D740FC51 /* PFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = B497A14037711810AE848A9C /* PFObject.h */; };
+		1DF8F4587FC5D8BA5F2A8325 /* PFPurchase.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C7FE3A12F0881FC36D8069 /* PFPurchase.h */; };
+		1FAE7BAFE92FD88D154B7598 /* PFProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A18F723AEB4107C4F613923 /* PFProduct.h */; };
+		2602F887654BD919DAC7B6DF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9601217FAAF3A9253B4F741B /* SystemConfiguration.framework */; };
+		26D34462F8330D99B9BEB637 /* Pods-DigitalVelocity-Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38C4199ABF5D8D8936028F /* Pods-DigitalVelocity-Bolts-dummy.m */; };
+		2724240D7695F8375C623D6B /* PFTwitterUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40501EB43F0AF5BCF80438C4 /* PFTwitterUtils.h */; };
+		276FD85EE4A2B62A4D4D5AC2 /* PFGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A61D043666F005769C75DE /* PFGeoPoint.h */; };
+		28E7104B3B3408C5B8048D47 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFB7BA79CAB32876F0B011A /* AudioToolbox.framework */; };
+		2945893910EE8F7C4EDA6BB4 /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 177C95D5A5D18C737E1A913D /* BFTaskCompletionSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2BDC0532AC1C056D2D4533BF /* PFAnonymousUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 481ED72B57F4FCA0CBB46C22 /* PFAnonymousUtils.h */; };
+		2DA57080859741D358F7C65A /* PFConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A52BA2CC4FD851BA08D39CBB /* PFConstants.h */; };
+		430CC77394695F48BCA53316 /* PFRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 7682DA10E122598468A9AF85 /* PFRole.h */; };
+		4342F0CE22306D3054CAD327 /* PFNullability.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8093DAD50FC6D74B18EA99 /* PFNullability.h */; };
+		440345F6FC26B38EB47E1057 /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = CC324EFA624ECA5EC69CE3AE /* BFTask.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4532FAFF1027494F0867EF6A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9601217FAAF3A9253B4F741B /* SystemConfiguration.framework */; };
+		457436780A38C058DF122950 /* BoltsVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EA5BE70DDE56B34123EC848 /* BoltsVersion.h */; };
+		466F5571E1FBFC3E4B1A4591 /* BFExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = E822B8D412C5E0FC6345B784 /* BFExecutor.h */; };
+		4C7AE76F07DA8DCB0BAB5475 /* PFAnonymousUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 481ED72B57F4FCA0CBB46C22 /* PFAnonymousUtils.h */; };
+		5321E6CAA02A68C42667B3C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF22880059D4306D7C2B900 /* Foundation.framework */; };
+		547F24760A3849796E32EA42 /* PFObject.h in Headers */ = {isa = PBXBuildFile; fileRef = B497A14037711810AE848A9C /* PFObject.h */; };
+		549681B1BB51ACA4981EF81A /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E036D82B569295951A4E6A /* Empty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		56C6C82633CB1186E6965A45 /* Pods-DigitalVelocityTests-Parse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E01CAB49256F3809E6C974F /* Pods-DigitalVelocityTests-Parse-dummy.m */; };
+		58683D8764B1372143C3C851 /* PF_Twitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A1A43A0BDB3F0F812EA7855 /* PF_Twitter.h */; };
+		58882759E45DFCA11E664548 /* PFInstallation.h in Headers */ = {isa = PBXBuildFile; fileRef = D447325F127817E16E38EC2F /* PFInstallation.h */; };
+		59BE965EEF70E780942949C8 /* PFConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 400344CDEA192D49E411E847 /* PFConfig.h */; };
+		5A5C115369DD42ABF4262A3E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E44E2D130EF5FF1463ED115 /* CFNetwork.framework */; };
+		5DFBF0F26EE4855477C49676 /* BFExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F92576F42681D56AC5370 /* BFExecutor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5F7946EB963712770B94C15C /* PFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E6FBFE8B84B3C41369BFDB2 /* PFNetworkActivityIndicatorManager.h */; };
+		62D6FD92565C68E3A35FC996 /* PFSubclassing.h in Headers */ = {isa = PBXBuildFile; fileRef = 66850769CF4312E929F70398 /* PFSubclassing.h */; };
+		63654C6A07286C10732FAB40 /* PFRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = D21E5B56A881756A54B614D8 /* PFRelation.h */; };
+		642D6392C4C41A410200ED66 /* PFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B77A1245331F2E06CE9DC1A /* PFSession.h */; };
+		6D02E67DB20F10BE26BF534C /* BFTask.h in Headers */ = {isa = PBXBuildFile; fileRef = A73E36C4AD157580E3CFA91F /* BFTask.h */; };
+		6E9E1A542E8B1B0E9507400B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC920DF6181B20CB07414CE5 /* QuartzCore.framework */; };
+		6FB84663AC972AA1A594D058 /* PFInstallation.h in Headers */ = {isa = PBXBuildFile; fileRef = D447325F127817E16E38EC2F /* PFInstallation.h */; };
+		6FFA2261254A9B4B6575E0D8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE44C83D4018A72CC447A57 /* StoreKit.framework */; };
+		7E5AC29888034E60AF963BE5 /* PFPurchase.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C7FE3A12F0881FC36D8069 /* PFPurchase.h */; };
+		81894E31E593A3678BE1A09C /* PFACL.h in Headers */ = {isa = PBXBuildFile; fileRef = 29206D5158A1BFE39F187470 /* PFACL.h */; };
+		8FA547752F2B51A455A0FE90 /* Parse.h in Headers */ = {isa = PBXBuildFile; fileRef = DE097D354A1B0715EA6099F5 /* Parse.h */; };
+		90D6321C52D47FD8EE40C732 /* Pods-DigitalVelocity-Parse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CCFB6189DB088645543380A /* Pods-DigitalVelocity-Parse-dummy.m */; };
+		967B694EF2E1EDD936953B5C /* PF_Twitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A1A43A0BDB3F0F812EA7855 /* PF_Twitter.h */; };
+		986192F67F4AC5C8D972A67F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E44E2D130EF5FF1463ED115 /* CFNetwork.framework */; };
+		9AE9132DC8D4736D28FB8800 /* PFFile.h in Headers */ = {isa = PBXBuildFile; fileRef = DE8503DD84B24FB1CCD28DDB /* PFFile.h */; };
+		9B301C55A13A3C2BDA8C841A /* Bolts.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E91EADB18272EF6E24F8FB7 /* Bolts.h */; };
+		9C140D8DAB6FD838A54F706B /* PFUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 08C78D402F76335C66FDAF43 /* PFUser.h */; };
+		9D5FF8CC0099ECCCF79C9A92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C223367CBFA8F1D0EE70D2 /* CoreGraphics.framework */; };
+		9E4CAEDA9E506426AD01AF30 /* PFQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 6294E693455156775977C17A /* PFQuery.h */; };
+		A3E1317F943261F337235B3B /* PFSubclassing.h in Headers */ = {isa = PBXBuildFile; fileRef = 66850769CF4312E929F70398 /* PFSubclassing.h */; };
+		A4CBA72B3B9EF750938418BA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFFB7BA79CAB32876F0B011A /* AudioToolbox.framework */; };
+		A633F245601BD666F1EE6A5A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C223367CBFA8F1D0EE70D2 /* CoreGraphics.framework */; };
+		A8628FF8443F818696DD847B /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E036D82B569295951A4E6A /* Empty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AC2B68F6B658F4E8AA57A99B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF22880059D4306D7C2B900 /* Foundation.framework */; };
+		AC5DB0BBE06ED68208F09E1A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3176E8A39E44AAC8E5786A4D /* CoreLocation.framework */; };
+		AFD22579706A8235FE202BED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE44C83D4018A72CC447A57 /* StoreKit.framework */; };
+		B5537592B4F06FEFD3CFC08E /* PFACL.h in Headers */ = {isa = PBXBuildFile; fileRef = 29206D5158A1BFE39F187470 /* PFACL.h */; };
+		B584BA27882A0254F8A27CF4 /* Bolts.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E91EADB18272EF6E24F8FB7 /* Bolts.h */; };
+		B611275103D3FEC28A44B6D9 /* PFQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 6294E693455156775977C17A /* PFQuery.h */; };
+		B85880D47F454AF6C7138FA2 /* PFRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 7682DA10E122598468A9AF85 /* PFRole.h */; };
+		B8A6EE0A2A6AB1BD1B061C9D /* PFProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A18F723AEB4107C4F613923 /* PFProduct.h */; };
+		B9774F5644045A3C8D3FD4DE /* Parse.h in Headers */ = {isa = PBXBuildFile; fileRef = DE097D354A1B0715EA6099F5 /* Parse.h */; };
+		C0084928821E3C66ABD86AE0 /* Bolts.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC14B1D72F14566F9CAE958 /* Bolts.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C38CC57EB610A22C1C3AD429 /* BoltsVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EA5BE70DDE56B34123EC848 /* BoltsVersion.h */; };
+		C3AAF939429D0898749C9A7E /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 177C95D5A5D18C737E1A913D /* BFTaskCompletionSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C7E241FC4144182B8580C3F9 /* PFObject+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 18D81AD33E6DA7ED78724FF9 /* PFObject+Subclass.h */; };
+		C894C28E067E34B774A33D04 /* Bolts.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC14B1D72F14566F9CAE958 /* Bolts.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D16EF52D665DA438C113597A /* PFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B77A1245331F2E06CE9DC1A /* PFSession.h */; };
+		D25831C29A10D573B896A68F /* PFAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = F126A857BA2E565650D6129B /* PFAnalytics.h */; };
+		D29AB86D5BD89C2321CAC91F /* PFUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 08C78D402F76335C66FDAF43 /* PFUser.h */; };
+		D62B8957F341C3420BBFEEED /* PFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E6FBFE8B84B3C41369BFDB2 /* PFNetworkActivityIndicatorManager.h */; };
+		D708A0206134F0BF102981BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF22880059D4306D7C2B900 /* Foundation.framework */; };
+		D880DB25644DB6367008F402 /* PFFile.h in Headers */ = {isa = PBXBuildFile; fileRef = DE8503DD84B24FB1CCD28DDB /* PFFile.h */; };
+		D8A2324A78E90C83C611DF2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF22880059D4306D7C2B900 /* Foundation.framework */; };
+		DBCAA69CD73305B38AFCEE89 /* PFAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = F126A857BA2E565650D6129B /* PFAnalytics.h */; };
+		E06F9C117973CD30FA3F9020 /* BFTask.h in Headers */ = {isa = PBXBuildFile; fileRef = A73E36C4AD157580E3CFA91F /* BFTask.h */; };
+		E27F373C1851E756D02A1C4F /* Pods-DigitalVelocityTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61652D18A2D3F9BE5436B36F /* Pods-DigitalVelocityTests-dummy.m */; };
+		E5756C054C215AC77F587F0B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB688EEFD36785A10A80AE7 /* Security.framework */; };
+		EAF3EBF41D833C3F90B7DD54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF22880059D4306D7C2B900 /* Foundation.framework */; };
+		EDBAE65B49E2C20D658A6F50 /* BFTaskCompletionSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 49472A4F6EE959427EF2979C /* BFTaskCompletionSource.h */; };
+		EDE69467B274BD6531027730 /* BFTaskCompletionSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 49472A4F6EE959427EF2979C /* BFTaskCompletionSource.h */; };
+		EF340217CD922BF377996771 /* PFRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = D21E5B56A881756A54B614D8 /* PFRelation.h */; };
+		F1F55F78B63BD5E01B5D3385 /* BFExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F92576F42681D56AC5370 /* BFExecutor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F23A34FB1F6C0E172374897D /* PFGeoPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A61D043666F005769C75DE /* PFGeoPoint.h */; };
+		F393A967F48D931733718DB6 /* PFTwitterUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 40501EB43F0AF5BCF80438C4 /* PFTwitterUtils.h */; };
+		F8D5A8BC0867FA58AF1379F9 /* PFConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A52BA2CC4FD851BA08D39CBB /* PFConstants.h */; };
+		F9E7C14E5D140E7AFE329353 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA07063DB4AC374E1F9186B /* MobileCoreServices.framework */; };
+		FA7C189AED3DDDE608890F67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC920DF6181B20CB07414CE5 /* QuartzCore.framework */; };
+		FC1D2188219706F9DEF86840 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3176E8A39E44AAC8E5786A4D /* CoreLocation.framework */; };
+		FC65EEC831C946321CF1A293 /* Pods-DigitalVelocityTests-Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0251DCC7C7D22B48991CA536 /* Pods-DigitalVelocityTests-Bolts-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3CFF8C4F64038CF34FFF0B84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB79344A44DBFEB6BA2C3A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0AFD442D5C69EB1EAFE648C;
+			remoteInfo = "Pods-DigitalVelocityTests-Parse";
+		};
+		48A5B53F553E60D38CD9DBD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB79344A44DBFEB6BA2C3A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 685BC7F464596F10D79DED44;
+			remoteInfo = "Pods-DigitalVelocityTests-Bolts";
+		};
+		8307460D1B96205A406A89E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB79344A44DBFEB6BA2C3A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CADFBAB3AE6C5220270EA5D;
+			remoteInfo = "Pods-DigitalVelocity-Parse";
+		};
+		8F8F6BF01E6566908F4E2AAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB79344A44DBFEB6BA2C3A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9175390C3B06E98A238AC710;
+			remoteInfo = "Pods-DigitalVelocity-Bolts";
+		};
+		BCCE9250245FF9511790F966 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB79344A44DBFEB6BA2C3A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 685BC7F464596F10D79DED44;
+			remoteInfo = "Pods-DigitalVelocityTests-Bolts";
+		};
+		F70F8BAF6E9BB2A205C31754 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB79344A44DBFEB6BA2C3A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9175390C3B06E98A238AC710;
+			remoteInfo = "Pods-DigitalVelocity-Bolts";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0251DCC7C7D22B48991CA536 /* Pods-DigitalVelocityTests-Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-DigitalVelocityTests-Bolts-dummy.m"; path = "../Pods-DigitalVelocityTests-Bolts/Pods-DigitalVelocityTests-Bolts-dummy.m"; sourceTree = "<group>"; };
+		08C78D402F76335C66FDAF43 /* PFUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse.framework/Headers/PFUser.h; sourceTree = "<group>"; };
+		08CEB39DD6A244B66260ED6F /* Pods-DigitalVelocity-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DigitalVelocity-resources.sh"; sourceTree = "<group>"; };
+		0A7AAD8FFB9F8FA57D212431 /* Pods-DigitalVelocityTests-Parse-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-DigitalVelocityTests-Parse-prefix.pch"; path = "../Pods-DigitalVelocityTests-Parse/Pods-DigitalVelocityTests-Parse-prefix.pch"; sourceTree = "<group>"; };
+		0CCFB6189DB088645543380A /* Pods-DigitalVelocity-Parse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DigitalVelocity-Parse-dummy.m"; sourceTree = "<group>"; };
+		0E44E2D130EF5FF1463ED115 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		114D7EED3C2A44531C66BA0D /* Pods-DigitalVelocity-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DigitalVelocity-acknowledgements.markdown"; sourceTree = "<group>"; };
+		126FA35344DD3386CE316A0B /* libPods-DigitalVelocityTests-Bolts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalVelocityTests-Bolts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		177C95D5A5D18C737E1A913D /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTaskCompletionSource.m; path = Bolts/Common/BFTaskCompletionSource.m; sourceTree = "<group>"; };
+		18D81AD33E6DA7ED78724FF9 /* PFObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse.framework/Headers/PFObject+Subclass.h"; sourceTree = "<group>"; };
+		1C7F92576F42681D56AC5370 /* BFExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFExecutor.m; path = Bolts/Common/BFExecutor.m; sourceTree = "<group>"; };
+		21E67A4EA6C6440A4A063544 /* Pods-DigitalVelocity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocity.release.xcconfig"; sourceTree = "<group>"; };
+		25077D6B6444163CD176A661 /* Pods-DigitalVelocity-Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DigitalVelocity-Bolts-prefix.pch"; sourceTree = "<group>"; };
+		29206D5158A1BFE39F187470 /* PFACL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACL.h; path = Parse.framework/Headers/PFACL.h; sourceTree = "<group>"; };
+		2E6FBFE8B84B3C41369BFDB2 /* PFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNetworkActivityIndicatorManager.h; path = Parse.framework/Headers/PFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		2EA5BE70DDE56B34123EC848 /* BoltsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BoltsVersion.h; path = Bolts/Common/BoltsVersion.h; sourceTree = "<group>"; };
+		2F3F54DCE3B7503E9A6D9242 /* Pods-DigitalVelocity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DigitalVelocity-dummy.m"; sourceTree = "<group>"; };
+		3176E8A39E44AAC8E5786A4D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		3D9C23D4CD938387970C3FB5 /* Pods-DigitalVelocityTests-Parse.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocityTests-Parse.xcconfig"; path = "../Pods-DigitalVelocityTests-Parse/Pods-DigitalVelocityTests-Parse.xcconfig"; sourceTree = "<group>"; };
+		3EDEB33C5CBA6761BE27DC33 /* Pods-DigitalVelocityTests-Bolts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-DigitalVelocityTests-Bolts-prefix.pch"; path = "../Pods-DigitalVelocityTests-Bolts/Pods-DigitalVelocityTests-Bolts-prefix.pch"; sourceTree = "<group>"; };
+		400344CDEA192D49E411E847 /* PFConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig.h; path = Parse.framework/Headers/PFConfig.h; sourceTree = "<group>"; };
+		40501EB43F0AF5BCF80438C4 /* PFTwitterUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTwitterUtils.h; path = Parse.framework/Headers/PFTwitterUtils.h; sourceTree = "<group>"; };
+		458174B62725E1C5AC1AEC15 /* libPods-DigitalVelocityTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalVelocityTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		481ED72B57F4FCA0CBB46C22 /* PFAnonymousUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils.h; path = Parse.framework/Headers/PFAnonymousUtils.h; sourceTree = "<group>"; };
+		49472A4F6EE959427EF2979C /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = Bolts/Common/BFTaskCompletionSource.h; sourceTree = "<group>"; };
+		4A2CA981A9FBBB0AD7DA0721 /* Pods-DigitalVelocity-Bolts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocity-Bolts.xcconfig"; sourceTree = "<group>"; };
+		4E01CAB49256F3809E6C974F /* Pods-DigitalVelocityTests-Parse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-DigitalVelocityTests-Parse-dummy.m"; path = "../Pods-DigitalVelocityTests-Parse/Pods-DigitalVelocityTests-Parse-dummy.m"; sourceTree = "<group>"; };
+		52474427CD6805C7BC06E725 /* PFCloud.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCloud.h; path = Parse.framework/Headers/PFCloud.h; sourceTree = "<group>"; };
+		5D651244D5C5B959DE4F7A32 /* Pods-DigitalVelocity-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DigitalVelocity-acknowledgements.plist"; sourceTree = "<group>"; };
+		61652D18A2D3F9BE5436B36F /* Pods-DigitalVelocityTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DigitalVelocityTests-dummy.m"; sourceTree = "<group>"; };
+		6294E693455156775977C17A /* PFQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQuery.h; path = Parse.framework/Headers/PFQuery.h; sourceTree = "<group>"; };
+		66850769CF4312E929F70398 /* PFSubclassing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSubclassing.h; path = Parse.framework/Headers/PFSubclassing.h; sourceTree = "<group>"; };
+		6A18F723AEB4107C4F613923 /* PFProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFProduct.h; path = Parse.framework/Headers/PFProduct.h; sourceTree = "<group>"; };
+		6BD6FCC5CDB1698521051ED9 /* libPods-DigitalVelocityTests-Parse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalVelocityTests-Parse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D9AC15EF4783E8B102871C7 /* PFPush.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPush.h; path = Parse.framework/Headers/PFPush.h; sourceTree = "<group>"; };
+		6E5061C785CD857C251287AD /* Pods-DigitalVelocity-Parse-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DigitalVelocity-Parse-prefix.pch"; sourceTree = "<group>"; };
+		6E8093DAD50FC6D74B18EA99 /* PFNullability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNullability.h; path = Parse.framework/Headers/PFNullability.h; sourceTree = "<group>"; };
+		6EDA23AFE3164376BB7627B9 /* Pods-DigitalVelocityTests-Parse-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocityTests-Parse-Private.xcconfig"; path = "../Pods-DigitalVelocityTests-Parse/Pods-DigitalVelocityTests-Parse-Private.xcconfig"; sourceTree = "<group>"; };
+		7682DA10E122598468A9AF85 /* PFRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRole.h; path = Parse.framework/Headers/PFRole.h; sourceTree = "<group>"; };
+		7A1A43A0BDB3F0F812EA7855 /* PF_Twitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PF_Twitter.h; path = Parse.framework/Headers/PF_Twitter.h; sourceTree = "<group>"; };
+		7B77A1245331F2E06CE9DC1A /* PFSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSession.h; path = Parse.framework/Headers/PFSession.h; sourceTree = "<group>"; };
+		7BA07063DB4AC374E1F9186B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		7F2200C15CA2C0B2B46D6CDD /* Pods-DigitalVelocityTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DigitalVelocityTests-resources.sh"; sourceTree = "<group>"; };
+		8D2556AB9B6FEEC429044CC1 /* Pods-DigitalVelocityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocityTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E43F82F8D2990526684C3CB /* Pods-DigitalVelocityTests-Bolts-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocityTests-Bolts-Private.xcconfig"; path = "../Pods-DigitalVelocityTests-Bolts/Pods-DigitalVelocityTests-Bolts-Private.xcconfig"; sourceTree = "<group>"; };
+		8E91EADB18272EF6E24F8FB7 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
+		9393735EE8FA8535B937DC96 /* Pods-DigitalVelocity-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DigitalVelocity-environment.h"; sourceTree = "<group>"; };
+		9601217FAAF3A9253B4F741B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		9CC2701E57153FFD0E53C420 /* Pods-DigitalVelocityTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DigitalVelocityTests-environment.h"; sourceTree = "<group>"; };
+		9E40BCAAC6F9348D5D26995E /* Pods-DigitalVelocity-Parse-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocity-Parse-Private.xcconfig"; sourceTree = "<group>"; };
+		A1C7FE3A12F0881FC36D8069 /* PFPurchase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPurchase.h; path = Parse.framework/Headers/PFPurchase.h; sourceTree = "<group>"; };
+		A52BA2CC4FD851BA08D39CBB /* PFConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConstants.h; path = Parse.framework/Headers/PFConstants.h; sourceTree = "<group>"; };
+		A73E36C4AD157580E3CFA91F /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = Bolts/Common/BFTask.h; sourceTree = "<group>"; };
+		AA38C4199ABF5D8D8936028F /* Pods-DigitalVelocity-Bolts-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DigitalVelocity-Bolts-dummy.m"; sourceTree = "<group>"; };
+		AD9FB6045C8B323E0F46A656 /* Pods-DigitalVelocityTests-Bolts.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocityTests-Bolts.xcconfig"; path = "../Pods-DigitalVelocityTests-Bolts/Pods-DigitalVelocityTests-Bolts.xcconfig"; sourceTree = "<group>"; };
+		B27F46691AE7E534C2A34026 /* Pods-DigitalVelocityTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DigitalVelocityTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B497A14037711810AE848A9C /* PFObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObject.h; path = Parse.framework/Headers/PFObject.h; sourceTree = "<group>"; };
+		B5812DC0BB180680C33AB4E7 /* Pods-DigitalVelocityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocityTests.release.xcconfig"; sourceTree = "<group>"; };
+		B606F126943C536DE54C4168 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B9A61D043666F005769C75DE /* PFGeoPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFGeoPoint.h; path = Parse.framework/Headers/PFGeoPoint.h; sourceTree = "<group>"; };
+		BBF22880059D4306D7C2B900 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		BC325EE2885E5959A54D66EA /* Pods-DigitalVelocity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocity.debug.xcconfig"; sourceTree = "<group>"; };
+		BC920DF6181B20CB07414CE5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		BCB688EEFD36785A10A80AE7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		BFFB7BA79CAB32876F0B011A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		C2C223367CBFA8F1D0EE70D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		CC324EFA624ECA5EC69CE3AE /* BFTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTask.m; path = Bolts/Common/BFTask.m; sourceTree = "<group>"; };
+		CFE44C83D4018A72CC447A57 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		D21E5B56A881756A54B614D8 /* PFRelation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelation.h; path = Parse.framework/Headers/PFRelation.h; sourceTree = "<group>"; };
+		D447325F127817E16E38EC2F /* PFInstallation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallation.h; path = Parse.framework/Headers/PFInstallation.h; sourceTree = "<group>"; };
+		DA330865CADBCA5A057C825E /* libParse.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libParse.a; sourceTree = "<group>"; };
+		DE097D354A1B0715EA6099F5 /* Parse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Parse.h; path = Parse.framework/Headers/Parse.h; sourceTree = "<group>"; };
+		DE8503DD84B24FB1CCD28DDB /* PFFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFile.h; path = Parse.framework/Headers/PFFile.h; sourceTree = "<group>"; };
+		DFC14B1D72F14566F9CAE958 /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
+		E6A293F7230550058AF92942 /* libPods-DigitalVelocity-Bolts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalVelocity-Bolts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E822B8D412C5E0FC6345B784 /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = Bolts/Common/BFExecutor.h; sourceTree = "<group>"; };
+		E93BEE843213B63008A6C1B1 /* libPods-DigitalVelocity-Parse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalVelocity-Parse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F126A857BA2E565650D6129B /* PFAnalytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnalytics.h; path = Parse.framework/Headers/PFAnalytics.h; sourceTree = "<group>"; };
+		F276E5FD8378B33586A9A586 /* Pods-DigitalVelocity-Parse.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocity-Parse.xcconfig"; sourceTree = "<group>"; };
+		F2E13D13548C68614E17ACBD /* Pods-DigitalVelocity-Bolts-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigitalVelocity-Bolts-Private.xcconfig"; sourceTree = "<group>"; };
+		F4E036D82B569295951A4E6A /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
+		F9E6AEFD6409F7AB07B1EAA1 /* Pods-DigitalVelocityTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DigitalVelocityTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FAA19C5991AD9675F3DAD1E1 /* libPods-DigitalVelocity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalVelocity.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58067523CB076285619A2E7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4CBA72B3B9EF750938418BA /* AudioToolbox.framework in Frameworks */,
+				5A5C115369DD42ABF4262A3E /* CFNetwork.framework in Frameworks */,
+				9D5FF8CC0099ECCCF79C9A92 /* CoreGraphics.framework in Frameworks */,
+				FC1D2188219706F9DEF86840 /* CoreLocation.framework in Frameworks */,
+				D8A2324A78E90C83C611DF2F /* Foundation.framework in Frameworks */,
+				F9E7C14E5D140E7AFE329353 /* MobileCoreServices.framework in Frameworks */,
+				6E9E1A542E8B1B0E9507400B /* QuartzCore.framework in Frameworks */,
+				1D488A5294EABB08B730F0F6 /* Security.framework in Frameworks */,
+				6FFA2261254A9B4B6575E0D8 /* StoreKit.framework in Frameworks */,
+				2602F887654BD919DAC7B6DF /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8AA983B556D59C85142AFCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D708A0206134F0BF102981BA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7822CEB0F67EC6FEE58940C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF3EBF41D833C3F90B7DD54 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE914E62153DE31565227492 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0376A94A6F7977309684946A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E44A280921D6FF776747E130 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2B68F6B658F4E8AA57A99B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB584BB0244C10023BE8057D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E7104B3B3408C5B8048D47 /* AudioToolbox.framework in Frameworks */,
+				986192F67F4AC5C8D972A67F /* CFNetwork.framework in Frameworks */,
+				A633F245601BD666F1EE6A5A /* CoreGraphics.framework in Frameworks */,
+				AC5DB0BBE06ED68208F09E1A /* CoreLocation.framework in Frameworks */,
+				5321E6CAA02A68C42667B3C2 /* Foundation.framework in Frameworks */,
+				032F1F4217C0C8FD0DF77361 /* MobileCoreServices.framework in Frameworks */,
+				FA7C189AED3DDDE608890F67 /* QuartzCore.framework in Frameworks */,
+				E5756C054C215AC77F587F0B /* Security.framework in Frameworks */,
+				AFD22579706A8235FE202BED /* StoreKit.framework in Frameworks */,
+				4532FAFF1027494F0867EF6A /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00AB21F79AA9E5A331DB1A1E = {
+			isa = PBXGroup;
+			children = (
+				B606F126943C536DE54C4168 /* Podfile */,
+				0A039CF04CF0BAE989F00E28 /* Frameworks */,
+				3E17D04E095392208244F3D4 /* Pods */,
+				C398BC10C2D64A4547EF7C35 /* Products */,
+				129F2C6433BD87E873F45653 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		0517EE26A0C38F882C3AF1DF /* Pods-DigitalVelocity */ = {
+			isa = PBXGroup;
+			children = (
+				114D7EED3C2A44531C66BA0D /* Pods-DigitalVelocity-acknowledgements.markdown */,
+				5D651244D5C5B959DE4F7A32 /* Pods-DigitalVelocity-acknowledgements.plist */,
+				2F3F54DCE3B7503E9A6D9242 /* Pods-DigitalVelocity-dummy.m */,
+				9393735EE8FA8535B937DC96 /* Pods-DigitalVelocity-environment.h */,
+				08CEB39DD6A244B66260ED6F /* Pods-DigitalVelocity-resources.sh */,
+				BC325EE2885E5959A54D66EA /* Pods-DigitalVelocity.debug.xcconfig */,
+				21E67A4EA6C6440A4A063544 /* Pods-DigitalVelocity.release.xcconfig */,
+			);
+			name = "Pods-DigitalVelocity";
+			path = "Target Support Files/Pods-DigitalVelocity";
+			sourceTree = "<group>";
+		};
+		0A039CF04CF0BAE989F00E28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9BD69219E84DB363074B7B3 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		129F2C6433BD87E873F45653 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0517EE26A0C38F882C3AF1DF /* Pods-DigitalVelocity */,
+				56B7B8BEC6409F1AF54C0B79 /* Pods-DigitalVelocityTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		140EEB69B702477E2AF35C8A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A2CA981A9FBBB0AD7DA0721 /* Pods-DigitalVelocity-Bolts.xcconfig */,
+				F2E13D13548C68614E17ACBD /* Pods-DigitalVelocity-Bolts-Private.xcconfig */,
+				AA38C4199ABF5D8D8936028F /* Pods-DigitalVelocity-Bolts-dummy.m */,
+				25077D6B6444163CD176A661 /* Pods-DigitalVelocity-Bolts-prefix.pch */,
+				AD9FB6045C8B323E0F46A656 /* Pods-DigitalVelocityTests-Bolts.xcconfig */,
+				8E43F82F8D2990526684C3CB /* Pods-DigitalVelocityTests-Bolts-Private.xcconfig */,
+				0251DCC7C7D22B48991CA536 /* Pods-DigitalVelocityTests-Bolts-dummy.m */,
+				3EDEB33C5CBA6761BE27DC33 /* Pods-DigitalVelocityTests-Bolts-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-DigitalVelocity-Bolts";
+			sourceTree = "<group>";
+		};
+		3E17D04E095392208244F3D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D24216BFBCD2DF9F2715C73 /* Bolts */,
+				5C9E8941DDF2DD5E8D413B9B /* Parse */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4D24216BFBCD2DF9F2715C73 /* Bolts */ = {
+			isa = PBXGroup;
+			children = (
+				140EEB69B702477E2AF35C8A /* Support Files */,
+				A9605F101DEEBE2B5AF36947 /* Tasks */,
+			);
+			path = Bolts;
+			sourceTree = "<group>";
+		};
+		5698675CCC5CCA028FA3B5D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA330865CADBCA5A057C825E /* libParse.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56B7B8BEC6409F1AF54C0B79 /* Pods-DigitalVelocityTests */ = {
+			isa = PBXGroup;
+			children = (
+				B27F46691AE7E534C2A34026 /* Pods-DigitalVelocityTests-acknowledgements.markdown */,
+				F9E6AEFD6409F7AB07B1EAA1 /* Pods-DigitalVelocityTests-acknowledgements.plist */,
+				61652D18A2D3F9BE5436B36F /* Pods-DigitalVelocityTests-dummy.m */,
+				9CC2701E57153FFD0E53C420 /* Pods-DigitalVelocityTests-environment.h */,
+				7F2200C15CA2C0B2B46D6CDD /* Pods-DigitalVelocityTests-resources.sh */,
+				8D2556AB9B6FEEC429044CC1 /* Pods-DigitalVelocityTests.debug.xcconfig */,
+				B5812DC0BB180680C33AB4E7 /* Pods-DigitalVelocityTests.release.xcconfig */,
+			);
+			name = "Pods-DigitalVelocityTests";
+			path = "Target Support Files/Pods-DigitalVelocityTests";
+			sourceTree = "<group>";
+		};
+		5C9E8941DDF2DD5E8D413B9B /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				F4E036D82B569295951A4E6A /* Empty.m */,
+				29206D5158A1BFE39F187470 /* PFACL.h */,
+				F126A857BA2E565650D6129B /* PFAnalytics.h */,
+				481ED72B57F4FCA0CBB46C22 /* PFAnonymousUtils.h */,
+				52474427CD6805C7BC06E725 /* PFCloud.h */,
+				400344CDEA192D49E411E847 /* PFConfig.h */,
+				A52BA2CC4FD851BA08D39CBB /* PFConstants.h */,
+				DE8503DD84B24FB1CCD28DDB /* PFFile.h */,
+				B9A61D043666F005769C75DE /* PFGeoPoint.h */,
+				D447325F127817E16E38EC2F /* PFInstallation.h */,
+				2E6FBFE8B84B3C41369BFDB2 /* PFNetworkActivityIndicatorManager.h */,
+				6E8093DAD50FC6D74B18EA99 /* PFNullability.h */,
+				B497A14037711810AE848A9C /* PFObject.h */,
+				18D81AD33E6DA7ED78724FF9 /* PFObject+Subclass.h */,
+				6A18F723AEB4107C4F613923 /* PFProduct.h */,
+				A1C7FE3A12F0881FC36D8069 /* PFPurchase.h */,
+				6D9AC15EF4783E8B102871C7 /* PFPush.h */,
+				6294E693455156775977C17A /* PFQuery.h */,
+				D21E5B56A881756A54B614D8 /* PFRelation.h */,
+				7682DA10E122598468A9AF85 /* PFRole.h */,
+				7B77A1245331F2E06CE9DC1A /* PFSession.h */,
+				66850769CF4312E929F70398 /* PFSubclassing.h */,
+				40501EB43F0AF5BCF80438C4 /* PFTwitterUtils.h */,
+				08C78D402F76335C66FDAF43 /* PFUser.h */,
+				7A1A43A0BDB3F0F812EA7855 /* PF_Twitter.h */,
+				DE097D354A1B0715EA6099F5 /* Parse.h */,
+				5698675CCC5CCA028FA3B5D6 /* Frameworks */,
+				60BBD2265156561AE5A28C82 /* Support Files */,
+			);
+			path = Parse;
+			sourceTree = "<group>";
+		};
+		60BBD2265156561AE5A28C82 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F276E5FD8378B33586A9A586 /* Pods-DigitalVelocity-Parse.xcconfig */,
+				9E40BCAAC6F9348D5D26995E /* Pods-DigitalVelocity-Parse-Private.xcconfig */,
+				0CCFB6189DB088645543380A /* Pods-DigitalVelocity-Parse-dummy.m */,
+				6E5061C785CD857C251287AD /* Pods-DigitalVelocity-Parse-prefix.pch */,
+				3D9C23D4CD938387970C3FB5 /* Pods-DigitalVelocityTests-Parse.xcconfig */,
+				6EDA23AFE3164376BB7627B9 /* Pods-DigitalVelocityTests-Parse-Private.xcconfig */,
+				4E01CAB49256F3809E6C974F /* Pods-DigitalVelocityTests-Parse-dummy.m */,
+				0A7AAD8FFB9F8FA57D212431 /* Pods-DigitalVelocityTests-Parse-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-DigitalVelocity-Parse";
+			sourceTree = "<group>";
+		};
+		A9605F101DEEBE2B5AF36947 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				E822B8D412C5E0FC6345B784 /* BFExecutor.h */,
+				1C7F92576F42681D56AC5370 /* BFExecutor.m */,
+				A73E36C4AD157580E3CFA91F /* BFTask.h */,
+				CC324EFA624ECA5EC69CE3AE /* BFTask.m */,
+				49472A4F6EE959427EF2979C /* BFTaskCompletionSource.h */,
+				177C95D5A5D18C737E1A913D /* BFTaskCompletionSource.m */,
+				8E91EADB18272EF6E24F8FB7 /* Bolts.h */,
+				DFC14B1D72F14566F9CAE958 /* Bolts.m */,
+				2EA5BE70DDE56B34123EC848 /* BoltsVersion.h */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		C398BC10C2D64A4547EF7C35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAA19C5991AD9675F3DAD1E1 /* libPods-DigitalVelocity.a */,
+				E6A293F7230550058AF92942 /* libPods-DigitalVelocity-Bolts.a */,
+				E93BEE843213B63008A6C1B1 /* libPods-DigitalVelocity-Parse.a */,
+				458174B62725E1C5AC1AEC15 /* libPods-DigitalVelocityTests.a */,
+				126FA35344DD3386CE316A0B /* libPods-DigitalVelocityTests-Bolts.a */,
+				6BD6FCC5CDB1698521051ED9 /* libPods-DigitalVelocityTests-Parse.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9BD69219E84DB363074B7B3 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BFFB7BA79CAB32876F0B011A /* AudioToolbox.framework */,
+				0E44E2D130EF5FF1463ED115 /* CFNetwork.framework */,
+				C2C223367CBFA8F1D0EE70D2 /* CoreGraphics.framework */,
+				3176E8A39E44AAC8E5786A4D /* CoreLocation.framework */,
+				BBF22880059D4306D7C2B900 /* Foundation.framework */,
+				7BA07063DB4AC374E1F9186B /* MobileCoreServices.framework */,
+				BC920DF6181B20CB07414CE5 /* QuartzCore.framework */,
+				BCB688EEFD36785A10A80AE7 /* Security.framework */,
+				CFE44C83D4018A72CC447A57 /* StoreKit.framework */,
+				9601217FAAF3A9253B4F741B /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		00A4BACAF8CE270DDC174A92 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5537592B4F06FEFD3CFC08E /* PFACL.h in Headers */,
+				DBCAA69CD73305B38AFCEE89 /* PFAnalytics.h in Headers */,
+				2BDC0532AC1C056D2D4533BF /* PFAnonymousUtils.h in Headers */,
+				1AD15954A81DF6C3C38B6608 /* PFCloud.h in Headers */,
+				1651941852BE371217F30C17 /* PFConfig.h in Headers */,
+				F8D5A8BC0867FA58AF1379F9 /* PFConstants.h in Headers */,
+				9AE9132DC8D4736D28FB8800 /* PFFile.h in Headers */,
+				276FD85EE4A2B62A4D4D5AC2 /* PFGeoPoint.h in Headers */,
+				58882759E45DFCA11E664548 /* PFInstallation.h in Headers */,
+				D62B8957F341C3420BBFEEED /* PFNetworkActivityIndicatorManager.h in Headers */,
+				4342F0CE22306D3054CAD327 /* PFNullability.h in Headers */,
+				C7E241FC4144182B8580C3F9 /* PFObject+Subclass.h in Headers */,
+				547F24760A3849796E32EA42 /* PFObject.h in Headers */,
+				B8A6EE0A2A6AB1BD1B061C9D /* PFProduct.h in Headers */,
+				7E5AC29888034E60AF963BE5 /* PFPurchase.h in Headers */,
+				033CA10D5017B8243CFE8FFB /* PFPush.h in Headers */,
+				9E4CAEDA9E506426AD01AF30 /* PFQuery.h in Headers */,
+				EF340217CD922BF377996771 /* PFRelation.h in Headers */,
+				B85880D47F454AF6C7138FA2 /* PFRole.h in Headers */,
+				D16EF52D665DA438C113597A /* PFSession.h in Headers */,
+				62D6FD92565C68E3A35FC996 /* PFSubclassing.h in Headers */,
+				2724240D7695F8375C623D6B /* PFTwitterUtils.h in Headers */,
+				9C140D8DAB6FD838A54F706B /* PFUser.h in Headers */,
+				967B694EF2E1EDD936953B5C /* PF_Twitter.h in Headers */,
+				B9774F5644045A3C8D3FD4DE /* Parse.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2465B9971A0B965F22D3D7C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81894E31E593A3678BE1A09C /* PFACL.h in Headers */,
+				D25831C29A10D573B896A68F /* PFAnalytics.h in Headers */,
+				4C7AE76F07DA8DCB0BAB5475 /* PFAnonymousUtils.h in Headers */,
+				12A35B071954BFC55FCC9755 /* PFCloud.h in Headers */,
+				59BE965EEF70E780942949C8 /* PFConfig.h in Headers */,
+				2DA57080859741D358F7C65A /* PFConstants.h in Headers */,
+				D880DB25644DB6367008F402 /* PFFile.h in Headers */,
+				F23A34FB1F6C0E172374897D /* PFGeoPoint.h in Headers */,
+				6FB84663AC972AA1A594D058 /* PFInstallation.h in Headers */,
+				5F7946EB963712770B94C15C /* PFNetworkActivityIndicatorManager.h in Headers */,
+				07857002C91F4848B334C743 /* PFNullability.h in Headers */,
+				0C75216F7B8D5A76B2F1B771 /* PFObject+Subclass.h in Headers */,
+				1DF146205F6EB519D740FC51 /* PFObject.h in Headers */,
+				1FAE7BAFE92FD88D154B7598 /* PFProduct.h in Headers */,
+				1DF8F4587FC5D8BA5F2A8325 /* PFPurchase.h in Headers */,
+				0CCA518D785C5337C259ACB5 /* PFPush.h in Headers */,
+				B611275103D3FEC28A44B6D9 /* PFQuery.h in Headers */,
+				63654C6A07286C10732FAB40 /* PFRelation.h in Headers */,
+				430CC77394695F48BCA53316 /* PFRole.h in Headers */,
+				642D6392C4C41A410200ED66 /* PFSession.h in Headers */,
+				A3E1317F943261F337235B3B /* PFSubclassing.h in Headers */,
+				F393A967F48D931733718DB6 /* PFTwitterUtils.h in Headers */,
+				D29AB86D5BD89C2321CAC91F /* PFUser.h in Headers */,
+				58683D8764B1372143C3C851 /* PF_Twitter.h in Headers */,
+				8FA547752F2B51A455A0FE90 /* Parse.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		923E50AE1A3C5489A4EF9423 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FCD868ABDF583A48FEDF38F /* BFExecutor.h in Headers */,
+				E06F9C117973CD30FA3F9020 /* BFTask.h in Headers */,
+				EDBAE65B49E2C20D658A6F50 /* BFTaskCompletionSource.h in Headers */,
+				9B301C55A13A3C2BDA8C841A /* Bolts.h in Headers */,
+				C38CC57EB610A22C1C3AD429 /* BoltsVersion.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2369FD3FD4B6BA27E6B96D7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				466F5571E1FBFC3E4B1A4591 /* BFExecutor.h in Headers */,
+				6D02E67DB20F10BE26BF534C /* BFTask.h in Headers */,
+				EDE69467B274BD6531027730 /* BFTaskCompletionSource.h in Headers */,
+				B584BA27882A0254F8A27CF4 /* Bolts.h in Headers */,
+				457436780A38C058DF122950 /* BoltsVersion.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		141E8D98814E3F638A67F932 /* Pods-DigitalVelocity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FBF3AE9F67F011C64878F00 /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocity" */;
+			buildPhases = (
+				BDFD1824E19778D9E513FE72 /* Sources */,
+				E44A280921D6FF776747E130 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E39A2D2CCF12DF2E15D1EDF4 /* PBXTargetDependency */,
+				9D93DE034101D93B056F1885 /* PBXTargetDependency */,
+			);
+			name = "Pods-DigitalVelocity";
+			productName = "Pods-DigitalVelocity";
+			productReference = FAA19C5991AD9675F3DAD1E1 /* libPods-DigitalVelocity.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3CADFBAB3AE6C5220270EA5D /* Pods-DigitalVelocity-Parse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F59F7DBCF4BEE07CACA8FACF /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocity-Parse" */;
+			buildPhases = (
+				7E4FC78F80DB9CEACDB9E0B5 /* Sources */,
+				58067523CB076285619A2E7D /* Frameworks */,
+				2465B9971A0B965F22D3D7C6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				897CA1DD81F7D18EB3C9B2B6 /* PBXTargetDependency */,
+			);
+			name = "Pods-DigitalVelocity-Parse";
+			productName = "Pods-DigitalVelocity-Parse";
+			productReference = E93BEE843213B63008A6C1B1 /* libPods-DigitalVelocity-Parse.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		685BC7F464596F10D79DED44 /* Pods-DigitalVelocityTests-Bolts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 744C11F35E9E67DE2C80F49E /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocityTests-Bolts" */;
+			buildPhases = (
+				A88A90FECD8CA17190054D69 /* Sources */,
+				DE914E62153DE31565227492 /* Frameworks */,
+				F2369FD3FD4B6BA27E6B96D7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-DigitalVelocityTests-Bolts";
+			productName = "Pods-DigitalVelocityTests-Bolts";
+			productReference = 126FA35344DD3386CE316A0B /* libPods-DigitalVelocityTests-Bolts.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9175390C3B06E98A238AC710 /* Pods-DigitalVelocity-Bolts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46CE7C9DE58C8D03700A03CB /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocity-Bolts" */;
+			buildPhases = (
+				BC6D2B8421628456AA415386 /* Sources */,
+				A8AA983B556D59C85142AFCC /* Frameworks */,
+				923E50AE1A3C5489A4EF9423 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-DigitalVelocity-Bolts";
+			productName = "Pods-DigitalVelocity-Bolts";
+			productReference = E6A293F7230550058AF92942 /* libPods-DigitalVelocity-Bolts.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9242DC8C0D08ED7DFD7DDD5C /* Pods-DigitalVelocityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74B056D3AE0DF0F8B9B51745 /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocityTests" */;
+			buildPhases = (
+				BB7AA2DAA3C59995A7340D8B /* Sources */,
+				B7822CEB0F67EC6FEE58940C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9D6F15F895112E404F5DAB7 /* PBXTargetDependency */,
+				B1038128D315B8A5516D42BB /* PBXTargetDependency */,
+			);
+			name = "Pods-DigitalVelocityTests";
+			productName = "Pods-DigitalVelocityTests";
+			productReference = 458174B62725E1C5AC1AEC15 /* libPods-DigitalVelocityTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C0AFD442D5C69EB1EAFE648C /* Pods-DigitalVelocityTests-Parse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2912F0BA7C073FEB68C854E4 /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocityTests-Parse" */;
+			buildPhases = (
+				0D72E4A765EB416BD6C593A4 /* Sources */,
+				FB584BB0244C10023BE8057D /* Frameworks */,
+				00A4BACAF8CE270DDC174A92 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DD167B96197EA6B9E5079EB /* PBXTargetDependency */,
+			);
+			name = "Pods-DigitalVelocityTests-Parse";
+			productName = "Pods-DigitalVelocityTests-Parse";
+			productReference = 6BD6FCC5CDB1698521051ED9 /* libPods-DigitalVelocityTests-Parse.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB79344A44DBFEB6BA2C3A98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0720;
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 046560F5116E11C2A87E0A2F /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 00AB21F79AA9E5A331DB1A1E;
+			productRefGroup = C398BC10C2D64A4547EF7C35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				141E8D98814E3F638A67F932 /* Pods-DigitalVelocity */,
+				9175390C3B06E98A238AC710 /* Pods-DigitalVelocity-Bolts */,
+				3CADFBAB3AE6C5220270EA5D /* Pods-DigitalVelocity-Parse */,
+				9242DC8C0D08ED7DFD7DDD5C /* Pods-DigitalVelocityTests */,
+				685BC7F464596F10D79DED44 /* Pods-DigitalVelocityTests-Bolts */,
+				C0AFD442D5C69EB1EAFE648C /* Pods-DigitalVelocityTests-Parse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D72E4A765EB416BD6C593A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8628FF8443F818696DD847B /* Empty.m in Sources */,
+				56C6C82633CB1186E6965A45 /* Pods-DigitalVelocityTests-Parse-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E4FC78F80DB9CEACDB9E0B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				549681B1BB51ACA4981EF81A /* Empty.m in Sources */,
+				90D6321C52D47FD8EE40C732 /* Pods-DigitalVelocity-Parse-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88A90FECD8CA17190054D69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DFBF0F26EE4855477C49676 /* BFExecutor.m in Sources */,
+				11C6EB30FA30A9F8B4C56993 /* BFTask.m in Sources */,
+				2945893910EE8F7C4EDA6BB4 /* BFTaskCompletionSource.m in Sources */,
+				C894C28E067E34B774A33D04 /* Bolts.m in Sources */,
+				FC65EEC831C946321CF1A293 /* Pods-DigitalVelocityTests-Bolts-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB7AA2DAA3C59995A7340D8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E27F373C1851E756D02A1C4F /* Pods-DigitalVelocityTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC6D2B8421628456AA415386 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1F55F78B63BD5E01B5D3385 /* BFExecutor.m in Sources */,
+				440345F6FC26B38EB47E1057 /* BFTask.m in Sources */,
+				C3AAF939429D0898749C9A7E /* BFTaskCompletionSource.m in Sources */,
+				C0084928821E3C66ABD86AE0 /* Bolts.m in Sources */,
+				26D34462F8330D99B9BEB637 /* Pods-DigitalVelocity-Bolts-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDFD1824E19778D9E513FE72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				053CBD0C2877BE7BEDF6DD3E /* Pods-DigitalVelocity-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7DD167B96197EA6B9E5079EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DigitalVelocityTests-Bolts";
+			target = 685BC7F464596F10D79DED44 /* Pods-DigitalVelocityTests-Bolts */;
+			targetProxy = BCCE9250245FF9511790F966 /* PBXContainerItemProxy */;
+		};
+		897CA1DD81F7D18EB3C9B2B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DigitalVelocity-Bolts";
+			target = 9175390C3B06E98A238AC710 /* Pods-DigitalVelocity-Bolts */;
+			targetProxy = 8F8F6BF01E6566908F4E2AAA /* PBXContainerItemProxy */;
+		};
+		9D93DE034101D93B056F1885 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DigitalVelocity-Parse";
+			target = 3CADFBAB3AE6C5220270EA5D /* Pods-DigitalVelocity-Parse */;
+			targetProxy = 8307460D1B96205A406A89E0 /* PBXContainerItemProxy */;
+		};
+		B1038128D315B8A5516D42BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DigitalVelocityTests-Parse";
+			target = C0AFD442D5C69EB1EAFE648C /* Pods-DigitalVelocityTests-Parse */;
+			targetProxy = 3CFF8C4F64038CF34FFF0B84 /* PBXContainerItemProxy */;
+		};
+		E39A2D2CCF12DF2E15D1EDF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DigitalVelocity-Bolts";
+			target = 9175390C3B06E98A238AC710 /* Pods-DigitalVelocity-Bolts */;
+			targetProxy = F70F8BAF6E9BB2A205C31754 /* PBXContainerItemProxy */;
+		};
+		F9D6F15F895112E404F5DAB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DigitalVelocityTests-Bolts";
+			target = 685BC7F464596F10D79DED44 /* Pods-DigitalVelocityTests-Bolts */;
+			targetProxy = 48A5B53F553E60D38CD9DBD6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1B2D439CE1CD39A9CED96E19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E13D13548C68614E17ACBD /* Pods-DigitalVelocity-Bolts-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocity-Bolts/Pods-DigitalVelocity-Bolts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		21F475E24AA8081E759AEFD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21E67A4EA6C6440A4A063544 /* Pods-DigitalVelocity.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2A84338F63A0768862E37915 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E13D13548C68614E17ACBD /* Pods-DigitalVelocity-Bolts-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocity-Bolts/Pods-DigitalVelocity-Bolts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		346BF949E15FA5BEDE6C3A03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EDA23AFE3164376BB7627B9 /* Pods-DigitalVelocityTests-Parse-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocityTests-Parse/Pods-DigitalVelocityTests-Parse-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		38DA796799DCFFBEF7C8D47F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		454F465D61DCB9A649E69BA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E43F82F8D2990526684C3CB /* Pods-DigitalVelocityTests-Bolts-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocityTests-Bolts/Pods-DigitalVelocityTests-Bolts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		46188500CAAAE3E96DD8A041 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EDA23AFE3164376BB7627B9 /* Pods-DigitalVelocityTests-Parse-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocityTests-Parse/Pods-DigitalVelocityTests-Parse-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4A397C2D688DDB7296EE5E42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E43F82F8D2990526684C3CB /* Pods-DigitalVelocityTests-Bolts-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocityTests-Bolts/Pods-DigitalVelocityTests-Bolts-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4CC28D5A5C8275F464E0AEDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC325EE2885E5959A54D66EA /* Pods-DigitalVelocity.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5EC6602159110B4D03C6A4B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5812DC0BB180680C33AB4E7 /* Pods-DigitalVelocityTests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		660EC7ECBDCE61EC372BE9B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7CD7B7309D7835C172017C30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E40BCAAC6F9348D5D26995E /* Pods-DigitalVelocity-Parse-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocity-Parse/Pods-DigitalVelocity-Parse-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8C270A19D328ACB4EEB48F5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D2556AB9B6FEEC429044CC1 /* Pods-DigitalVelocityTests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8CB5FB418299E71967BD2016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E40BCAAC6F9348D5D26995E /* Pods-DigitalVelocity-Parse-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-DigitalVelocity-Parse/Pods-DigitalVelocity-Parse-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		046560F5116E11C2A87E0A2F /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38DA796799DCFFBEF7C8D47F /* Debug */,
+				660EC7ECBDCE61EC372BE9B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2912F0BA7C073FEB68C854E4 /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocityTests-Parse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				346BF949E15FA5BEDE6C3A03 /* Debug */,
+				46188500CAAAE3E96DD8A041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46CE7C9DE58C8D03700A03CB /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocity-Bolts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B2D439CE1CD39A9CED96E19 /* Debug */,
+				2A84338F63A0768862E37915 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FBF3AE9F67F011C64878F00 /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC28D5A5C8275F464E0AEDC /* Debug */,
+				21F475E24AA8081E759AEFD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		744C11F35E9E67DE2C80F49E /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocityTests-Bolts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A397C2D688DDB7296EE5E42 /* Debug */,
+				454F465D61DCB9A649E69BA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74B056D3AE0DF0F8B9B51745 /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C270A19D328ACB4EEB48F5B /* Debug */,
+				5EC6602159110B4D03C6A4B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F59F7DBCF4BEE07CACA8FACF /* Build configuration list for PBXNativeTarget "Pods-DigitalVelocity-Parse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CB5FB418299E71967BD2016 /* Debug */,
+				7CD7B7309D7835C172017C30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB79344A44DBFEB6BA2C3A98 /* Project object */;
+}
