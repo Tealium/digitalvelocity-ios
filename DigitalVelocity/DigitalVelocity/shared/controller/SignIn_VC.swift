@@ -72,7 +72,6 @@ extension SignIn_VC: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
     
         done()
-        skip()
         return true;
     }
 }
