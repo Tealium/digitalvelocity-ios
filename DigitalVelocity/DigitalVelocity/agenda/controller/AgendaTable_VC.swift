@@ -146,6 +146,15 @@ extension AgendaTable_VC: NavigationControllerFilterDelegate{
     func filterOff() {
         TEALLog.log("Filtering off")
         self.dataSource?.searchTerm = ""
+        
+        let cellData = CellData()
+      
+        guard let _ : String =  cellData.title else{
+            TEALLog.log("cell data has no title")
+            return
+        }
+        
+        
         self.refreshLocal()
         self.restoreLastPosition()
     }

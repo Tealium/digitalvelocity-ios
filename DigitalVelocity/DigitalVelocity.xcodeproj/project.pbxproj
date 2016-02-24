@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22BD45401C7E24CD0086309C /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 22BD453F1C7E24CD0086309C /* credentials.json */; };
 		37022D821AC5C88D00CED019 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37022D811AC5C88D00CED019 /* MessageCell.swift */; };
 		3785AAA01AC6899400CDF588 /* EventDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785AA9F1AC6899400CDF588 /* EventDataStore.swift */; };
 		37BCCCE71AC8798300196851 /* AgendaItemDetailBase_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCE11AC8798300196851 /* AgendaItemDetailBase_VC.swift */; };
@@ -144,6 +145,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		22BD453F1C7E24CD0086309C /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials.json; sourceTree = "<group>"; };
 		248E0DD92F440A7634A19CF8 /* Pods-DigitalVelocity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocity.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalVelocity/Pods-DigitalVelocity.release.xcconfig"; sourceTree = "<group>"; };
 		37022D811AC5C88D00CED019 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		3785AA9F1AC6899400CDF588 /* EventDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDataStore.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		7150ABDC1A82DFF400BEDFB7 /* DigitalVelocity */ = {
 			isa = PBXGroup;
 			children = (
+				22BD453F1C7E24CD0086309C /* credentials.json */,
 				71D606941A93ABE9008BDFE2 /* Assets */,
 				7181D7141A9688CB004EDF7E /* DataHandling */,
 				71BBAFFE1A8D598500CDB68B /* UtilityObjects */,
@@ -750,6 +753,7 @@
 			files = (
 				714A19731AB24E86005B5EE6 /* DV_Icon_t_40x40.png in Resources */,
 				71F2005B1A93C58200887D1B /* DV_Icon.png in Resources */,
+				22BD45401C7E24CD0086309C /* credentials.json in Resources */,
 				71F200611A93C64800887D1B /* DV_Icon_40x40.png in Resources */,
 				71F200571A93B46A00887D1B /* MyriadPro-Light.otf in Resources */,
 				71854CCA1AB6917300D819E0 /* Training.jpg in Resources */,
