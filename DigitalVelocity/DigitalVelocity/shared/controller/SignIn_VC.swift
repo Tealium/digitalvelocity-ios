@@ -50,6 +50,7 @@ class SignIn_VC: UIViewController {
     
     @IBAction func skip(){
         User.sharedInstance.skipCount++
+        emailTextField.resignFirstResponder()
         login()
     }
     
@@ -71,7 +72,7 @@ extension SignIn_VC: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
     
         done()
-        
+        skip()
         return true;
     }
 }
