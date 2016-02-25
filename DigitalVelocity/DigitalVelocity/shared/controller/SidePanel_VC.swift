@@ -17,6 +17,7 @@ protocol SidePanel_VC_Delegate {
 
 class SidePanel_VC: UIViewController {
     
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var delegate: SidePanel_VC_Delegate?
@@ -33,6 +34,9 @@ class SidePanel_VC: UIViewController {
         options = MenuOption.allOptions()
         tableView.scrollEnabled = false
         tableView.reloadData()
+        
+        // hack for hiding insets 
+        self.tableView.tableFooterView = self.footerView
     }
 
     @IBAction func gotoSettings(){
@@ -58,6 +62,7 @@ extension SidePanel_VC: UITableViewDataSource{
         cell.updateTitle(menuOption.title)
         return cell
     }
+    
 }
 
 // MARK: TableView Delegate

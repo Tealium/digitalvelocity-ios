@@ -40,6 +40,11 @@ class SponsorsTable_VC: Table_VC {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 96.0
     }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+        
+    }
 
     func configureCell(cell:SponsorCell, data:CellData) {
 
