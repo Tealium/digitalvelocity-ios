@@ -19,6 +19,7 @@ class AgendaItemImageDetail_VC: AgendaItemDetailBase_VC {
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
 
         imageView.image = UIImage(data: data.imageData)
+    
     }
     
 }

@@ -29,12 +29,12 @@ class NavigationController: UINavigationController {
     func addMenuButtonToViewController(viewController:UIViewController) {
         
         viewController.navigationItem.rightBarButtonItem = self.menuButton()
+        
     }
     
     func addNavigationButtonsToViewController(viewController: UIViewController) {
         
         viewController.navigationItem.setRightBarButtonItems([self.menuButton(), self.filterButton()], animated: true);
-        
     }
     
     private func menuButton()->UIBarButtonItem{
@@ -45,6 +45,7 @@ class NavigationController: UINavigationController {
             let font = FontAwesomeHelper.fontAwesomeForSize(28)
             let attributes  = NSDictionary(object: font, forKey: NSFontAttributeName)
             self.menuButton().accessibilityIdentifier = "Menu Button"
+            
             if let attributes = attributes as? [String : AnyObject]{
             
                 _menuButton!.setTitleTextAttributes(attributes, forState: UIControlState.Normal)
@@ -61,6 +62,7 @@ class NavigationController: UINavigationController {
             
             let font = FontAwesomeHelper.fontAwesomeForSize(28)
             let attributes  = NSDictionary(object: font, forKey: NSFontAttributeName)
+            self.filterButton().accessibilityIdentifier = "Filter Button"
             
             if let attributes = attributes as? [String: AnyObject]{
                 

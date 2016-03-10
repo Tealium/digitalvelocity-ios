@@ -42,22 +42,29 @@ class DigitalVelocityUITests: XCTestCase {
         let lastCell = table.cells.elementBoundByIndex(table.cells.count-1)
         table.scrollToElement(lastCell)
         
+        app.tables.cells.elementBoundByIndex(table.cells.count-1).tap()
+        
+        app.buttons["Favorite Button"].tap()
+                
+        let start = app.coordinateWithNormalizedOffset(CGVectorMake(0, 0))
+        start.pressForDuration(2)
+        
+        app.tables.cells.elementBoundByIndex(4).buttons["Map Icon"].tap()
+        
+        start.pressForDuration(2)
+        
+        app.buttons["Filter Button"].tap()
+
         
         //need a way to access segmented controls
         app.buttons["Menu Button"].tap()
         app.tables.staticTexts["Event Location"].tap()
 
-        
-        //fails
-      //   app.buttons["Menu Button"].tap()
-        //app.tables.staticTexts["Notifications"].tap()
-
         app.buttons["Menu Button"].tap()
         app.tables.staticTexts["Sponsors"].tap()
-    
-        
+        app.tables.cells.elementBoundByIndex(table.cells.count-1).tap()
+        start.pressForDuration(2)
 
-        
         app.buttons["Menu Button"].tap()
         app.tables.staticTexts["Contact"].tap()
         
@@ -74,7 +81,7 @@ class DigitalVelocityUITests: XCTestCase {
         
         let environmetTextField = app.textFields["Environment Text Field"]
         environmetTextField.doubleTap()
-        environmetTextField.clearAndEnterText("testenironment")
+        environmetTextField.clearAndEnterText("testenvironment")
 
         app.buttons["Save Button"].tap()
         

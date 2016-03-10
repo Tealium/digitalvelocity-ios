@@ -154,6 +154,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dee-G0-vO0">
                                 <rect key="frame" x="116" y="250" width="368" height="40"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Save Button" label="Save Button"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mZD-tM-ery"/>
                                 </constraints>
@@ -166,26 +167,29 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="(Tealium Account)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ymp-jz-ZS9">
                                 <rect key="frame" x="14" y="25" width="560" height="40"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Account Text Field" label="Account Text Field"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="FtQ-8o-0JV"/>
                                     <constraint firstAttribute="height" constant="40" id="rUT-II-yQi"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="(Tealium Profile)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jMH-R1-JYi">
                                 <rect key="frame" x="14" y="75" width="560" height="40"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Profile Text Field" label="Profile Text Field"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="llo-MJ-cpx"/>
                                     <constraint firstAttribute="height" constant="40" id="tPW-L4-0pN"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="(Tealium Environment)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lXC-Q5-Mc1">
                                 <rect key="frame" x="14" y="125" width="560" height="40"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Environment Text Field" label="Environment Text Field"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="AM1-HY-mOx"/>
                                     <constraint firstAttribute="height" constant="40" id="BdF-Ba-ois"/>
@@ -218,6 +222,7 @@
                                         </connections>
                                     </textField>
                                 </subviews>
+                                <accessibility key="accessibilityConfiguration" identifier="Audience Stream View" label="Audience Stream View"/>
                                 <constraints>
                                     <constraint firstItem="HXp-CS-gSY" firstAttribute="top" secondItem="Z3i-Mh-NCP" secondAttribute="top" constant="11.5" id="3PJ-Gl-CYx"/>
                                     <constraint firstItem="HXp-CS-gSY" firstAttribute="leading" secondItem="Z3i-Mh-NCP" secondAttribute="leading" constant="7" id="8Rl-Ul-ZR5"/>
@@ -619,7 +624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyk-ej-ShG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-641" y="3201"/>
+            <point key="canvasLocation" x="-691" y="3172"/>
         </scene>
         <!--Agenda Item Font Awesome DetailVC-->
         <scene sceneID="71f-7r-dsq">
@@ -723,7 +728,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qj-ZQ-ikF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37" y="3201"/>
+            <point key="canvasLocation" x="24" y="3148"/>
         </scene>
         <!--Sponsors TableVC-->
         <scene sceneID="Qpy-dt-Lzt">
@@ -1200,7 +1205,7 @@
                                         <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kLG-UX-I5h" id="sYB-GP-8vC">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbP-KH-UwY">
@@ -1304,7 +1309,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="480"/>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pwk-nj-vg7">
@@ -1319,7 +1324,7 @@
                                     <action selector="handleLocationChanged:" destination="en1-DD-HZ3" eventType="valueChanged" id="1LM-zu-B6d"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
                                 <rect key="frame" x="245" y="28" width="111" height="29"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -1434,7 +1439,7 @@
         <image name="Training.jpg" width="960" height="717"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Qhl-PA-Oac"/>
         <segue reference="b6b-bR-JFM"/>
-        <segue reference="xng-az-sr0"/>
     </inferredMetricsTieBreakers>
 </document>

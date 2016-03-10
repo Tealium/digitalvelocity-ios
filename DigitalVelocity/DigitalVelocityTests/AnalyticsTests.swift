@@ -17,7 +17,6 @@ class AnalyticsTests: XCTestCase {
     
     override func tearDown() {
         
-        Analytics.destroyDemoInstance()
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }

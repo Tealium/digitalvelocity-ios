@@ -20,7 +20,7 @@ class SignIn_VC: UIViewController {
             emailTextField.borderStyle = UITextBorderStyle.None
             emailTextField.layer.addSublayer(bottomLine)
             
-            let str = NSAttributedString(string: "(Account)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
+            let str = NSAttributedString(string: "(Registration Email)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
             emailTextField.attributedPlaceholder = str
         }
     }

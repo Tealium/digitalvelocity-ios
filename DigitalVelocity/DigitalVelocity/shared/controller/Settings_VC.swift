@@ -17,7 +17,7 @@ class Settings_VC: UIViewController {
             bottomLine.backgroundColor = UIColor.whiteColor().CGColor
             emailTextField.borderStyle = UITextBorderStyle.None
             emailTextField.layer.addSublayer(bottomLine)
-            let str = NSAttributedString(string: "(registration email)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
+            let str = NSAttributedString(string: "(Registration Email)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
             emailTextField.attributedPlaceholder = str
             
         }
