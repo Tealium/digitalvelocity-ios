@@ -112,8 +112,7 @@ class MenuOption{
     
     var title : String!
     var storyboardId : String!
-    var accessibilityId : String!
-    
+
     init(title: String, storyboardId: String){
         self.title = title
         self.storyboardId = storyboardId
