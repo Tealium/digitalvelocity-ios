@@ -25,7 +25,6 @@ class Center_VC: Welcome_Web_VC {
         self.navigationItem.hidesBackButton = true
         
         setupMenuNavigationForController()
-
         menuOptionSelected(MenuOption.allOptions()[0])
         
     }

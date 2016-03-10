@@ -41,6 +41,8 @@ class DigitalVelocityUITests: XCTestCase {
         let table = tableQuery.element
         let lastCell = table.cells.elementBoundByIndex(table.cells.count-1)
         table.scrollToElement(lastCell)
+
+        app.tables.cells.elementBoundByIndex(table.cells.count-1).tap()
         
         
         //need a way to access segmented controls
@@ -54,10 +56,7 @@ class DigitalVelocityUITests: XCTestCase {
 
         app.buttons["Menu Button"].tap()
         app.tables.staticTexts["Sponsors"].tap()
-    
-        
 
-        
         app.buttons["Menu Button"].tap()
         app.tables.staticTexts["Contact"].tap()
         
