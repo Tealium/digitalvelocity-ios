@@ -44,7 +44,7 @@ class NavigationController: UINavigationController {
             
             let font = FontAwesomeHelper.fontAwesomeForSize(28)
             let attributes  = NSDictionary(object: font, forKey: NSFontAttributeName)
-            self.menuButton().accessibilityIdentifier = "Menu Button"
+            _menuButton!.accessibilityIdentifier = "Menu Button"
             
             if let attributes = attributes as? [String : AnyObject]{
             

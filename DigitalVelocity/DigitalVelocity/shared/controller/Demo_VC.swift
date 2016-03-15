@@ -21,7 +21,7 @@ class Demo_VC: UIViewController {
             
             let str = NSAttributedString(string: "(Account)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
             accountTextField.attributedPlaceholder = str
-            
+            accountTextField.accessibilityIdentifier = "Account Text Field"
         }
     }
 
@@ -34,6 +34,7 @@ class Demo_VC: UIViewController {
             profileTextField.layer.addSublayer(bottomLine)
             let str = NSAttributedString(string: "(Profile)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
             profileTextField.attributedPlaceholder = str
+            profileTextField.accessibilityIdentifier = "Profile Text Field"
             
         }
     }
@@ -47,6 +48,7 @@ class Demo_VC: UIViewController {
             environmentTextField.layer.addSublayer(bottomLine)
             let str = NSAttributedString(string: "(Environment)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
             environmentTextField.attributedPlaceholder = str
+            environmentTextField.accessibilityIdentifier = "Environment Text Field"
             
         }
     }
@@ -67,12 +69,14 @@ class Demo_VC: UIViewController {
             audienceStreamTextField.layer.addSublayer(bottomLine)
             let str = NSAttributedString(string: "(Audience Stream)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
             audienceStreamTextField.attributedPlaceholder = str
+            audienceStreamTextField.accessibilityIdentifier = "Audience Stream View"
         }
     }
     @IBOutlet weak var saveButton: UIButton!{
         didSet{
             saveButton.layer.borderWidth = 1
             saveButton.layer.borderColor = UIColor.whiteColor().CGColor
+            saveButton.accessibilityIdentifier = "Save Button"
             
         }
     }
