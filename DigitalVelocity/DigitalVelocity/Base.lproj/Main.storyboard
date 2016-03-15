@@ -67,7 +67,7 @@
                                         </connections>
                                     </webView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="RKc-nJ-Rcn" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="2"/>
+                                        <rect key="frame" x="0.0" y="5" width="600" height="2"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
@@ -76,6 +76,7 @@
                                 <constraints>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="height" secondItem="SJG-ow-Swl" secondAttribute="height" id="5XT-TP-It2"/>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="width" secondItem="RKc-nJ-Rcn" secondAttribute="width" id="D1I-1I-9yM"/>
+                                    <constraint firstItem="RKc-nJ-Rcn" firstAttribute="top" secondItem="SJG-ow-Swl" secondAttribute="top" constant="5" id="TmQ-Sh-ApH"/>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="width" secondItem="SJG-ow-Swl" secondAttribute="width" id="b9h-BR-PEz"/>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="top" secondItem="RKc-nJ-Rcn" secondAttribute="top" constant="-10" id="e3A-vM-6uy"/>
                                     <constraint firstAttribute="centerY" secondItem="68M-cB-e3u" secondAttribute="centerY" id="gHs-Ex-aUE"/>
@@ -97,6 +98,11 @@
                             <constraint firstAttribute="centerX" secondItem="SJG-ow-Swl" secondAttribute="centerX" id="j4H-LO-vFI"/>
                             <constraint firstAttribute="centerY" secondItem="SJG-ow-Swl" secondAttribute="centerY" constant="-32" id="xOi-Zx-GuR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Rl-FI-a8f"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Welcome" id="8kZ-4a-LLI"/>
@@ -281,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZF1-59-aAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2829" y="1838"/>
+            <point key="canvasLocation" x="2936" y="1740"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="pif-mR-f2G">
@@ -884,6 +890,9 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="( registration email )" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vxp-oA-MQe">
                                 <rect key="frame" x="20" y="165" width="560" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="kMJ-k3-ict"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -891,24 +900,15 @@
                                     <outlet property="delegate" destination="9Wx-lU-rql" id="Vpz-9V-9gf"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convention Sign In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR9-db-Pxg">
-                                <rect key="frame" x="20" y="140" width="135" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="135" id="x54-z2-rHK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oej-rT-2U8">
-                                <rect key="frame" x="531" y="284" width="51" height="31"/>
+                                <rect key="frame" x="531" y="297" width="51" height="31"/>
                                 <color key="onTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="toggleTracking:" destination="9Wx-lU-rql" eventType="valueChanged" id="UCt-fc-ypf"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking: On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdF-pb-8X8">
-                                <rect key="frame" x="20" y="291" width="135" height="17"/>
+                                <rect key="frame" x="20" y="297" width="135" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="jT0-d9-bdf"/>
                                     <constraint firstAttribute="width" constant="135" id="oiN-sB-hkQ"/>
@@ -917,27 +917,36 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convention Sign In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR9-db-Pxg">
+                                <rect key="frame" x="20" y="100" width="135" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="x54-z2-rHK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MR9-db-Pxg" firstAttribute="top" secondItem="mOf-oi-PRO" secondAttribute="bottom" constant="120" id="1Hx-Dr-6DL"/>
+                            <constraint firstItem="MR9-db-Pxg" firstAttribute="top" secondItem="mOf-oi-PRO" secondAttribute="bottom" constant="80" id="1Hx-Dr-6DL"/>
                             <constraint firstAttribute="centerX" secondItem="uhX-PQ-VW2" secondAttribute="centerX" id="4CG-6b-WXO"/>
                             <constraint firstItem="uhX-PQ-VW2" firstAttribute="height" secondItem="OPd-I4-sH8" secondAttribute="height" id="6Sl-vi-ZiF"/>
-                            <constraint firstItem="oej-rT-2U8" firstAttribute="centerY" secondItem="uhX-PQ-VW2" secondAttribute="centerY" id="77U-9B-VIg"/>
+                            <constraint firstItem="oej-rT-2U8" firstAttribute="centerY" secondItem="uhX-PQ-VW2" secondAttribute="centerY" constant="12.5" id="77U-9B-VIg"/>
                             <constraint firstAttribute="centerY" secondItem="hzF-pX-T4Q" secondAttribute="centerY" constant="8" id="8kb-MG-YXL"/>
                             <constraint firstAttribute="leadingMargin" secondItem="EdF-pb-8X8" secondAttribute="leading" id="Ise-22-OVL"/>
                             <constraint firstItem="hzF-pX-T4Q" firstAttribute="height" secondItem="OPd-I4-sH8" secondAttribute="height" id="L11-KG-uOJ"/>
                             <constraint firstItem="Vxp-oA-MQe" firstAttribute="trailing" secondItem="OPd-I4-sH8" secondAttribute="trailingMargin" id="LQ2-cp-XhW"/>
+                            <constraint firstItem="oej-rT-2U8" firstAttribute="top" secondItem="EdF-pb-8X8" secondAttribute="top" id="UyH-LB-kaQ"/>
                             <constraint firstItem="Vxp-oA-MQe" firstAttribute="leading" secondItem="MR9-db-Pxg" secondAttribute="leading" id="WEm-hQ-fWW"/>
                             <constraint firstItem="Vxp-oA-MQe" firstAttribute="top" secondItem="MR9-db-Pxg" secondAttribute="bottom" constant="8" id="Wss-lU-ued"/>
                             <constraint firstAttribute="centerY" secondItem="uhX-PQ-VW2" secondAttribute="centerY" id="XF1-td-GAu"/>
                             <constraint firstItem="Vxp-oA-MQe" firstAttribute="leading" secondItem="OPd-I4-sH8" secondAttribute="leadingMargin" id="ZDk-1j-ci1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oej-rT-2U8" secondAttribute="trailing" id="awi-y6-afA"/>
                             <constraint firstItem="hzF-pX-T4Q" firstAttribute="top" secondItem="mOf-oi-PRO" secondAttribute="bottom" id="dJD-c5-2ET"/>
-                            <constraint firstItem="oej-rT-2U8" firstAttribute="top" secondItem="Vxp-oA-MQe" secondAttribute="bottom" constant="66" id="dlI-mt-vaJ"/>
                             <constraint firstAttribute="centerX" secondItem="hzF-pX-T4Q" secondAttribute="centerX" id="pdC-rg-396"/>
                             <constraint firstItem="hzF-pX-T4Q" firstAttribute="width" secondItem="OPd-I4-sH8" secondAttribute="width" id="tzl-0t-Rpm"/>
-                            <constraint firstItem="EdF-pb-8X8" firstAttribute="top" secondItem="Vxp-oA-MQe" secondAttribute="bottom" constant="73" id="yXL-1K-27X"/>
+                            <constraint firstItem="EdF-pb-8X8" firstAttribute="top" relation="lessThanOrEqual" secondItem="Vxp-oA-MQe" secondAttribute="bottom" constant="79" id="yXL-1K-27X"/>
                             <constraint firstItem="uhX-PQ-VW2" firstAttribute="width" secondItem="OPd-I4-sH8" secondAttribute="width" id="yhQ-iz-uCe"/>
                         </constraints>
                         <variation key="default">
@@ -1205,7 +1214,7 @@
                                         <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kLG-UX-I5h" id="sYB-GP-8vC">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbP-KH-UwY">
@@ -1309,7 +1318,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="480"/>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pwk-nj-vg7">
@@ -1324,7 +1333,7 @@
                                     <action selector="handleLocationChanged:" destination="en1-DD-HZ3" eventType="valueChanged" id="1LM-zu-B6d"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
                                 <rect key="frame" x="245" y="28" width="111" height="29"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -1396,6 +1405,11 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="ZvD-Af-VKk" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
+                                <rect key="frame" x="4" y="4" width="600" height="2"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abj-ff-9KI">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1403,11 +1417,6 @@
                                     <outlet property="delegate" destination="W6d-LJ-2Ec" id="McM-Fu-RA2"/>
                                 </connections>
                             </webView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="ZvD-Af-VKk" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
-                                <rect key="frame" x="4" y="0.0" width="600" height="2"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1439,7 +1448,7 @@
         <image name="Training.jpg" width="960" height="717"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qhl-PA-Oac"/>
-        <segue reference="b6b-bR-JFM"/>
+        <segue reference="Lam-ha-56J"/>
+        <segue reference="UDc-zW-fsv"/>
     </inferredMetricsTieBreakers>
 </document>
