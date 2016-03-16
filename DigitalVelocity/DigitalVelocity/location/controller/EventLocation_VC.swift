@@ -30,6 +30,8 @@ class EventLocation_VC: DVViewController, LayoutContainerViewDatasource {
 
         setupMenuNavigationForController()
         
+        self.viewTypeControl.accessibilityIdentifier = "View Type Control"
+        
         // Views
         setupContentViews()
 

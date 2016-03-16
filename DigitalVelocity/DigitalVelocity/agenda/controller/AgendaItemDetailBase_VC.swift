@@ -26,6 +26,7 @@ class AgendaItemDetailBase_VC: UIViewController {
         }
         setupMenuNavigationForController()
         updateFavoriteButton()
+        self.favoriteButton?.accessibilityIdentifier = "Favorite Button"
     }
     
     func setupViewWithData(data:CellData) {
@@ -90,6 +91,7 @@ class AgendaItemDetailBase_VC: UIViewController {
         
         favoriteButton?.titleLabel?.font = FontAwesomeHelper.fontAwesomeForSize(28)
         favoriteButton?.setTitle(title, forState: UIControlState.Normal)
+        favoriteButton?.accessibilityIdentifier = "Favorite Button"
     }
 }
 

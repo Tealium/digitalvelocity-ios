@@ -52,6 +52,16 @@
                ReferencedContainer = "container:DigitalVelocity.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2236EF921C8E327800FA5B84"
+               BuildableName = "DigitalVelocityUITests.xctest"
+               BlueprintName = "DigitalVelocityUITests"
+               ReferencedContainer = "container:DigitalVelocity.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

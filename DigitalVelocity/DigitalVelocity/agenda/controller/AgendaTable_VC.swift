@@ -97,6 +97,11 @@ class AgendaTable_VC: Table_VC {
                 performSegueWithIdentifier(menuOptions.agendaDetailImage.storyboardId, sender: self)
             }
     }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+        
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 

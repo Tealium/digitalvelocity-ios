@@ -23,7 +23,7 @@ class Contact_VC: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
-
+        
         twitterButton.titleLabel?.font = FontAwesomeHelper.fontAwesomeForSize(64)
         facebookButton.titleLabel?.font = FontAwesomeHelper.fontAwesomeForSize(66)
         emailButton.titleLabel?.font = FontAwesomeHelper.fontAwesomeForSize(62)
@@ -39,7 +39,8 @@ class Contact_VC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+    
+      
         if canOpenURL(twitterURL){
             enableButton(twitterButton)
         }

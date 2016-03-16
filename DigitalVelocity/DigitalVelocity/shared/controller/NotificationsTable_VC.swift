@@ -60,6 +60,12 @@ class NotificationsTable_VC: Table_VC {
             return UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "blank")
         }
     }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+        
+    }
+
 }
 
 extension NotificationsTable_VC : NotificationsDelegate{

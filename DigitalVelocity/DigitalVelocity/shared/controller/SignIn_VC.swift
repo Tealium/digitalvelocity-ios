@@ -12,8 +12,32 @@ public let loginSuccessfulNotification = "loginSuccessful"
 
 class SignIn_VC: UIViewController {
 
-    @IBOutlet weak var emailTextField:UITextField!
+    @IBOutlet weak var emailTextField:UITextField! {
+        didSet{
+            let bottomLine = CALayer()
+            bottomLine.frame = CGRectMake(0.0, emailTextField.frame.height - 1, emailTextField.frame.width, 1.0)
+            bottomLine.backgroundColor = UIColor.whiteColor().CGColor
+            emailTextField.borderStyle = UITextBorderStyle.None
+            emailTextField.layer.addSublayer(bottomLine)
+            
+            let str = NSAttributedString(string: "(Registration Email)", attributes: [NSForegroundColorAttributeName:UIColor.lightGrayColor()])
+            emailTextField.attributedPlaceholder = str
+        }
+    }
     
+    @IBOutlet weak var enterButton: UIButton!{
+        didSet{
+            enterButton.layer.borderColor = UIColor.whiteColor().CGColor
+            enterButton.layer.borderWidth = 1
+        }
+    }
+    
+    @IBOutlet weak var skipButton: UIButton!{
+        didSet{
+            skipButton.layer.borderWidth = 1
+            skipButton.layer.borderColor = UIColor.whiteColor().CGColor
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

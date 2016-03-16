@@ -63,7 +63,7 @@ class DVBaseTableViewCell: UITableViewCell {
     
     func mapIconAccessoryView() -> UIView {
 
-        let button = UIButton(frame: CGRectMake(0, 0, 24, 24))
+        let button = UIButton(frame: CGRectMake(0, 0, 30, 30))
 
         button.backgroundColor  = UIColor_TealiumBlue
         button.titleLabel?.font = FontAwesomeHelper.fontAwesomeForSize(16)
@@ -72,6 +72,8 @@ class DVBaseTableViewCell: UITableViewCell {
         button.addTarget(self, action: "accessoryTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         
         button.layer.cornerRadius = CGRectGetMidY(button.frame)
+        
+        button.accessibilityIdentifier = "Map Icon"
         
         return button
 

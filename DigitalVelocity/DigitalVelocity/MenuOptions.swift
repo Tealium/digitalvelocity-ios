@@ -110,17 +110,17 @@ private var _menuOptions : [MenuOption] = [MenuOption]()
  */
 class MenuOption{
     
-    
     var title : String!
     var storyboardId : String!
-    
+
     init(title: String, storyboardId: String){
         self.title = title
         self.storyboardId = storyboardId
+        
     }
     
     func isEqualTo(menuOption: MenuOption)->Bool{
-        if self.title == menuOption.title && self.storyboardId == menuOption.storyboardId{
+        if self.title == menuOption.title && self.storyboardId == menuOption.storyboardId  {
             return true
         }
         return false

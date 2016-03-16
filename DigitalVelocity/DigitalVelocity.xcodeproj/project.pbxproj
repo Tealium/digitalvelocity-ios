@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2236EF961C8E327800FA5B84 /* DigitalVelocityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236EF951C8E327800FA5B84 /* DigitalVelocityUITests.swift */; };
 		22BD45401C7E24CD0086309C /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 22BD453F1C7E24CD0086309C /* credentials.json */; };
 		37022D821AC5C88D00CED019 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37022D811AC5C88D00CED019 /* MessageCell.swift */; };
 		3785AAA01AC6899400CDF588 /* EventDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785AA9F1AC6899400CDF588 /* EventDataStore.swift */; };
@@ -121,6 +122,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2236EF981C8E327800FA5B84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7150ABD21A82DFF400BEDFB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7150ABD91A82DFF400BEDFB7;
+			remoteInfo = DigitalVelocity;
+		};
 		7150ABF01A82DFF500BEDFB7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7150ABD21A82DFF400BEDFB7 /* Project object */;
@@ -145,6 +153,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2236EF931C8E327800FA5B84 /* DigitalVelocityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalVelocityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2236EF951C8E327800FA5B84 /* DigitalVelocityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalVelocityUITests.swift; sourceTree = "<group>"; };
+		2236EF971C8E327800FA5B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22BD453F1C7E24CD0086309C /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials.json; sourceTree = "<group>"; };
 		248E0DD92F440A7634A19CF8 /* Pods-DigitalVelocity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocity.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalVelocity/Pods-DigitalVelocity.release.xcconfig"; sourceTree = "<group>"; };
 		37022D811AC5C88D00CED019 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
@@ -263,6 +274,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2236EF901C8E327800FA5B84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7150ABD71A82DFF400BEDFB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +312,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2236EF941C8E327800FA5B84 /* DigitalVelocityUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2236EF951C8E327800FA5B84 /* DigitalVelocityUITests.swift */,
+				2236EF971C8E327800FA5B84 /* Info.plist */,
+			);
+			path = DigitalVelocityUITests;
+			sourceTree = "<group>";
+		};
 		22CAB146073267559F9556A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +393,7 @@
 			children = (
 				7150ABDC1A82DFF400BEDFB7 /* DigitalVelocity */,
 				7150ABF21A82DFF500BEDFB7 /* DigitalVelocityTests */,
+				2236EF941C8E327800FA5B84 /* DigitalVelocityUITests */,
 				7150ABDB1A82DFF400BEDFB7 /* Products */,
 				FFF5CC4BAB8284319F9FF500 /* Pods */,
 				E73C69FB1B012F69002E2274 /* Vendor */,
@@ -378,6 +406,7 @@
 			children = (
 				7150ABDA1A82DFF400BEDFB7 /* DigitalVelocity.app */,
 				7150ABEF1A82DFF500BEDFB7 /* DigitalVelocityTests.xctest */,
+				2236EF931C8E327800FA5B84 /* DigitalVelocityUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -660,6 +689,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2236EF921C8E327800FA5B84 /* DigitalVelocityUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2236EF9C1C8E327800FA5B84 /* Build configuration list for PBXNativeTarget "DigitalVelocityUITests" */;
+			buildPhases = (
+				2236EF8F1C8E327800FA5B84 /* Sources */,
+				2236EF901C8E327800FA5B84 /* Frameworks */,
+				2236EF911C8E327800FA5B84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2236EF991C8E327800FA5B84 /* PBXTargetDependency */,
+			);
+			name = DigitalVelocityUITests;
+			productName = DigitalVelocityUITests;
+			productReference = 2236EF931C8E327800FA5B84 /* DigitalVelocityUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		7150ABD91A82DFF400BEDFB7 /* DigitalVelocity */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7150ABF91A82DFF500BEDFB7 /* Build configuration list for PBXNativeTarget "DigitalVelocity" */;
@@ -712,6 +759,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Tealium;
 				TargetAttributes = {
+					2236EF921C8E327800FA5B84 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 7150ABD91A82DFF400BEDFB7;
+					};
 					7150ABD91A82DFF400BEDFB7 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 27VHD5Y3B8;
@@ -742,11 +793,19 @@
 			targets = (
 				7150ABD91A82DFF400BEDFB7 /* DigitalVelocity */,
 				7150ABEE1A82DFF500BEDFB7 /* DigitalVelocityTests */,
+				2236EF921C8E327800FA5B84 /* DigitalVelocityUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2236EF911C8E327800FA5B84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7150ABD81A82DFF400BEDFB7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -866,6 +925,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2236EF8F1C8E327800FA5B84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2236EF961C8E327800FA5B84 /* DigitalVelocityUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7150ABD61A82DFF400BEDFB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -953,6 +1020,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2236EF991C8E327800FA5B84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7150ABD91A82DFF400BEDFB7 /* DigitalVelocity */;
+			targetProxy = 2236EF981C8E327800FA5B84 /* PBXContainerItemProxy */;
+		};
 		7150ABF11A82DFF500BEDFB7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7150ABD91A82DFF400BEDFB7 /* DigitalVelocity */;
@@ -980,6 +1052,37 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2236EF9A1C8E327800FA5B84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DigitalVelocityUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sef.DigitalVelocityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DigitalVelocity;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2236EF9B1C8E327800FA5B84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = DigitalVelocityUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sef.DigitalVelocityUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DigitalVelocity;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		7150ABF71A82DFF500BEDFB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1064,7 +1167,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1161,6 +1264,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2236EF9C1C8E327800FA5B84 /* Build configuration list for PBXNativeTarget "DigitalVelocityUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2236EF9A1C8E327800FA5B84 /* Debug */,
+				2236EF9B1C8E327800FA5B84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7150ABD51A82DFF400BEDFB7 /* Build configuration list for PBXProject "DigitalVelocity" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
