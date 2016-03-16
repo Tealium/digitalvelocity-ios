@@ -67,7 +67,7 @@
                                         </connections>
                                     </webView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="RKc-nJ-Rcn" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5" width="600" height="2"/>
+                                        <rect key="frame" x="0.0" y="1" width="600" height="2"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
@@ -76,7 +76,7 @@
                                 <constraints>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="height" secondItem="SJG-ow-Swl" secondAttribute="height" id="5XT-TP-It2"/>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="width" secondItem="RKc-nJ-Rcn" secondAttribute="width" id="D1I-1I-9yM"/>
-                                    <constraint firstItem="RKc-nJ-Rcn" firstAttribute="top" secondItem="SJG-ow-Swl" secondAttribute="top" constant="5" id="TmQ-Sh-ApH"/>
+                                    <constraint firstItem="RKc-nJ-Rcn" firstAttribute="top" secondItem="SJG-ow-Swl" secondAttribute="top" constant="1" id="TmQ-Sh-ApH"/>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="width" secondItem="SJG-ow-Swl" secondAttribute="width" id="b9h-BR-PEz"/>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="top" secondItem="RKc-nJ-Rcn" secondAttribute="top" constant="-10" id="e3A-vM-6uy"/>
                                     <constraint firstAttribute="centerY" secondItem="68M-cB-e3u" secondAttribute="centerY" id="gHs-Ex-aUE"/>
@@ -1318,7 +1318,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="480"/>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pwk-nj-vg7">
@@ -1333,7 +1333,7 @@
                                     <action selector="handleLocationChanged:" destination="en1-DD-HZ3" eventType="valueChanged" id="1LM-zu-B6d"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
                                 <rect key="frame" x="245" y="28" width="111" height="29"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
