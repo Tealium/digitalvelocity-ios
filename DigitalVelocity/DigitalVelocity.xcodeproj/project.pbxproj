@@ -58,6 +58,7 @@
 		7181D7131A966F6A004EDF7E /* BlackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 7181D7121A966F6A004EDF7E /* BlackBG.png */; };
 		718223101A9BA64200E164C8 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7182230F1A9BA64200E164C8 /* FontAwesome.otf */; };
 		71854CCA1AB6917300D819E0 /* Training.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71854CC91AB6917300D819E0 /* Training.jpg */; };
+		71B0B8EA1CAB261D00213DEA /* UIColor+TealiumAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B0B8E91CAB261D00213DEA /* UIColor+TealiumAdditions.m */; };
 		71B939CF1C7B5D1300948DBC /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B939CE1C7B5D1300948DBC /* Analytics.swift */; };
 		71B939D11C7B5D1B00948DBC /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B939D01C7B5D1B00948DBC /* Push.swift */; };
 		71B939D31C7B5D2300948DBC /* ContentModification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B939D21C7B5D2300948DBC /* ContentModification.swift */; };
@@ -81,7 +82,6 @@
 		71DDC07E1B0A828D00285E45 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D8F5491B0411C700A5391F /* Favorites.swift */; };
 		71E51CD51ACA0917001C7043 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E51CD41ACA0917001C7043 /* CoreTelephony.framework */; };
 		71EA66F21B1681D9008FE97F /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71EA66F11B1681D9008FE97F /* config.plist */; };
-		71EA66F61B168781008FE97F /* TealiumUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EA66F51B168781008FE97F /* TealiumUtilities.framework */; };
 		71EA66F81B17C898008FE97F /* Welcome_Web_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA66F71B17C898008FE97F /* Welcome_Web_VC.swift */; };
 		71F0C48C1B0298BE008F1992 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F0C48B1B0298BE008F1992 /* libz.dylib */; };
 		71F0C48E1B0298F0008F1992 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F0C48D1B0298F0008F1992 /* Gimbal.framework */; };
@@ -208,6 +208,8 @@
 		7181D7121A966F6A004EDF7E /* BlackBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackBG.png; sourceTree = "<group>"; };
 		7182230F1A9BA64200E164C8 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		71854CC91AB6917300D819E0 /* Training.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Training.jpg; sourceTree = "<group>"; };
+		71B0B8E81CAB261D00213DEA /* UIColor+TealiumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TealiumAdditions.h"; sourceTree = "<group>"; };
+		71B0B8E91CAB261D00213DEA /* UIColor+TealiumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TealiumAdditions.m"; sourceTree = "<group>"; };
 		71B939CE1C7B5D1300948DBC /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		71B939D01C7B5D1B00948DBC /* Push.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Push.swift; sourceTree = "<group>"; };
 		71B939D21C7B5D2300948DBC /* ContentModification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentModification.swift; sourceTree = "<group>"; };
@@ -228,7 +230,6 @@
 		71DDC07A1B0A812800285E45 /* TableDataStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataStoreTests.swift; sourceTree = "<group>"; };
 		71E51CD41ACA0917001C7043 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		71EA66F11B1681D9008FE97F /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
-		71EA66F51B168781008FE97F /* TealiumUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TealiumUtilities.framework; sourceTree = "<group>"; };
 		71EA66F71B17C898008FE97F /* Welcome_Web_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Welcome_Web_VC.swift; path = shared/controller/Welcome_Web_VC.swift; sourceTree = "<group>"; };
 		71F0C48B1B0298BE008F1992 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		71F0C48D1B0298F0008F1992 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gimbal.framework; sourceTree = "<group>"; };
@@ -289,7 +290,6 @@
 				71F0C48C1B0298BE008F1992 /* libz.dylib in Frameworks */,
 				71E51CD51ACA0917001C7043 /* CoreTelephony.framework in Frameworks */,
 				7178EAFA1AC9471800F68CE7 /* AddressBook.framework in Frameworks */,
-				71EA66F61B168781008FE97F /* TealiumUtilities.framework in Frameworks */,
 				71C126BE1AA3F9BF005CB9F5 /* MapKit.framework in Frameworks */,
 				E73C6A041B012F69002E2274 /* Fabric.framework in Frameworks */,
 				71DDA48F1A9E8722007A000F /* libsqlite3.dylib in Frameworks */,
@@ -644,11 +644,12 @@
 		E73C69FF1B012F69002E2274 /* Tealium */ = {
 			isa = PBXGroup;
 			children = (
+				71B0B8E81CAB261D00213DEA /* UIColor+TealiumAdditions.h */,
+				71B0B8E91CAB261D00213DEA /* UIColor+TealiumAdditions.m */,
 				711370AD1C74CB3E00EA9A48 /* TEALBeaconsManager.swift */,
 				711370B11C74CB5900EA9A48 /* TEALCredentials.swift */,
 				711370AE1C74CB3E00EA9A48 /* TEALLog.swift */,
 				7139DC121C7626560079BCA1 /* TealiumIOS.framework */,
-				71EA66F51B168781008FE97F /* TealiumUtilities.framework */,
 			);
 			path = Tealium;
 			sourceTree = "<group>";
@@ -826,7 +827,7 @@
 					};
 					7150ABD91A82DFF400BEDFB7 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 27VHD5Y3B8;
+						DevelopmentTeam = XC939GDC9P;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1013,6 +1014,7 @@
 				37BCCD021AC8865A00196851 /* FontAwesomeHelper.swift in Sources */,
 				711370B21C74CB5900EA9A48 /* TEALCredentials.swift in Sources */,
 				71DDA48D1A9E8510007A000F /* TableDataSource.swift in Sources */,
+				71B0B8EA1CAB261D00213DEA /* UIColor+TealiumAdditions.m in Sources */,
 				E77929D31AC1E23300A56862 /* TEALProgressView.swift in Sources */,
 				711370B91C7528F600EA9A48 /* Demo_VC.swift in Sources */,
 				E77929C61AC1E23300A56862 /* EventLocation_VC.swift in Sources */,
@@ -1228,7 +1230,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1244,6 +1246,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DonkyUI_SDK",
 				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tealium.digitalvelocity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

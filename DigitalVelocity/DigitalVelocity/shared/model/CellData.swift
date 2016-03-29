@@ -39,6 +39,36 @@ class CellData : NSObject {
     
     let favorites = EventDataStore.sharedInstance().favorites
     
+    
+    func cellTrackingData(additionalData : [ String : AnyObject]?) -> [ String : AnyObject] {
+        
+        var data = [ String : AnyObject]()
+        
+        if let roomName = roomName {
+            data["agenda_roomname"] = roomName
+        }
+        
+        if let subtitle = subtitle {
+            data["agenda_subtitle"] = subtitle
+        }
+        
+        if let title = title {
+            data["agenda_title"] = title
+        }
+        
+        if let objectId = objectId {
+            data["agenda_objectid"] = objectId
+        }
+        
+        if let additionalData = additionalData {
+            data.addEntriesFrom(additionalData)
+        }
+        
+        return data
+    
+    
+    }
+    
     override var description : String{
         return "CellData: title:\(title) subtitle:\(subtitle) description:\(targetDescription) url:\(url) locationId:\(locationId) indexPath:\(indexPath) fontAwesomeValue:\(fontAwesomeValue) localFavorite:\(isLocalFavorite) createdAt:\(createdAt)"
     }
@@ -116,9 +146,13 @@ class CellData : NSObject {
         if isLocalFavorite(){
             TEALLog.log("Favorites: \(favorites)")
             favorites.removeFavoriteObject(objectId)
+            let data = self.cellTrackingData(["agenda_favorite" : "false"])
+            Analytics.track("agenda_favorite_toggled", isView: false, data: data)
             delegate?.cellDataFavoriteToggled(originObject)
         } else {
             favorites.addFavoriteObject(objectId)
+            let data = self.cellTrackingData(["favorite" : "true"])
+            Analytics.track("agenda_favorite_toggled", isView: false, data: data)
             delegate?.cellDataFavoriteToggled(originObject)
         }
     }

@@ -30,5 +30,6 @@ class DVHeaderTableViewCell: UITableViewCell {
             label.textAlignment = NSTextAlignment.Center
         }
     }
+    
 
 }
