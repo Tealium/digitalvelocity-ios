@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.statusBarStyle = UIStatusBarStyle.LightContent
         
         // Load Data 
-        EventDataStore.sharedInstance().loadRemoteData()
+//        EventDataStore.sharedInstance().loadRemoteData()
         EventLocationStore.sharedInstance().loadRemoteData(){ }
         
         // Beacons

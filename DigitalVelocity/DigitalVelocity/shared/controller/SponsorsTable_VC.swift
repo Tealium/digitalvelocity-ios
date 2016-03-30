@@ -68,7 +68,7 @@ class SponsorsTable_VC: Table_VC {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
         if selectedItemData?.url != nil{
-            performSegueWithIdentifier(menuOptions.web.storyboardId, sender: self)
+            performSegueWithIdentifier(menuOptions.surveyDetail.storyboardId, sender: self)
         }
     }
 }

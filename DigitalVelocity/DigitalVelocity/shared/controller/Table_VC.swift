@@ -1,4 +1,4 @@
-//
+ //
 //  DVTableViewController.swift
 //  DigitalVelocity
 //
@@ -43,7 +43,8 @@ class Table_VC: UITableViewController {
         store = EventDataStore.sharedInstance()
         
         if let edt = eventDataType{
-            dataSource = store.datasourceForType(edt)
+            
+            dataSource = store.dataSourceForType(edt)
             
             store.loadRemoteDataForType(edt){ (refreshed) -> () in
                 if refreshed {

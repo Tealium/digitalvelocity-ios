@@ -293,17 +293,28 @@ class Analytics {
         
         trackData.addEntriesFrom(self.additionalTrackData())
         
-        guard let tealiumInstance = Tealium.instanceForKey(tealiumDemoInstanceID)else{
+        let tealiumInstance = Tealium.instanceForKey(tealiumDemoInstanceID);
+        let tealiumBGInstance = Tealium.instanceForKey(tealiumBGInstanceID);
+        
+        if tealiumInstance == nil{
             
-            //            print("demo instance doesn't exist")
+            // Will print too often
+//            print("Tealium demo instance not found")
             
-            return
+        }
+        
+        if tealiumBGInstance == nil{
+            
+            print("Tealium BG instance not found")
+            
         }
         
         if isView == true {
-            tealiumInstance.trackViewWithTitle(title, dataSources: trackData)
+            tealiumBGInstance?.trackViewWithTitle(title, dataSources: trackData)
+            tealiumInstance?.trackViewWithTitle(title, dataSources: trackData)
         } else {
-            tealiumInstance.trackEventWithTitle(title, dataSources: trackData)
+            tealiumBGInstance?.trackEventWithTitle(title, dataSources: trackData)
+            tealiumInstance?.trackEventWithTitle(title, dataSources: trackData)
         }
         
     }

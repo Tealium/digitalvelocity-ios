@@ -59,6 +59,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJG-ow-Swl">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="RKc-nJ-Rcn" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="600" height="2"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68M-cB-e3u">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,11 +71,6 @@
                                             <outlet property="delegate" destination="tQB-3J-gZq" id="71Q-PB-HoN"/>
                                         </connections>
                                     </webView>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="RKc-nJ-Rcn" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="600" height="2"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -120,6 +120,7 @@
                         <segue destination="W6d-LJ-2Ec" kind="custom" identifier="Welcome" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="k5I-MI-Cg7"/>
                         <segue destination="pPs-Kh-gl9" kind="custom" identifier="Chat" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="6dJ-dw-IpH"/>
                         <segue destination="y95-KB-Lps" kind="custom" identifier="Demo" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="Zar-jh-uab"/>
+                        <segue destination="Lh5-NC-rVb" kind="custom" identifier="Survey" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="fMz-6W-NDu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="km2-Tt-vFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,6 +289,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZF1-59-aAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2936" y="1740"/>
+        </scene>
+        <!--Survey DetailTVC-->
+        <scene sceneID="mWK-fB-xkY">
+            <objects>
+                <tableViewController storyboardIdentifier="SurveyDetail" id="Wbk-dI-XeC" customClass="SurveyDetail_TVC" customModule="DigitalVelocity" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HvY-TB-kaQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9Lo-wX-WlW">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Lo-wX-WlW" id="57D-wK-2xZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Wbk-dI-XeC" id="lHl-oc-305"/>
+                            <outlet property="delegate" destination="Wbk-dI-XeC" id="FB1-da-WRt"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pal-Rt-6jt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1667" y="102"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="pif-mR-f2G">
@@ -1214,7 +1243,7 @@
                                         <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kLG-UX-I5h" id="sYB-GP-8vC">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbP-KH-UwY">
@@ -1306,6 +1335,55 @@
             </objects>
             <point key="canvasLocation" x="1189" y="899"/>
         </scene>
+        <!--Survey TableVC-->
+        <scene sceneID="oDt-rz-cwP">
+            <objects>
+                <tableViewController storyboardIdentifier="Survey" id="Lh5-NC-rVb" customClass="SurveyTable_VC" customModule="DigitalVelocity" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="kaa-LA-hEn">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DVHeaderCell" rowHeight="54" id="f3g-GO-6x6" customClass="DVHeaderTableViewCell" customModule="DigitalVelocity" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="54"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3g-GO-6x6" id="7am-Wt-kbs">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SurveyCell" rowHeight="88" id="Szz-Iv-4Sb" customClass="SurveyBaseCell" customModule="DigitalVelocity" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="82" width="600" height="88"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Szz-Iv-4Sb" id="Nyd-c4-mk9">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsc-TQ-oS5">
+                                            <rect key="frame" x="42" y="25" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="Zsc-TQ-oS5" id="vgB-Gl-yg6"/>
+                                    <segue destination="Wbk-dI-XeC" kind="showDetail" id="3bz-qU-cpy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Lh5-NC-rVb" id="vyO-E6-q78"/>
+                            <outlet property="delegate" destination="Lh5-NC-rVb" id="a5o-NW-v5Y"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EUV-u4-xb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="121"/>
+        </scene>
         <!--Event LocationVC-->
         <scene sceneID="oYP-b2-ZVp">
             <objects>
@@ -1318,7 +1396,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-6q-Hc6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="480"/>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pwk-nj-vg7">
@@ -1333,7 +1411,7 @@
                                     <action selector="handleLocationChanged:" destination="en1-DD-HZ3" eventType="valueChanged" id="1LM-zu-B6d"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Sl-iNQ">
                                 <rect key="frame" x="245" y="28" width="111" height="29"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -1448,7 +1526,7 @@
         <image name="Training.jpg" width="960" height="717"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lam-ha-56J"/>
-        <segue reference="UDc-zW-fsv"/>
+        <segue reference="b6b-bR-JFM"/>
+        <segue reference="Qhl-PA-Oac"/>
     </inferredMetricsTieBreakers>
 </document>

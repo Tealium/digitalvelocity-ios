@@ -218,7 +218,11 @@ class TEALBeaconsManager: CLLocationManager {
             if areAuthorized != true{
                 TEALLog.log("Requesting location services authorization.")
                 if iOS8{
-                    locationManager.requestAlwaysAuthorization()
+                    if #available(iOS 8.0, *) {
+                        locationManager.requestAlwaysAuthorization()
+                    } else {
+                        // Fallback on earlier versions
+                    }
                 }
                 areAuthorized = true
             }
@@ -230,11 +234,19 @@ class TEALBeaconsManager: CLLocationManager {
     }
     
     private func isAuthorized()->Bool{
-        if CLLocationManager.authorizationStatus() == .AuthorizedAlways {
-            return true
+        if #available(iOS 8.0, *) {
+            if CLLocationManager.authorizationStatus() == .AuthorizedAlways {
+                return true
+            }
+        } else {
+            // Fallback on earlier versions
         }
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse{
-            return true
+        if #available(iOS 8.0, *) {
+            if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse{
+                return true
+            }
+        } else {
+            // Fallback on earlier versions
         }
         return false
     }
@@ -251,6 +263,10 @@ class TEALBeaconsManager: CLLocationManager {
     }
     
     private func canMonitor()->Bool{
+        
+        #if DEBUG
+            return true
+        #endif
         
         // Are we within the allowed monitoring date and time range?
         let now = NSDate()
@@ -372,8 +388,16 @@ class TEALBeaconsManager: CLLocationManager {
     
     private func confirmedNewNearestImprint(imprint:TEALImprint){
         setNewImprintCurrent(imprint)
+        
+        var finalData = [ NSObject : AnyObject]()
+        
+        finalData.addEntriesFrom(UserData.getVIPPreferences())
+        
         let data = [asKeyEventName : asValueEnterPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
-        Analytics.track(asValueEnterPOI, isView: false, data: data)
+        
+        finalData.addEntriesFrom(data)
+        
+        Analytics.track(asValueEnterPOI, isView: false, data: finalData)
         
         TEALLog.log("FOUND imprint:\(imprint.description)\n\n")
         checkFutureInImprint(imprint)
@@ -399,7 +423,9 @@ class TEALBeaconsManager: CLLocationManager {
             if imprint.lastFoundAtPassedThreshold(config.exitThreshold){
                 confirmedLeftImprint(imprint)
             } else if canMonitor() {
+                
                 let data = [asKeyEventName : asValueInPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
+                
                 Analytics.track(asValueInPOI, isView: false, data: data)
                 
                 checkFutureInImprint(imprint)

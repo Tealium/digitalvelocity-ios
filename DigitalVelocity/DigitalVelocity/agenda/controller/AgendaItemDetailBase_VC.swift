@@ -75,6 +75,14 @@ class AgendaItemDetailBase_VC: UIViewController {
         }
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        Analytics.trackView(self)
+    }
+    
     @IBAction func toggleFavorite(sender: AnyObject) {
         self.itemData?.delegate = self
         self.itemData?.toggleFavorite(nil)

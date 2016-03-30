@@ -19,6 +19,8 @@ private let _sponsors : String = NSLocalizedString("Sponsors", tableName: nil, b
 private let _contact : String = NSLocalizedString("Contact", tableName: nil, bundle: NSBundle.mainBundle(), value: "Contact", comment: "Contact")
 private let _chat : String = NSLocalizedString("Chat", tableName: nil, bundle: NSBundle.mainBundle(), value: "Chat", comment: "Chat")
 private let _demo : String = NSLocalizedString("Demo", tableName: nil, bundle: NSBundle.mainBundle(), value: "Demo", comment: "Demo")
+private let _survey : String = NSLocalizedString("Survey", tableName: nil, bundle: NSBundle.mainBundle(), value: "Survey", comment: "Survey")
+
 
 enum menuOptions{
     case signIn
@@ -26,6 +28,7 @@ enum menuOptions{
     case agenda
     case agendaDetailImage
     case agendaDetailIconLabel
+    case surveyDetail
     case location
     case notifications
     case sponsors
@@ -35,6 +38,7 @@ enum menuOptions{
     case chat
     case web
     case unknown
+    case survey
     
     // TODO: finish localizing
 
@@ -53,6 +57,8 @@ enum menuOptions{
         case .settings:                 return "Settings"
         case .web:                      return "Web"
         case .chat :                    return _chat
+        case .survey :                  return _survey
+        case .surveyDetail:             return "SurveyDetail"
         default:                        return "(unknown)"
         }
     }
@@ -72,6 +78,9 @@ enum menuOptions{
         case .settings:                 return "Settings"
         case .web:                      return "Web"
         case .chat:                     return "Chat"
+        case .survey:                   return "Survey"
+        case .surveyDetail:             return "SurveyDetail"
+        
         default:                        return "(unknown)"
         }
     }
@@ -82,6 +91,7 @@ enum menuOptions{
             case _signIn:               return .signIn
             case _welcome:              return .welcome
             case _agenda:               return .agenda
+            case "SurveyDetail":        return .surveyDetail
             case "AgendaDetailImage":   return .agendaDetailImage
             case "AgendaDetailIcon":    return .agendaDetailIconLabel
             case _location:             return .location
@@ -91,6 +101,7 @@ enum menuOptions{
             case _demo:                 return .demo
             case "Settings":            return .settings
             case "Web":                 return .web
+            case _survey:               return .survey
             case _chat:                 return .chat
             default:                    return .unknown
             }
@@ -134,9 +145,11 @@ class MenuOption{
             let option4 = MenuOption(title: menuOptions.notifications.title, storyboardId: menuOptions.notifications.storyboardId)
             let option5 = MenuOption(title: menuOptions.sponsors.title, storyboardId: menuOptions.sponsors.storyboardId)
             let option6 = MenuOption(title: menuOptions.contact.title, storyboardId: menuOptions.contact.storyboardId)
+            
 //            let option7 = MenuOption(title: menuOptions.chat.title, storyboardId: menuOptions.chat.storyboardId)
             let option8 = MenuOption(title: menuOptions.demo.title, storyboardId: menuOptions.demo.storyboardId)
-            _menuOptions = [option1, option2, option3, option4, option5, option6, option8]
+            let option9 = MenuOption(title: menuOptions.survey.title, storyboardId: menuOptions.survey.storyboardId)
+            _menuOptions = [option1, option2, option3, option4, option5, option6, option8, option9]
         }
         return _menuOptions
     }

@@ -19,7 +19,7 @@ class NotificationsTable_VC: Table_VC {
     // TODO: Remove once callback to eventDataStore working
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        store.notificationsDatasource.notifications.delegate = self
+        store.notificationsDatasource().notifications.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -90,8 +90,10 @@ class AgendaTable_VC: Table_VC {
 
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
+        let data = selectedItemData?.cellTrackingData([ String : AnyObject]())
+        Analytics.track("agenda_selected", isView: false, data: data)
+        
             if selectedItemData?.fontAwesomeValue != nil {
-                
                 performSegueWithIdentifier(menuOptions.agendaDetailIconLabel.storyboardId, sender: self)
             } else {
                 performSegueWithIdentifier(menuOptions.agendaDetailImage.storyboardId, sender: self)
