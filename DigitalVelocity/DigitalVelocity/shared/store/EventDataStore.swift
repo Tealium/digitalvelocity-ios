@@ -10,7 +10,9 @@ import Foundation
 
 enum EventDataType: Int {
     case Agenda = 0
+    case Attendee
     case Sponsors
+    case Survey
     case Notifications
 }
 
@@ -19,14 +21,18 @@ private let _sharedInstance = EventDataStore()
 class EventDataStore {
     
     private var agendaDatasource = ParseTableDataSource(name: "Event")
+    private var attendeeDatasource = ParseTableDataSource(name: "Attendee")
     private var sponsorDatasource = ParseTableDataSource(name: "Company")
+    private var surveyDatasource = ParseTableDataSource(name: "Survey")
     
     var notificationsDatasource = NotificationTableDataSource(name: "Notification")
     var favorites : Favorites = Favorites()             // self loading
     var lastPositions : [ String : [ AnyObject ] ] = [ String : [AnyObject]]()
 
     private var isAgendaLoaded = false
+    private var isAttendeeLoaded = false
     private var isSponsorsLoaded = false
+    private var isSurveyLoaded = false
     private var isNotificationsLoaded = false
     
     class func sharedInstance() -> EventDataStore {
@@ -41,9 +47,6 @@ class EventDataStore {
     // MARK: Networking
     
     func loadRemoteData() {
-        agendaDatasource.load()
-        sponsorDatasource.load()
-        notificationsDatasource.load()
         
         // TODO: Re-enable these closures        
 //        loadRemoteDataForType(EventDataType.Agenda){ (refreshed) -> () in }
@@ -57,8 +60,12 @@ class EventDataStore {
             
         case .Agenda:
             loadAgendaData(completion)
+        case .Attendee:
+            loadAttendeeData(completion)
         case .Sponsors:
             loadSponsorData(completion)
+        case .Survey:
+            loadSurveyData(completion)
         case .Notifications:
             loadNotificationData(completion)
         }
@@ -75,6 +82,17 @@ class EventDataStore {
             }
         }
     }
+    
+    private func loadAttendeeData(completion:((refreshed: Bool) -> Void)) {
+        
+        if isAttendeeLoaded {
+            completion(refreshed: false)
+        } else {
+            // TODO
+        }
+        
+        
+    }
 
     private func loadSponsorData(completion:((refreshed:Bool) -> Void)) {
         
@@ -85,6 +103,18 @@ class EventDataStore {
                 self.isSponsorsLoaded = successful
                 completion(refreshed: true)
             }
+        }
+    }
+    
+    private func loadSurveyData(completion:((refreshed:Bool) -> Void)) {
+        
+        if isSurveyLoaded {
+            completion(refreshed: false)
+        } else {
+            surveyDatasource.refresh({ (successful, error) -> () in
+                self.isSurveyLoaded = true
+                completion(refreshed: true)
+            })
         }
     }
 
@@ -106,8 +136,12 @@ class EventDataStore {
             
         case .Agenda:
             return isAgendaLoaded
+        case .Attendee:
+            return isAttendeeLoaded
         case .Sponsors:
             return isSponsorsLoaded
+        case .Survey:
+            return isSurveyLoaded
         case .Notifications:
             return isNotificationsLoaded
         }
@@ -119,8 +153,12 @@ class EventDataStore {
             
         case .Agenda:
             return agendaDatasource
+        case .Attendee:
+            return attendeeDatasource
         case .Sponsors:
             return sponsorDatasource
+        case .Survey:
+            return surveyDatasource
         case .Notifications:
             return notificationsDatasource
         }

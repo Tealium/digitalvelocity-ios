@@ -24,6 +24,9 @@ class User: NSObject {
         didSet{
             // lowercasing here seems to not work
             save(email?.lowercaseString, key:userEmailKey)
+            
+            // Set off network request for user preference info (NO PII)
+            
         }
     }
     var traceId: String?{

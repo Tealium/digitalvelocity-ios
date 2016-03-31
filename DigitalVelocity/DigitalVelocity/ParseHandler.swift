@@ -17,6 +17,7 @@ class ParseHandler: NSObject {
     var pfoEvents : [PFObject] = [PFObject]()
     var pfoLocations : [PFObject] = [PFObject]()
     var pfoNotifications : [PFObject] = [PFObject]()    // local only
+    var pfoSurveys : [PFObject] = [PFObject]()
     
     var areRegisteredForPush = false
     var categories: [Category] = [Category]()
@@ -55,6 +56,7 @@ class ParseHandler: NSObject {
     let classKeyUser = "User"
     let classKeyNotification = "Notification"   // local only
     let classKeyFavorites = "Favorites"         // local only
+    let classKeySurvey = "Survey"
     
     let userLastUsedAppKey = "DV2015_LU"
     
@@ -150,6 +152,7 @@ class ParseHandler: NSObject {
     }
     
     func categoriesWithCellData(className:String, ascending:Bool, completion:(success:Bool, sortedCategories: [Category]?, error:NSError?)->()){
+        
         var sortedCatCellData : [Category] = [Category]()
         
         switch(className){
@@ -159,6 +162,8 @@ class ParseHandler: NSObject {
             sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(self.pfoCompanies, ascending:ascending, categories: allCategories())
 //        case classKeyNotification:
 //            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(self.pfoNotifications,ascending:ascending, categories: nil)
+        case classKeySurvey:
+            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(self.pfoSurveys, ascending:ascending, categories:allCategories())
         default:
             sortedCatCellData = [Category]()
         }
@@ -252,7 +257,9 @@ class ParseHandler: NSObject {
         query.whereKey(keyVisible, equalTo: true)
         
         query.findObjectsInBackgroundWithBlock { (pfObjects, error) -> Void in
+            
             completion(pfObjects: self.verifiedPFObjectsArray(pfObjects), error: error)
+            
         }
     }
     
@@ -269,10 +276,14 @@ class ParseHandler: NSObject {
             self.updateEvents(pfObjects)
         case self.classKeyLocation:
             self.updateLocations(pfObjects)
+        case self.classKeySurvey:
+            self.updateSurveys(pfObjects)
         default:
             TEALLog.log("Unknown target class for fetch: \(className)")
         }
     }
+    
+    // TODO: These update methods need to be optimized, too much repeated code
     
     private func updateCategories(objects:[PFObject]){
         if objects.count == 0 {
@@ -334,6 +345,17 @@ class ParseHandler: NSObject {
         self.saveLastUpdatedAtForClass(classKeyLocation, date: NSDate())
     }
     
+    private func updateSurveys(objects:[PFObject]){
+        if objects.count == 0 {
+            TEALLog.log("No PFObjects provided to call")
+            return
+        }
+        
+        self.pfoSurveys = objects //self.updatePFObjectArray(self.pfoCompanies, updates: objects)
+        self.saveLastUpdatedAtForClass(classKeyCompany, date: NSDate())
+        
+    }
+    
     private func load(className:String){
 
         queryClassDataStoreForExistingKeys(className, keys: []) { (pfObjects, error) -> () in
@@ -377,6 +399,7 @@ class ParseHandler: NSObject {
         load(classKeyEvent)
         load(classKeyCompany)
         load(classKeyLocation)
+        load(classKeySurvey)
         isLoaded = true
     }
     

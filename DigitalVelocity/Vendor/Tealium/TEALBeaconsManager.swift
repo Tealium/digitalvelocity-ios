@@ -388,8 +388,16 @@ class TEALBeaconsManager: CLLocationManager {
     
     private func confirmedNewNearestImprint(imprint:TEALImprint){
         setNewImprintCurrent(imprint)
+        
+        var finalData = [ NSObject : AnyObject]()
+        
+        finalData.addEntriesFrom(UserData.getVIPPreferences())
+        
         let data = [asKeyEventName : asValueEnterPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
-        Analytics.track(asValueEnterPOI, isView: false, data: data)
+        
+        finalData.addEntriesFrom(data)
+        
+        Analytics.track(asValueEnterPOI, isView: false, data: finalData)
         
         TEALLog.log("FOUND imprint:\(imprint.description)\n\n")
         checkFutureInImprint(imprint)
@@ -415,7 +423,9 @@ class TEALBeaconsManager: CLLocationManager {
             if imprint.lastFoundAtPassedThreshold(config.exitThreshold){
                 confirmedLeftImprint(imprint)
             } else if canMonitor() {
+                
                 let data = [asKeyEventName : asValueInPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
+                
                 Analytics.track(asValueInPOI, isView: false, data: data)
                 
                 checkFutureInImprint(imprint)
