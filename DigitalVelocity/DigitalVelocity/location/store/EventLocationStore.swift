@@ -117,8 +117,8 @@ class EventLocationStore {
         layouts.removeAll(keepCapacity: false)
         maps.removeAll(keepCapacity: false)
         
-//        parse.queryClassForExistingKeys(parse.classKeyLocation, keys: []) { (pfObjects, error) -> () in
-        let pfObjects = ph.pfoLocations
+        let pfObjects = ph.pfObjectsForClass(PARSE_CLASS_KEY_LOCATION)
+//        let pfObjects = ph.pfoLocations
             for obj:PFObject in pfObjects as Array<PFObject> {
 
                 if obj[parse.keyLatitude] != nil { // is Map

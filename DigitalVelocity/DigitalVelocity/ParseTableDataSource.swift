@@ -11,24 +11,12 @@ import UIKit
 
 class ParseTableDataSource: TableDataSource {
     
-//    override func load() {
-//        self.refresh { (successful, error) -> () in
-//            
-//            TEALLog.log("Success: \(successful) error:\(error)")
-//        }
-//    }
-    
-    private func fetchNew(completion:(successful:Bool, error:NSError?) ->())->Void{
-        
-        ph.loadConfig()
-        
-    }
-    
     override func refresh(completion:(successful:Bool, error:NSError?) ->())->Void{
         
         ph.categoriesWithCellData(name, ascending:true, completion: { (success, sortedCategories, error) -> () in
 
             self.sortedCategories = sortedCategories!
+            self.isLoaded = true
             completion(successful: success, error: error)
             
         })

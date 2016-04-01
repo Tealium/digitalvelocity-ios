@@ -388,6 +388,11 @@ class ParseConverter {
             cell.locationId = l
         }
         
+        // Survey questions
+        if let surveyQuestionIds = pfo[ph.keyQuestionIds] as? [String] {
+            cell.data[ph.keyQuestionIds] = surveyQuestionIds
+        }
+        
         return cell
     }
     

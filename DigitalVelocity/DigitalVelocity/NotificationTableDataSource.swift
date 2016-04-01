@@ -21,6 +21,7 @@ class NotificationTableDataSource: TableDataSource {
         } else {
             self.sortedCategories = convertNotificationsToCategories(na)
         }
+        isLoaded = true
         completion(successful: true, error: nil)
     }
     

@@ -8,16 +8,22 @@
 
 import Foundation
 
+
+let PARSE_CLASS_KEY_ATTENDEE = "Attendee"
+let PARSE_CLASS_KEY_CATEGORY = "Category"
+let PARSE_CLASS_KEY_COMPANY = "Company"
+let PARSE_CLASS_KEY_CONFIG = "Config"
+let PARSE_CLASS_KEY_EVENT = "Event"
+let PARSE_CLASS_KEY_LOCATION = "Location"
+let PARSE_CLASS_KEY_NOTIFICATION = "Notification"
+let PARSE_CLASS_KEY_QUESTION = "Question"
+let PARSE_CLASS_KEY_SURVEY = "Survey"
+
 private let _sharedInstance = ParseHandler()
 
 class ParseHandler: NSObject {
     
-    // Arrays of PFObjects
-    var pfoCompanies : [PFObject] = [PFObject]()
-    var pfoEvents : [PFObject] = [PFObject]()
-    var pfoLocations : [PFObject] = [PFObject]()
-    var pfoNotifications : [PFObject] = [PFObject]()    // local only
-    var pfoSurveys : [PFObject] = [PFObject]()
+    var parseObjects = [ String : AnyObject ]()
     
     var areRegisteredForPush = false
     var categories: [Category] = [Category]()
@@ -40,6 +46,7 @@ class ParseHandler: NSObject {
     let keyLongitude = "longitude"
     let keyObjectId = "objectId"
     let keyPriority = "priority"
+    let keyQuestionIds = "questionIds"
     let keyRoomName = "roomName"
     let keyStart = "start"
     let keyStartDate = "startDate"
@@ -48,15 +55,9 @@ class ParseHandler: NSObject {
     let keyUpdatedAt = "updatedAt"
     let keyUrl = "url"
     let keyVisible = "visible"
-    let classKeyCategory = "Category"
-    let classKeyCompany = "Company"
-    let classKeyConfig = "Config"
-    let classKeyEvent = "Event"
-    let classKeyLocation = "Location"
     let classKeyUser = "User"
     let classKeyNotification = "Notification"   // local only
     let classKeyFavorites = "Favorites"         // local only
-    let classKeySurvey = "Survey"
     
     let userLastUsedAppKey = "DV2015_LU"
     
@@ -154,16 +155,16 @@ class ParseHandler: NSObject {
     func categoriesWithCellData(className:String, ascending:Bool, completion:(success:Bool, sortedCategories: [Category]?, error:NSError?)->()){
         
         var sortedCatCellData : [Category] = [Category]()
+        var pfObjects = self.pfObjectsForClass(className)
         
         switch(className){
-        case classKeyEvent:
-            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(self.pfoEvents, ascending:ascending, categories: allCategories())
-        case classKeyCompany:
-            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(self.pfoCompanies, ascending:ascending, categories: allCategories())
-//        case classKeyNotification:
-//            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(self.pfoNotifications,ascending:ascending, categories: nil)
-        case classKeySurvey:
-            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(self.pfoSurveys, ascending:ascending, categories:allCategories())
+        case PARSE_CLASS_KEY_EVENT:
+            fallthrough
+        case PARSE_CLASS_KEY_COMPANY:
+            fallthrough
+        case PARSE_CLASS_KEY_SURVEY:
+            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(pfObjects, ascending:ascending, categories: allCategories())
+
         default:
             sortedCatCellData = [Category]()
         }
@@ -196,7 +197,7 @@ class ParseHandler: NSObject {
     func loadConfig(){
         
         self.config = Config.loadConfig()
-        fetch(classKeyConfig, lastUpdatedAt: nil, completion: { (pfObjects, error) -> () in
+        fetch(PARSE_CLASS_KEY_CONFIG, lastUpdatedAt: nil, completion: { (pfObjects, error) -> () in
             if error != nil{
             }
             
@@ -263,25 +264,43 @@ class ParseHandler: NSObject {
         }
     }
     
-    private func update(className:String, pfObjects:[PFObject]){
-        switch(className){
-        case self.classKeyConfig:
-            self.updateConfig(pfObjects)
-        case self.classKeyCategory:
-            self.updateCategories(pfObjects)
-            self.loadAll()
-        case self.classKeyCompany:
-            self.updateCompanies(pfObjects)
-        case self.classKeyEvent:
-            self.updateEvents(pfObjects)
-        case self.classKeyLocation:
-            self.updateLocations(pfObjects)
-        case self.classKeySurvey:
-            self.updateSurveys(pfObjects)
-        default:
-            TEALLog.log("Unknown target class for fetch: \(className)")
+    
+    func pfObjectsForClass(className: String) -> [PFObject]{
+    
+        if let objects = self.parseObjects[className] as? [PFObject]{
+            
+            return objects
+            
         }
+        
+        return [PFObject]()
+    
     }
+    
+    private func update(className:String, pfObjects:[PFObject]){
+        
+        // Exception classes
+        if className == PARSE_CLASS_KEY_CONFIG{
+            self.updateConfig(pfObjects)
+            return
+        }
+        
+        if className == PARSE_CLASS_KEY_CATEGORY {
+            self.updateCategories(pfObjects)
+            return
+        }
+        
+        // All other classes
+        if pfObjects.count == 0 {
+            TEALLog.log("No PFObjects provided to call for class: \(className)")
+            return
+        }
+        
+        self.parseObjects[className] = pfObjects
+        self.saveLastUpdatedAtForClass(className, date: NSDate())
+        
+    }
+
     
     // TODO: These update methods need to be optimized, too much repeated code
     
@@ -292,7 +311,7 @@ class ParseHandler: NSObject {
         }
         
         self.categories = ParseConverter.categoriesFromPFObjects(objects)
-        self.saveLastUpdatedAtForClass(classKeyCategory, date: NSDate())
+        self.saveLastUpdatedAtForClass(PARSE_CLASS_KEY_CATEGORY, date: NSDate())
     }
 
     private func updateConfig(objects:[PFObject]){
@@ -310,50 +329,8 @@ class ParseHandler: NSObject {
         if (self.config.shouldPurge == true){
             purgeAll()
         } else {
-            self.load(classKeyCategory)
+            self.load(PARSE_CLASS_KEY_CATEGORY)
         }
-    }
-    
-    private func updateCompanies(objects:[PFObject]){
-        if objects.count == 0 {
-            TEALLog.log("No PFObjects provided to call")
-            return
-        }
-        
-        self.pfoCompanies = objects //self.updatePFObjectArray(self.pfoCompanies, updates: objects)
-        self.saveLastUpdatedAtForClass(classKeyCompany, date: NSDate())
-
-    }
-    
-    private func updateEvents(objects:[PFObject]){
-        if objects.count == 0 {
-            TEALLog.log("No PFObjects provided to call")
-            return
-        }
-        
-        self.pfoEvents = objects //self.updatePFObjectArray(self.pfoCompanies, updates: objects)
-        self.saveLastUpdatedAtForClass(classKeyEvent, date: NSDate())
-    }
-    
-    private func updateLocations(objects:[PFObject]){
-        if objects.count == 0 {
-            TEALLog.log("No PFObjects provided to call")
-            return
-        }
-        
-        self.pfoLocations = objects
-        self.saveLastUpdatedAtForClass(classKeyLocation, date: NSDate())
-    }
-    
-    private func updateSurveys(objects:[PFObject]){
-        if objects.count == 0 {
-            TEALLog.log("No PFObjects provided to call")
-            return
-        }
-        
-        self.pfoSurveys = objects //self.updatePFObjectArray(self.pfoCompanies, updates: objects)
-        self.saveLastUpdatedAtForClass(classKeyCompany, date: NSDate())
-        
     }
     
     private func load(className:String){
@@ -396,10 +373,11 @@ class ParseHandler: NSObject {
     }
     
     private func loadAll(){
-        load(classKeyEvent)
-        load(classKeyCompany)
-        load(classKeyLocation)
-        load(classKeySurvey)
+        load(PARSE_CLASS_KEY_EVENT)
+        load(PARSE_CLASS_KEY_COMPANY)
+        load(PARSE_CLASS_KEY_LOCATION)
+        load(PARSE_CLASS_KEY_QUESTION)
+        load(PARSE_CLASS_KEY_SURVEY)
         isLoaded = true
     }
     
@@ -474,7 +452,7 @@ class ParseHandler: NSObject {
             if error != nil {
                 TEALLog.log("Unpin error:\(error?.localizedDescription)")
             }
-            self.load(self.classKeyCategory)
+            self.load(PARSE_CLASS_KEY_CATEGORY)
         }
     }
 

@@ -37,7 +37,7 @@ class Push {
     class func processRemoteNotificationForParse(userInfo: [NSObject:AnyObject]){
         if let aps = userInfo["aps"] as? NSDictionary{
             if let alert = aps["alert"] as? String{
-                EventDataStore.sharedInstance().notificationsDatasource.notifications.addNotification(alert)
+                EventDataStore.sharedInstance().notificationsDatasource().notifications.addNotification(alert)
             }
         }
     }
