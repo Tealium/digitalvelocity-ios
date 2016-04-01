@@ -11,6 +11,7 @@ import UIKit
 
 class TableDataSource: NSObject {
    
+    var isLoaded = false
     var name: String
     var filteredCategories : [Category]!
     var sortedCategories : [Category] = [Category]()

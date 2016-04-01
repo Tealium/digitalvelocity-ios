@@ -79,14 +79,22 @@ class Category : NSObject{
         return sortedCellData(cellDataSortAscending, cellDataArray: cellData)
     }
     
+    // TODO: Upgrade to take multiple terms
     func filteredCellData(searchTerm : String?) -> [CellData]{
+        
         if let searchTerm = searchTerm{
             if searchTerm == "_favorites"{
                 let filteredData = cellData.filter({m in m.isLocalFavorite() == true})
                 return sortedCellData(cellDataSortAscending, cellDataArray: filteredData)
             }
             
+            let filteredData = cellData.filter({m in m.objectId == searchTerm})
+            return sortedCellData(cellDataSortAscending, cellDataArray: filteredData)
+
             // TODO: add future search feature here
+            
+            
+            
         }
         return sortedCellData(cellDataSortAscending, cellDataArray: cellData)
     }

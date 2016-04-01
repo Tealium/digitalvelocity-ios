@@ -38,7 +38,7 @@ class Welcome_VC: UIViewController {
             refreshButton.userInteractionEnabled = true
             refreshButton.alpha = 1.0
             ph.loadConfig()
-            EventDataStore.sharedInstance().loadRemoteData()
+//            EventDataStore.sharedInstance().loadRemoteData()
         } else {
             refreshButton.userInteractionEnabled = false
             refreshButton.alpha = 0.0

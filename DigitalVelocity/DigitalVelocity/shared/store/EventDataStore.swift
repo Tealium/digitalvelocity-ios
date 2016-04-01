@@ -11,6 +11,7 @@ import Foundation
 enum EventDataType: Int {
     case Agenda = 0
     case Attendee
+    case Question
     case Sponsors
     case Survey
     case Notifications
@@ -20,20 +21,10 @@ private let _sharedInstance = EventDataStore()
 
 class EventDataStore {
     
-    private var agendaDatasource = ParseTableDataSource(name: "Event")
-    private var attendeeDatasource = ParseTableDataSource(name: "Attendee")
-    private var sponsorDatasource = ParseTableDataSource(name: "Company")
-    private var surveyDatasource = ParseTableDataSource(name: "Survey")
+    private var tableDataSources = [ String: AnyObject]()
     
-    var notificationsDatasource = NotificationTableDataSource(name: "Notification")
     var favorites : Favorites = Favorites()             // self loading
     var lastPositions : [ String : [ AnyObject ] ] = [ String : [AnyObject]]()
-
-    private var isAgendaLoaded = false
-    private var isAttendeeLoaded = false
-    private var isSponsorsLoaded = false
-    private var isSurveyLoaded = false
-    private var isNotificationsLoaded = false
     
     class func sharedInstance() -> EventDataStore {
         return _sharedInstance
@@ -43,64 +34,92 @@ class EventDataStore {
         
     }
     
+    private func stringFromEventType(type:EventDataType) -> String {
+        
+        switch(type){
+        case .Agenda:
+            return PARSE_CLASS_KEY_EVENT
+        case .Attendee:
+            return PARSE_CLASS_KEY_ATTENDEE
+        case .Question:
+            return PARSE_CLASS_KEY_QUESTION
+        case .Sponsors:
+            return PARSE_CLASS_KEY_COMPANY
+        case .Survey:
+            return PARSE_CLASS_KEY_SURVEY
+        case .Notifications:
+            return PARSE_CLASS_KEY_NOTIFICATION
+        }
+        
+    }
+    
+    func notificationsDatasource() -> NotificationTableDataSource {
+        
+        return self.dataSourceForType(.Notifications) as! NotificationTableDataSource
+        
+    }
+    
+    func dataSourceForType(type: EventDataType) -> TableDataSource {
+        
+        let typeString = self.stringFromEventType(type)
+        
+        print("DataSource Type string: \(typeString)")
+        
+        // Exception
+        if type == .Notifications {
+         
+            guard let tableDataSource = self.tableDataSources[typeString] as? NotificationTableDataSource else {
+                
+                TEALLog.log("Starting up new Notifications Table Data Source.")
+                
+                let notification = NotificationTableDataSource(name: PARSE_CLASS_KEY_NOTIFICATION)
+                
+                self.tableDataSources[PARSE_CLASS_KEY_NOTIFICATION] = notification
+                
+                return notification
+                
+            }
+            
+            return tableDataSource
+            
+        }
+        
+        // All Else
+        guard let tableDataSource = self.tableDataSources[typeString] as? ParseTableDataSource else {
+            
+            
+            TEALLog.log("Starting up new \(typeString) Table Data Source.")
+            
+            let dataSource = ParseTableDataSource(name: typeString)
+            
+            self.tableDataSources[typeString] = dataSource
+            
+            return dataSource
+            
+        }
+        
+        return tableDataSource
+    }
+    
     
     // MARK: Networking
     
-    func loadRemoteData() {
-        
-        // TODO: Re-enable these closures        
-//        loadRemoteDataForType(EventDataType.Agenda){ (refreshed) -> () in }
-//        loadRemoteDataForType(EventDataType.Notifications){ (refreshed) -> () in }
-//        loadRemoteDataForType(EventDataType.Sponsors){ (refreshed) -> () in }
-    }
-
     func loadRemoteDataForType(type:EventDataType, completion:((refreshed:Bool) -> Void)) {
-
-        switch(type) {
-            
-        case .Agenda:
-            loadAgendaData(completion)
-        case .Attendee:
-            loadAttendeeData(completion)
-        case .Sponsors:
-            loadSponsorData(completion)
-        case .Survey:
-            loadSurveyData(completion)
-        case .Notifications:
-            loadNotificationData(completion)
-        }
-    }
-
-    private func loadAgendaData(completion:((refreshed:Bool) -> Void)) {
         
-        if isAgendaLoaded {
-            completion(refreshed: false)
-        } else {
-            agendaDatasource.refresh { (successful, error) -> () in
-                self.isAgendaLoaded = successful
-                completion(refreshed: true)
-            }
-        }
-    }
-    
-    private func loadAttendeeData(completion:((refreshed: Bool) -> Void)) {
+        let dataSource = self.dataSourceForType(type)
         
-        if isAttendeeLoaded {
-            completion(refreshed: false)
-        } else {
-            // TODO
+        // Exceptions
+        if (type == .Survey){
+            self.loadSurveyData(completion)
+            return
         }
         
-        
-    }
-
-    private func loadSponsorData(completion:((refreshed:Bool) -> Void)) {
-        
-        if isSponsorsLoaded {
+        // All Others
+        if dataSource.isLoaded == true {
             completion(refreshed: false)
         } else {
-            sponsorDatasource.refresh { (successful, error) -> () in
-                self.isSponsorsLoaded = successful
+        
+            dataSource.refresh { (successful, error) -> () in
                 completion(refreshed: true)
             }
         }
@@ -108,59 +127,33 @@ class EventDataStore {
     
     private func loadSurveyData(completion:((refreshed:Bool) -> Void)) {
         
-        if isSurveyLoaded {
-            completion(refreshed: false)
-        } else {
-            surveyDatasource.refresh({ (successful, error) -> () in
-                self.isSurveyLoaded = true
-                completion(refreshed: true)
-            })
-        }
-    }
-
-    private func loadNotificationData(completion:((refreshed:Bool) -> Void)) {
+        let surveyDatasource = self.dataSourceForType(.Survey)
+        let questionDatasource = self.dataSourceForType(.Question)
         
-        if isNotificationsLoaded {
-            completion(refreshed: false)
-        } else {
-            notificationsDatasource.refresh { (successful, error) -> () in
-                self.isNotificationsLoaded = true
-                completion(refreshed: true)
-            }
-        }
-    }
-
-    func isDatasourceLoadedForType(type:EventDataType) -> Bool {
-        
-        switch(type) {
+        if surveyDatasource.isLoaded == true {
             
-        case .Agenda:
-            return isAgendaLoaded
-        case .Attendee:
-            return isAttendeeLoaded
-        case .Sponsors:
-            return isSponsorsLoaded
-        case .Survey:
-            return isSurveyLoaded
-        case .Notifications:
-            return isNotificationsLoaded
+            completion(refreshed: false)
+            
+        } else {
+            
+            // refresh pull for questions data first
+            questionDatasource.refresh({ (successful, error) -> () in
+              
+                if successful == false {
+                    TEALLog.log("No new question data found.")
+                }
+                
+                surveyDatasource.refresh({ (successful, error) -> () in
+                
+
+                    
+                    completion(refreshed: true)
+                
+                })
+                
+            })
+
         }
     }
     
-    func datasourceForType(type:EventDataType) -> TableDataSource {
-
-        switch(type) {
-            
-        case .Agenda:
-            return agendaDatasource
-        case .Attendee:
-            return attendeeDatasource
-        case .Sponsors:
-            return sponsorDatasource
-        case .Survey:
-            return surveyDatasource
-        case .Notifications:
-            return notificationsDatasource
-        }
-    }
 }
