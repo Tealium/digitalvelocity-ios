@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221957AC1CAB2FA800BE23BA /* Survey_TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221957AB1CAB2FA800BE23BA /* Survey_TableVC.swift */; };
+		221957AE1CAC4B6900BE23BA /* SurveyDetail_TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221957AD1CAC4B6900BE23BA /* SurveyDetail_TVC.swift */; };
+		221957B01CAC4D6300BE23BA /* SurveyBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221957AF1CAC4D6300BE23BA /* SurveyBaseCell.swift */; };
 		2236EF961C8E327800FA5B84 /* DigitalVelocityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236EF951C8E327800FA5B84 /* DigitalVelocityUITests.swift */; };
 		22BD45401C7E24CD0086309C /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 22BD453F1C7E24CD0086309C /* credentials.json */; };
+		22D9783F1CAF233000E0E636 /* SubmitButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */; };
+		22D978411CAF248E00E0E636 /* SurveyQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */; };
+		22F2EB8A1CAEF0D0003F48DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F2EB891CAEF0D0003F48DB /* Main.storyboard */; };
 		37022D821AC5C88D00CED019 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37022D811AC5C88D00CED019 /* MessageCell.swift */; };
 		3785AAA01AC6899400CDF588 /* EventDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785AA9F1AC6899400CDF588 /* EventDataStore.swift */; };
 		37BCCCE71AC8798300196851 /* AgendaItemDetailBase_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCE11AC8798300196851 /* AgendaItemDetailBase_VC.swift */; };
@@ -48,7 +54,6 @@
 		714A196F1AB24981005B5EE6 /* DV_Icon_t_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 714A196E1AB24981005B5EE6 /* DV_Icon_t_180x180.png */; };
 		714A19731AB24E86005B5EE6 /* DV_Icon_t_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 714A19721AB24E86005B5EE6 /* DV_Icon_t_40x40.png */; };
 		714CDC2C1AB00E3C00E7CA68 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714CDC2B1AB00E3C00E7CA68 /* Extensions.swift */; };
-		7150ABE51A82DFF400BEDFB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7150ABE31A82DFF400BEDFB7 /* Main.storyboard */; };
 		7150ABE71A82DFF400BEDFB7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7150ABE61A82DFF400BEDFB7 /* Images.xcassets */; };
 		7150ABEA1A82DFF500BEDFB7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7150ABE81A82DFF400BEDFB7 /* LaunchScreen.xib */; };
 		7150ABF61A82DFF500BEDFB7 /* DigitalVelocityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150ABF51A82DFF500BEDFB7 /* DigitalVelocityTests.swift */; };
@@ -154,10 +159,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		221957AB1CAB2FA800BE23BA /* Survey_TableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey_TableVC.swift; sourceTree = "<group>"; };
+		221957AD1CAC4B6900BE23BA /* SurveyDetail_TVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyDetail_TVC.swift; sourceTree = "<group>"; };
+		221957AF1CAC4D6300BE23BA /* SurveyBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyBaseCell.swift; sourceTree = "<group>"; };
 		2236EF931C8E327800FA5B84 /* DigitalVelocityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalVelocityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2236EF951C8E327800FA5B84 /* DigitalVelocityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalVelocityUITests.swift; sourceTree = "<group>"; };
 		2236EF971C8E327800FA5B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22BD453F1C7E24CD0086309C /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials.json; sourceTree = "<group>"; };
+		22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonCell.swift; sourceTree = "<group>"; };
+		22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyQuestionCell.swift; sourceTree = "<group>"; };
+		22F2EB891CAEF0D0003F48DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		248E0DD92F440A7634A19CF8 /* Pods-DigitalVelocity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocity.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalVelocity/Pods-DigitalVelocity.release.xcconfig"; sourceTree = "<group>"; };
 		37022D811AC5C88D00CED019 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		3785AA9F1AC6899400CDF588 /* EventDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDataStore.swift; sourceTree = "<group>"; };
@@ -197,7 +208,6 @@
 		714A19721AB24E86005B5EE6 /* DV_Icon_t_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DV_Icon_t_40x40.png; sourceTree = "<group>"; };
 		714CDC2B1AB00E3C00E7CA68 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../Extensions.swift; sourceTree = "<group>"; };
 		7150ABDA1A82DFF400BEDFB7 /* DigitalVelocity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalVelocity.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7150ABE41A82DFF400BEDFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7150ABE61A82DFF400BEDFB7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7150ABE91A82DFF500BEDFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7150ABEF1A82DFF500BEDFB7 /* DigitalVelocityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalVelocityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,7 +330,6 @@
 				E77929B11AC1E23300A56862 /* model */,
 				E77929B51AC1E23300A56862 /* store */,
 				E77929B71AC1E23300A56862 /* view */,
-				E77929AF1AC1E23300A56862 /* controller */,
 			);
 			name = "Event Location";
 			sourceTree = "<group>";
@@ -410,6 +419,18 @@
 				37BCCCF11AC87A4300196851 /* SignIn_VC.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		221957AA1CAB2F5300BE23BA /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				221957AB1CAB2FA800BE23BA /* Survey_TableVC.swift */,
+				221957AD1CAC4B6900BE23BA /* SurveyDetail_TVC.swift */,
+				221957AF1CAC4D6300BE23BA /* SurveyBaseCell.swift */,
+				22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */,
+				22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */,
+			);
+			name = Survey;
 			sourceTree = "<group>";
 		};
 		2236EF941C8E327800FA5B84 /* DigitalVelocityUITests */ = {
@@ -515,6 +536,7 @@
 		7150ABDC1A82DFF400BEDFB7 /* DigitalVelocity */ = {
 			isa = PBXGroup;
 			children = (
+				221957AA1CAB2F5300BE23BA /* Survey */,
 				221957A91CAAFEA600BE23BA /* Login */,
 				221957A81CAAFDC000BE23BA /* Welcome */,
 				221957A01CAAFB3F00BE23BA /* Event Location */,
@@ -529,8 +551,9 @@
 				71D606941A93ABE9008BDFE2 /* Assets */,
 				7181D7141A9688CB004EDF7E /* DataHandling */,
 				E77929BA1AC1E23300A56862 /* shared */,
-				7150ABE31A82DFF400BEDFB7 /* Main.storyboard */,
 				7150ABE61A82DFF400BEDFB7 /* Images.xcassets */,
+				22F2EB891CAEF0D0003F48DB /* Main.storyboard */,
+				E77929AF1AC1E23300A56862 /* controller */,
 				7150ABE81A82DFF400BEDFB7 /* LaunchScreen.xib */,
 			);
 			path = DigitalVelocity;
@@ -882,8 +905,8 @@
 				71F200571A93B46A00887D1B /* MyriadPro-Light.otf in Resources */,
 				71854CCA1AB6917300D819E0 /* Training.jpg in Resources */,
 				71F200641A93C64800887D1B /* DV_Icon_120x120.png in Resources */,
+				22F2EB8A1CAEF0D0003F48DB /* Main.storyboard in Resources */,
 				71F200621A93C64800887D1B /* DV_Icon_40x40@2x.png in Resources */,
-				7150ABE51A82DFF400BEDFB7 /* Main.storyboard in Resources */,
 				71F200691A93CDF700887D1B /* Training@2x.jpg in Resources */,
 				7180B94D1AB658AD0046026A /* DV_Icon_t_40x40@2x.png in Resources */,
 				714A196F1AB24981005B5EE6 /* DV_Icon_t_180x180.png in Resources */,
@@ -1002,6 +1025,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221957AE1CAC4B6900BE23BA /* SurveyDetail_TVC.swift in Sources */,
 				37BCCCF81AC87A4300196851 /* SidePanel_VC.swift in Sources */,
 				71B939D31C7B5D2300948DBC /* ContentModification.swift in Sources */,
 				E77929CA1AC1E23300A56862 /* EventLocationStore.swift in Sources */,
@@ -1019,6 +1043,7 @@
 				71DDA48D1A9E8510007A000F /* TableDataSource.swift in Sources */,
 				71B0B8EA1CAB261D00213DEA /* UIColor+TealiumAdditions.m in Sources */,
 				E77929D31AC1E23300A56862 /* TEALProgressView.swift in Sources */,
+				22D978411CAF248E00E0E636 /* SurveyQuestionCell.swift in Sources */,
 				711370B91C7528F600EA9A48 /* Demo_VC.swift in Sources */,
 				E77929C61AC1E23300A56862 /* EventLocation_VC.swift in Sources */,
 				714CDC2C1AB00E3C00E7CA68 /* Extensions.swift in Sources */,
@@ -1031,8 +1056,10 @@
 				E7DC7B8F1ACC9AA10038F1CC /* ColorHelpers.swift in Sources */,
 				714A196D1AB24854005B5EE6 /* GlobalConstants.swift in Sources */,
 				71B939D11C7B5D1B00948DBC /* Push.swift in Sources */,
+				221957AC1CAB2FA800BE23BA /* Survey_TableVC.swift in Sources */,
 				E77929D11AC1E23300A56862 /* User.swift in Sources */,
 				71EA66F81B17C898008FE97F /* Welcome_Web_VC.swift in Sources */,
+				22D9783F1CAF233000E0E636 /* SubmitButtonCell.swift in Sources */,
 				E7BA83181ACC5308004868CE /* DateDisplayHelper.swift in Sources */,
 				37BCCCFF1AC87BD500196851 /* AgendaItemFontAwesomeDetail_VC.swift in Sources */,
 				711B83E21B0BD47500227B06 /* DVViewController.swift in Sources */,
@@ -1057,6 +1084,7 @@
 				E77929CE1AC1E23300A56862 /* SponsorsTable_VC.swift in Sources */,
 				37BCCCEA1AC8798300196851 /* AgendaFontAwesomeCell.swift in Sources */,
 				E77929D71AC1E3B200A56862 /* DVBaseTableViewCell.swift in Sources */,
+				221957B01CAC4D6300BE23BA /* SurveyBaseCell.swift in Sources */,
 				37BCCCEB1AC8798300196851 /* AgendaImageCell.swift in Sources */,
 				3785AAA01AC6899400CDF588 /* EventDataStore.swift in Sources */,
 				E77929C81AC1E23300A56862 /* LocationDataMap.swift in Sources */,
@@ -1100,14 +1128,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7150ABE31A82DFF400BEDFB7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7150ABE41A82DFF400BEDFB7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7150ABE81A82DFF400BEDFB7 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
