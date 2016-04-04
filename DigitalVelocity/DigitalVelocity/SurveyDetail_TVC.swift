@@ -45,19 +45,43 @@ class SurveyDetail_TVC: Table_VC {
     }
   
     func configureCell(cell:SurveyQuestionCell, data:CellData) {
-    
-            cell.titleLabel.text = "test"
-      
+        
+        let question = data.title
+        
+        // The question text
+        cell.titleLabel.text = question
+        
+        // For array of answer options to this question
+        guard let answersArray = data.data?[ph.keyAnswers] else {
+            
+            TEALLog.log("No answers available for question: \(question)")
+            
+            return
         }
+        
+        TEALLog.log("Answers for question: \(question): \(answersArray)")
+        
+    }
+    
     
     //To do: pass in answers to questions
     
     func saveSurveyAnswers(answer: String){
         
-            let mydictionary: Dictionary = [answer: "value"]
-            NSUserDefaults.standardUserDefaults().setValuesForKeysWithDictionary(mydictionary)
+        let index = NSIndexPath(forRow: 0, inSection: 0)
+        if let cellData = self.itemData[index] {
+            
+            // TODO: Add Survey object id to saved data so we know which survey has been completed
+//            let objectId = cellData.objectId
+            
+        } else {
+            TEALLog.log("No object id associated with survey.")
+        }
         
-            NSUserDefaults.standardUserDefaults().synchronize()
+        let mydictionary: Dictionary = [answer: "value"]
+        NSUserDefaults.standardUserDefaults().setValuesForKeysWithDictionary(mydictionary)
+    
+        NSUserDefaults.standardUserDefaults().synchronize()
 
     }
     

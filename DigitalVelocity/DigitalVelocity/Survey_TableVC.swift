@@ -70,7 +70,7 @@ class SurveyTable_VC: Table_VC {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        guard let selectedItemData = selectedItemData?.data else {
+        guard let selectedItemData = selectedItemData else {
             
             TEALLog.log("No survey detail data associated with cell tapped.")
             
@@ -79,11 +79,11 @@ class SurveyTable_VC: Table_VC {
         
         // Need to format detail cell data into <indexpath, cellData> for detail view
         
-//        if let detail = segue.destinationViewController as? SurveyDetail_TVC{
-//            
-//            detail.itemData = [ NSIndexPath.init(forRow: 0, inSection: 0) : selectedItemData]
-//            
-//        }
+        if let detail = segue.destinationViewController as? SurveyDetail_TVC{
+            
+            detail.itemData = [ NSIndexPath.init(forRow: 0, inSection: 0) : selectedItemData]
+            
+        }
     }
 }
 

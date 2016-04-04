@@ -27,7 +27,9 @@ class TableDataSource: NSObject {
     }
     
     override var description : String {
+        
         return "TableDataSource name:\(name) sortedCategoryCellData:\(sortedCategories)"
+        
     }
     
     init(name: String) {

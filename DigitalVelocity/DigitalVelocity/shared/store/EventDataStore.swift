@@ -87,15 +87,17 @@ class EventDataStore {
         // All Else
         guard let tableDataSource = self.tableDataSources[typeString] as? ParseTableDataSource else {
             
-            TEALLog.log("Starting up new \(typeString) Table Data Source.")
-            
             let dataSource = ParseTableDataSource(name: typeString)
             
             self.tableDataSources[typeString] = dataSource
             
+            TEALLog.log("Starting up new \(typeString) Table Data Source: \(dataSource)")
+
             return dataSource
             
         }
+        
+        TEALLog.log("Table Data source retrieved for \(typeString): \(tableDataSource)")
         
         return tableDataSource
     }

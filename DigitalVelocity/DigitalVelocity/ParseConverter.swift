@@ -201,6 +201,7 @@ class ParseConverter {
     
     // TODO: Move cell data sorting to Category
     class private func sortedCellDataForCategory(category:Category, ascending:Bool, allCellData:[CellData])->[CellData]{
+        
         let cid = category.objectId
         
         let filteredArray:[CellData] = allCellData.filter{ (cellData:CellData) -> Bool in
@@ -268,7 +269,7 @@ class ParseConverter {
         return catsToKeep
     }
     
-    class private func cellDatasForPFObjects(pfObjects:[AnyObject])->[CellData]{
+    class func cellDatasForPFObjects(pfObjects:[AnyObject])->[CellData]{
         var cellDatas = [CellData]()
         
         for pfObject in pfObjects{
@@ -288,6 +289,17 @@ class ParseConverter {
         // Origin object id
         if let oid = pfo.objectId{
             cell.objectId = oid
+        }
+        
+        
+        // Answers
+        if let answers = pfo[ph.keyAnswers] as? [String]{
+            
+            if cell.data == nil {
+                cell.data = [ String : AnyObject]()
+            }
+            
+            cell.data![ph.keyAnswers] = answers
         }
         
         // CreatedAt
