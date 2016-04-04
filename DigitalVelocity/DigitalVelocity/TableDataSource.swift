@@ -26,8 +26,16 @@ class TableDataSource: NSObject {
         }
     }
     
+    var searchTerms : [String]?{
+        didSet{
+            filteredCategories = multiFilterCategories(sortedCategories)
+        }
+    }
+    
     override var description : String {
+        
         return "TableDataSource name:\(name) sortedCategoryCellData:\(sortedCategories)"
+        
     }
     
     init(name: String) {
@@ -78,6 +86,29 @@ class TableDataSource: NSObject {
             }
         }
         return CellData()
+    }
+    
+    private func multiFilterCategories(categories:[Category])->[Category]{
+        
+        guard let searchTerms = searchTerms else {
+            // No searchTerms to use
+            return categories
+        }
+        
+        var newCategories : [Category] = [Category]()
+        for category in categories{
+            for term in searchTerms {
+                let newCategory = category.duplicate()
+                let newCellData = newCategory.filteredCellData(term)
+                if newCellData.count > 0 {
+                    newCategory.cellData = newCellData
+                    newCategories.append(newCategory)
+                } else {
+                    newCategory.cellData = [CellData]()
+                }
+            }
+        }
+        return newCategories
     }
     
     private func filterCategories(categories:[Category])->[Category]{

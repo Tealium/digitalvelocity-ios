@@ -106,6 +106,11 @@ class Table_VC: UITableViewController {
             if let s = store{
                 if let lastPositions = s.lastPositions[title]{
                     // Key on 2nd index due possibly to first being masked by nav bar. Scrolling to first index will appear incorrect to user
+                    if lastPositions.count < 1 {
+                        // No last position data
+                        return
+                    }
+                    
                     if let topIndexPath = lastPositions[1] as? NSIndexPath{
                         self.tableView?.scrollToRowAtIndexPath(topIndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
                     }

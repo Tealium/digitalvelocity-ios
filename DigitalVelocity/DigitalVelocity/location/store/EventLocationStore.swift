@@ -118,29 +118,27 @@ class EventLocationStore {
         maps.removeAll(keepCapacity: false)
         
         let pfObjects = ph.pfObjectsForClass(PARSE_CLASS_KEY_LOCATION)
-//        let pfObjects = ph.pfoLocations
-            for obj:PFObject in pfObjects as Array<PFObject> {
-
-                if obj[parse.keyLatitude] != nil { // is Map
-                    
-                    if let map = self.mapFromParseObject(obj) {
-                        self.maps.append(map)
-                    }
-                } else {
-
-                    if let layout = self.layoutFromParseObject(obj) {
-                        self.layouts.append(layout)
-                    }
+        for obj:PFObject in pfObjects as Array<PFObject> {
+            
+            if obj[parse.keyLatitude] != nil { // is Map
+                
+                if let map = self.mapFromParseObject(obj) {
+                    self.maps.append(map)
                 }
-
+            } else {
+                
+                if let layout = self.layoutFromParseObject(obj) {
+                    self.layouts.append(layout)
+                }
             }
             
-            self.loaded = (self.maps.count > 0 || self.layouts.count > 0)
-            
-            if let comp = completion {
-                comp()
-            }
-//        }
+        }
+        
+        self.loaded = (self.maps.count > 0 || self.layouts.count > 0)
+        
+        if let comp = completion {
+            comp()
+        }
     }
     
     func layoutFromParseObject(obj:PFObject) -> LocationDataLayout? {

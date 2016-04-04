@@ -10,12 +10,14 @@ import UIKit
 
 class SurveyTable_VC: Table_VC {
     
-    var surveyReuseID: String = "SurveyCell"
+    let surveyReuseID: String = "SurveyCell"
     
     override func viewDidLoad() {
+        
         eventDataType = EventDataType.Survey
         super.viewDidLoad()
 
+        setupNavigationItemsForController()
     }
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -55,16 +57,33 @@ class SurveyTable_VC: Table_VC {
         
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
-        let data = selectedItemData?.cellTrackingData([ String : AnyObject]())
-        Analytics.track("surveydetail_selected", isView: false, data: data)
-    
-        performSegueWithIdentifier(menuOptions.surveyDetail.storyboardId, sender: self)
-    }
+        guard let _ = selectedItemData?.data else  {
+
+            TEALLog.log("No survey detail data associated with cell at index: \(indexPath)")
+            
+            return
+        }
         
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let detail = segue.destinationViewController as? SurveyDetail_TVC{
-//           // detail.itemData = selectedItemData
-//        }
-//    }
+        performSegueWithIdentifier(menuOptions.surveyDetail.storyboardId, sender: self)
+
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        guard let selectedItemData = selectedItemData else {
+            
+            TEALLog.log("No survey detail data associated with cell tapped.")
+            
+            return
+        }
+        
+        // Need to format detail cell data into <indexpath, cellData> for detail view
+        
+        if let detail = segue.destinationViewController as? SurveyDetail_TVC{
+            
+            detail.itemData = [ NSIndexPath.init(forRow: 0, inSection: 0) : selectedItemData]
+            
+        }
+    }
 }
 
