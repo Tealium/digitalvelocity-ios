@@ -10,23 +10,38 @@ import UIKit
 
 class SurveyDetail_TVC: Table_VC {
 
-    var QuestionCellReuseID: String = "SurveyQuestionCell"
+    let QuestionCellReuseID: String = "SurveyQuestionCell"
     
     override func viewDidLoad() {
+        
+        eventDataType = EventDataType.Question
         super.viewDidLoad()
+        
+        setupNavigationItemsForController()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        // Clean up not calling on it's own so explicitly calling it here
+        self.cleanupItemData()
+        super.viewWillDisappear(animated)
     }
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let surveyDetail = cellDataForTableView(tableView, indexPath: indexPath)
+        
         if surveyDetail.title != nil {
             
             let cell:SurveyQuestionCell = tableView.dequeueReusableCellWithIdentifier(QuestionCellReuseID) as! SurveyQuestionCell
                 
                 configureCell(cell, data: surveyDetail)
                 return cell
+        } else {
+            let cell = MessageCell(reuseIdentifier: "blank")
+            cell.setupWithMessage("No Content Available")
+            return cell
         }
-        return DVBaseTableViewCell()
+        
     }
   
     func configureCell(cell:SurveyQuestionCell, data:CellData) {

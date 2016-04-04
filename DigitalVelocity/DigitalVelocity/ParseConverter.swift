@@ -390,7 +390,11 @@ class ParseConverter {
         
         // Survey questions
         if let surveyQuestionIds = pfo[ph.keyQuestionIds] as? [String] {
-            cell.data[ph.keyQuestionIds] = surveyQuestionIds
+            
+            var data = [String: AnyObject]()
+            data[ph.keyQuestionIds] = surveyQuestionIds
+            cell.data = data
+            
         }
         
         return cell

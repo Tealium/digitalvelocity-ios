@@ -87,7 +87,6 @@ class EventDataStore {
         // All Else
         guard let tableDataSource = self.tableDataSources[typeString] as? ParseTableDataSource else {
             
-            
             TEALLog.log("Starting up new \(typeString) Table Data Source.")
             
             let dataSource = ParseTableDataSource(name: typeString)
@@ -140,7 +139,7 @@ class EventDataStore {
             questionDatasource.refresh({ (successful, error) -> () in
               
                 if successful == false {
-                    TEALLog.log("No new question data found.")
+                    TEALLog.log("No new question data found. Current questions: \(questionDatasource)")
                 }
                 
                 surveyDatasource.refresh({ (successful, error) -> () in
