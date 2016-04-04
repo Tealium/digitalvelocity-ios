@@ -20,6 +20,11 @@ class SurveyDetail_TVC: Table_VC {
         setupNavigationItemsForController()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.filterQuestions()
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         // Clean up not calling on it's own so explicitly calling it here
         self.cleanupItemData()
@@ -29,6 +34,7 @@ class SurveyDetail_TVC: Table_VC {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         let surveyDetail = cellDataForTableView(tableView, indexPath: indexPath)
+        
         
         if surveyDetail.title != nil {
             
@@ -43,6 +49,41 @@ class SurveyDetail_TVC: Table_VC {
         }
         
     }
+    
+//    func isASurveyQuestion(cellData: CellData) -> Bool {
+//        
+//        // Display only question data matching the survey's question ids
+//        let index = NSIndexPath(forRow: 0, inSection: 0)
+//        
+//        guard let surveyCellData = self.itemData[index] else {
+//            
+//            TEALLog.log("Survey cell data missing from survey detail tvc.")
+//            
+//            return false
+//            
+//        }
+//        
+//        guard let questionIds = surveyCellData.data?[ph.keyQuestionIds] as? [String] else {
+//        
+//            TEALLog.log("Question ids missing from survey data for survey: \(surveyCellData)")
+//            
+//            return false
+//            
+//        }
+//        
+//        for questionId in questionIds {
+//            
+//            if cellData.objectId == questionId {
+//                return true
+//            }
+//            
+//        }
+//        
+//        // Question is for another survey
+//        
+//        return false
+//        
+//    }
   
     func configureCell(cell:SurveyQuestionCell, data:CellData) {
         
@@ -83,6 +124,26 @@ class SurveyDetail_TVC: Table_VC {
     
         NSUserDefaults.standardUserDefaults().synchronize()
 
+    }
+    
+    // Filter only for survey questions
+    func filterQuestions() {
+        
+        let index = NSIndexPath(forRow: 0, inSection: 0)
+        
+        guard let surveyCellData = self.itemData[index] else {
+            TEALLog.log("No survey data for survey detail: \(self)")
+            return
+        }
+        
+        guard let questionIds = surveyCellData.data?[ph.keyQuestionIds] as? [String] else {
+            TEALLog.log("No question ids for survey: \(surveyCellData)")
+            return
+        }
+        
+        self.dataSource?.searchTerms = questionIds
+        
+        self.refreshLocal()
     }
     
 }
