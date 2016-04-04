@@ -102,7 +102,11 @@ class FadeSegue: UIStoryboardSegue {
         let transition: CATransition = CATransition()
         transition.duration = 0.3
         transition.type = kCATransitionFade
-        let navC: UINavigationController = sourceVC.navigationController!
+        guard let navC: UINavigationController = sourceVC.navigationController else {
+            TEALLog.log("Source vc does not have a navigation controller.")
+            return
+        }
+        
         navC.view.layer.addAnimation(transition, forKey: kCATransition)
         navC.popToRootViewControllerAnimated(false)
         navC.pushViewController(destinationViewController , animated: false)

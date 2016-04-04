@@ -32,6 +32,7 @@ class ParseHandler: NSObject {
     var userParseChannel: String = ""
     
     let keyAddress = "address"
+    let keyAnswers = "answers"
     let keyCategoryId = "categoryId"
     let keyDescription = "description"
     let keyEnd = "end"
@@ -152,22 +153,40 @@ class ParseHandler: NSObject {
         return self.categories
     }
     
+    func allCellData(className:String, completion:(success:Bool, category: [Category]?, error: NSError?)->()){
+        
+        let pfObjects = self.pfObjectsForClass(className)
+        
+        let convertedCellData = ParseConverter.cellDatasForPFObjects(pfObjects)
+        
+        var category = [Category]()
+        
+        var cat = Category()
+        
+        cat.cellData = convertedCellData
+        
+        category.append(cat)
+        
+        if convertedCellData.count == 0 {
+            completion(success:false, category: category, error: nil)
+        } else {
+            completion(success:true, category:category, error: nil)
+        }
+    }
+    
     func categoriesWithCellData(className:String, ascending:Bool, completion:(success:Bool, sortedCategories: [Category]?, error:NSError?)->()){
         
-        var sortedCatCellData : [Category] = [Category]()
-        var pfObjects = self.pfObjectsForClass(className)
-        
-        switch(className){
-        case PARSE_CLASS_KEY_EVENT:
-            fallthrough
-        case PARSE_CLASS_KEY_COMPANY:
-            fallthrough
-        case PARSE_CLASS_KEY_SURVEY:
-            sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(pfObjects, ascending:ascending, categories: allCategories())
-
-        default:
-            sortedCatCellData = [Category]()
+        // Exception
+        if className == PARSE_CLASS_KEY_QUESTION {
+            self.allCellData(className, completion: completion)
+            return
         }
+        
+        var sortedCatCellData : [Category] = [Category]()
+
+        let pfObjects = self.pfObjectsForClass(className)
+        
+        sortedCatCellData = ParseConverter.convertToCategoriesWithCellDataFor(pfObjects, ascending:ascending, categories: allCategories())
         
         if sortedCatCellData.count == 0 {
             completion(success: false, sortedCategories:sortedCatCellData, error:nil)
@@ -264,7 +283,6 @@ class ParseHandler: NSObject {
         }
     }
     
-    
     func pfObjectsForClass(className: String) -> [PFObject]{
     
         if let objects = self.parseObjects[className] as? [PFObject]{
@@ -297,12 +315,12 @@ class ParseHandler: NSObject {
         }
         
         self.parseObjects[className] = pfObjects
+        
         self.saveLastUpdatedAtForClass(className, date: NSDate())
         
-    }
+        TEALLog.log("Updated Parse objects for class: \(className): \(pfObjects)")
 
-    
-    // TODO: These update methods need to be optimized, too much repeated code
+    }
     
     private func updateCategories(objects:[PFObject]){
         if objects.count == 0 {
