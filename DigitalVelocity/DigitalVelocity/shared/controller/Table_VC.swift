@@ -42,6 +42,10 @@ class Table_VC: UITableViewController {
         
         store = EventDataStore.sharedInstance()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("refreshLocal"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
+        
         if let edt = eventDataType{
             
             dataSource = store.dataSourceForType(edt)
@@ -85,7 +89,8 @@ class Table_VC: UITableViewController {
         self.itemData.removeAll(keepCapacity: false)
 //        TEALLog.log("Datasource refreshed:\(self.dataSource?.description)")
         self.tableView.reloadData()
-        
+        refreshControl?.endRefreshing()
+
     }
     
     func saveLastPosition(){
