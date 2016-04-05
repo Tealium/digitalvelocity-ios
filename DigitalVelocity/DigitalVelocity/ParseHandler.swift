@@ -243,6 +243,35 @@ class ParseHandler: NSObject {
     
     // MARK: PRE FETCHING
     
+    func fetchNewWithCompletion(className:String, completion:(success: Bool, error:NSError?)->())-> Void{
+        
+        self.fetch(className, lastUpdatedAt: nil) { (pfObjects, error) -> () in
+            
+            // Fetch error
+            if error != nil{
+                completion(success:false, error: error)
+                return
+            }
+            
+            // Remove old data from parse local
+            PFObject.unpinAllInBackground(pfObjects, block: { (success, unPinError) -> Void in
+                
+                // Don't care if there's an error in unpinning
+                
+                // Update Parse local
+                PFObject.pinAllInBackground(pfObjects, block: { (success, pinError) -> Void in
+                    
+                    // Don't care if there's an issue repinning
+                    
+                })
+                
+                self.update(className, pfObjects: pfObjects)
+                completion(success:true, error: nil)
+            })
+            
+        }
+    }
+    
     private func fetchNew(className:String, lastUpdatedAt:NSDate?){
         
         self.fetch(className, lastUpdatedAt: nil) { (pfObjects, error) -> () in
