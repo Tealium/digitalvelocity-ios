@@ -412,4 +412,40 @@ class ParseConverter {
         return cell
     }
     
+    class func dictionaryFromPFObject(pfo:PFObject)->[NSObject:AnyObject]{
+        
+        var allKeyValues = [ NSObject : AnyObject]()
+        
+        if let objectId = pfo.objectId {
+            allKeyValues[ph.keyObjectId] = objectId
+        }
+        
+        if let createdAt = pfo.createdAt {
+            allKeyValues[ph.keyCreatedAt] = createdAt
+        }
+        
+        if let updatedAt = pfo.updatedAt {
+            allKeyValues[ph.keyUpdatedAt] = updatedAt
+        }
+        
+        let keys = pfo.allKeys()
+        
+        for key in keys {
+            
+            guard let key = key as? String else {
+            
+                continue
+                
+            }
+            
+            if let value = pfo.valueForKey(key){
+                
+                allKeyValues[key] = value
+                
+            }
+        }
+        
+        return allKeyValues
+        
+    }
 }

@@ -34,7 +34,9 @@ class ParseHandler: NSObject {
     let keyAddress = "address"
     let keyAnswers = "answers"
     let keyCategoryId = "categoryId"
+    let keyCreatedAt = "createdAt"
     let keyDescription = "description"
+    let keyEmail = "email"
     let keyEnd = "end"
     let keyEndDate = "endDate"
     let keyEveryone = "everyone"
@@ -161,7 +163,7 @@ class ParseHandler: NSObject {
         
         var category = [Category]()
         
-        var cat = Category()
+        let cat = Category()
         
         cat.cellData = convertedCellData
         
@@ -265,6 +267,35 @@ class ParseHandler: NSObject {
         }
         
     }
+    
+    // Returns pfObject converted into a dictionary object
+    func fetchSpecificRecord(className:String, key: String, value:String, completion:(dictionary:[NSObject:AnyObject], error:NSError?)->())->Void{
+        
+        let query = PFQuery(className:className)
+        
+        query.whereKey(keyVisible, equalTo: true)
+
+        query.whereKey(key, equalTo:value)
+        
+        query.findObjectsInBackgroundWithBlock { (pfObjects, error) -> Void in
+        
+            if let pfObjects = pfObjects {
+                
+                guard let pfObject = pfObjects[0] as? PFObject else {
+                    // No object found
+                    completion(dictionary:[NSObject:AnyObject](), error:nil)
+                    return
+                }
+                
+                let dictionaryObject = ParseConverter.dictionaryFromPFObject(pfObject)
+                
+                completion(dictionary:dictionaryObject, error: error)
+            }
+        
+        }
+        
+    }
+    
     
     private func fetch(className:String, lastUpdatedAt:NSDate?, completion:(pfObjects:[PFObject], error:NSError?)->())-> Void{
         

@@ -391,13 +391,21 @@ class TEALBeaconsManager: CLLocationManager {
         
         var finalData = [ NSObject : AnyObject]()
         
-        finalData.addEntriesFrom(UserData.getVIPPreferences())
+        UserData.getVIPPreferences() {(preferences, error) ->() in
         
-        let data = [asKeyEventName : asValueEnterPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
-        
-        finalData.addEntriesFrom(data)
-        
-        Analytics.track(asValueEnterPOI, isView: false, data: finalData)
+            // TODO: error handling
+            
+            if let pref = preferences {
+                finalData.addEntriesFrom(pref)
+            }
+            
+            let data = [asKeyEventName : asValueEnterPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
+            
+            finalData.addEntriesFrom(data)
+            
+            Analytics.track(asValueEnterPOI, isView: false, data: finalData)
+            
+        }
         
         TEALLog.log("FOUND imprint:\(imprint.description)\n\n")
         checkFutureInImprint(imprint)
