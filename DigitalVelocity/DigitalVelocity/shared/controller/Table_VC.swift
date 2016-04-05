@@ -42,9 +42,7 @@ class Table_VC: UITableViewController {
         
         store = EventDataStore.sharedInstance()
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("refreshLocal"), forControlEvents: UIControlEvents.ValueChanged)
-        self.refreshControl = refreshControl
+        self.setupRefresh()
         
         if let edt = eventDataType{
             
@@ -56,6 +54,12 @@ class Table_VC: UITableViewController {
                 }
             }
         }
+    }
+    
+    func setupRefresh() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: Selector("forceRefresh"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
     }
     
     override func viewDidAppear(animated:Bool){
@@ -70,6 +74,13 @@ class Table_VC: UITableViewController {
         saveLastPosition()
     }
 
+    func forceRefresh() {
+        dataSource?.forceRefresh({ (successful, error) -> () in
+            self.refresh()
+        })
+    }
+    
+    // Only refreshes from local data
     func refresh() {
         dataSource?.refresh { (successful, error) -> () in
             
