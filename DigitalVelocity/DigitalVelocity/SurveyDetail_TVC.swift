@@ -35,7 +35,6 @@ class SurveyDetail_TVC: Table_VC {
         
         let surveyDetail = cellDataForTableView(tableView, indexPath: indexPath)
         
-        
         if surveyDetail.title != nil {
             
             let cell:SurveyQuestionCell = tableView.dequeueReusableCellWithIdentifier(QuestionCellReuseID) as! SurveyQuestionCell
@@ -49,6 +48,8 @@ class SurveyDetail_TVC: Table_VC {
         }
         
     }
+    
+
     
 //    func isASurveyQuestion(cellData: CellData) -> Bool {
 //        
