@@ -11,15 +11,23 @@ import UIKit
 
 class ParseTableDataSource: TableDataSource {
     
-    override func refresh(completion:(successful:Bool, error:NSError?) ->())->Void{
+    override func forceRefresh(completion: (successful: Bool, error: NSError?) -> ()) {
         
-        ph.categoriesWithCellData(name, ascending:true, completion: { (success, sortedCategories, error) -> () in
+        ph.fetchNewWithCompletion(name) { (success, error) -> () in
+            self.refresh(completion)
+        }
+    }
+    
+    override func refresh(completion:(successful:Bool, error:NSError?) ->())->Void{
 
-            self.sortedCategories = sortedCategories!
-            self.isLoaded = true
-            completion(successful: success, error: error)
-            
+        ph.categoriesWithCellData(name, ascending:true, completion: { (success, sortedCategories, error) -> () in
+                
+                self.sortedCategories = sortedCategories!
+                self.isLoaded = true
+                completion(successful: success, error: error)
+                
         })
+
     }
     
 }

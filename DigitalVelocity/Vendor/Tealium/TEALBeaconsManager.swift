@@ -389,24 +389,10 @@ class TEALBeaconsManager: CLLocationManager {
     private func confirmedNewNearestImprint(imprint:TEALImprint){
         setNewImprintCurrent(imprint)
         
-        var finalData = [ NSObject : AnyObject]()
+        let data = [asKeyEventName : asValueEnterPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
         
-        UserData.getVIPPreferences() {(preferences, error) ->() in
-        
-            // TODO: error handling
-            
-            if let pref = preferences {
-                finalData.addEntriesFrom(pref)
-            }
-            
-            let data = [asKeyEventName : asValueEnterPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
-            
-            finalData.addEntriesFrom(data)
-            
-            Analytics.track(asValueEnterPOI, isView: false, data: finalData)
-            
-        }
-        
+        self.trackDataWithVIPInfo(asValueEnterPOI, data: data)
+    
         TEALLog.log("FOUND imprint:\(imprint.description)\n\n")
         checkFutureInImprint(imprint)
     }
@@ -426,6 +412,18 @@ class TEALBeaconsManager: CLLocationManager {
         }
     }
     
+    func trackDataWithVIPInfo(title: String, data: [NSObject:AnyObject]){
+        
+        var finalData = [ NSObject : AnyObject]()
+        
+        finalData.addEntriesFrom(User.sharedInstance.vipData)
+        
+        finalData.addEntriesFrom(data)
+        
+        Analytics.track(title, isView: false, data: finalData)
+        
+    }
+    
     func confirmStillInImprint(imprint:TEALImprint){
         if imprint == imprintCurrent{
             if imprint.lastFoundAtPassedThreshold(config.exitThreshold){
@@ -434,7 +432,7 @@ class TEALBeaconsManager: CLLocationManager {
                 
                 let data = [asKeyEventName : asValueInPOI, asKeyBeaconId:imprint.beaconId, asKeyBeaconRssi:String(imprint.beaconRssi)]
                 
-                Analytics.track(asValueInPOI, isView: false, data: data)
+                self.trackDataWithVIPInfo(asValueInPOI, data: data)
                 
                 checkFutureInImprint(imprint)
             }
@@ -447,7 +445,8 @@ class TEALBeaconsManager: CLLocationManager {
         let data = [asKeyEventName : asValueExitPOI ,
             asKeyBeaconId:imprint.beaconId,
             asKeyBeaconRssi:String(imprint.beaconRssi)]
-        Analytics.track(asValueExitPOI, isView: false, data: data)
+        
+        self.trackDataWithVIPInfo(asValueExitPOI, data: data)
         
         TEALLog.log("LEFT imprint:\(imprint.description)")
     }

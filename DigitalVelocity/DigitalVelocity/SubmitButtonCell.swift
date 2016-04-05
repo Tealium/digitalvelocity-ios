@@ -12,7 +12,7 @@ class SubmitButtonCell: DVBaseTableViewCell {
 
     @IBOutlet weak var submitButton: UIButton! {
         didSet{
-            submitButton.layer.borderWidth = 1
+            submitButton.layer.borderWidth = 2
             submitButton.layer.borderColor = UIColor_TealiumBlue.CGColor
             submitButton.accessibilityIdentifier = "Save Button"
 

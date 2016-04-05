@@ -16,16 +16,24 @@ private let _sharedInstance = User()
 */
 class User: NSObject {
 
+    var vipData = [NSObject:AnyObject]()
+    
     class var sharedInstance: User{
         return _sharedInstance
     }
     
     var email: String?{
         didSet{
+            
+            guard let email = email else {
+                return
+            }
+            
             // lowercasing here seems to not work
-            save(email?.lowercaseString, key:userEmailKey)
+            save(email.lowercaseString, key:userEmailKey)
             
             // Set off network request for user preference info (NO PII)
+            self.updateVIPPreferences(email)
             
         }
     }
@@ -115,5 +123,20 @@ class User: NSObject {
                 self.optInTracking = opt
             }
         }
+    }
+    
+    private func updateVIPPreferences(email: String){
+        
+        EventDataStore.sharedInstance().fetchSpecificRecord(PARSE_CLASS_KEY_ATTENDEE, key: ph.keyEmail, value: email) { (dictionary, error) -> () in
+            
+            self.vipData = dictionary
+            
+            if let e = error {
+                TEALLog.log("VIP record fetch error: \(e)")
+            }
+            
+        }
+        
+        
     }
 }
