@@ -101,12 +101,14 @@ class Table_VC: UITableViewController {
     }
     
     func restoreLastPosition(){
+        
         self.tableView?.reloadData()
+        
         if let title = self.restorationIdentifier{
             if let s = store{
                 if let lastPositions = s.lastPositions[title]{
                     // Key on 2nd index due possibly to first being masked by nav bar. Scrolling to first index will appear incorrect to user
-                    if lastPositions.count < 1 {
+                    if lastPositions.count < 2 {
                         // No last position data
                         return
                     }

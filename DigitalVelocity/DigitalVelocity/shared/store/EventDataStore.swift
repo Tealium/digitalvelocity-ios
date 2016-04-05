@@ -102,6 +102,11 @@ class EventDataStore {
         return tableDataSource
     }
     
+    func fetchSpecificRecord(className:String, key: String, value:String, completion:(dictionary:[NSObject:AnyObject], error:NSError?)->())->Void{
+        
+        ph.fetchSpecificRecord(className, key: key, value: value, completion: completion)
+        
+    }
     
     // MARK: Networking
     

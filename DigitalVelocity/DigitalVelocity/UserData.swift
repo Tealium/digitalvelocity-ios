@@ -30,28 +30,17 @@ let userDataKey_vip_video = "vip_video"
 
 class UserData {
         
-    class func getVIPPreferences() -> [ NSObject : AnyObject]{
+    class func getVIPPreferences(completion:(preferences:[ NSObject : AnyObject]?, error: NSError?)->())->Void{
         
-        var preferences = [ NSObject : AnyObject]()
-
         guard let email = User.sharedInstance.email else {
-            
-            // No email to reference - return empty dictionary
-            
-            return preferences
-            
+            completion(preferences:nil, error:nil)
+            return
         }
         
-        // Call parse for attendee vip info matching email address from User
-
-        // TEST
-        preferences[userDataKey_vip_colorBrightness] = "100"
-        preferences[userDataKey_vip_colorHue] = "125"
-        preferences[userDataKey_vip_colorSaturation] = "100"
-        preferences[userDataKey_vip_music] = "irish"
-        preferences[userDataKey_vip_name] = "Exalted_One"
-        
-        return preferences
+        EventDataStore.sharedInstance().fetchSpecificRecord(PARSE_CLASS_KEY_ATTENDEE, key: ph.keyEmail, value: email) { (dictionary, error) -> () in
+            
+            completion(preferences: dictionary, error: error)
+        }
         
     }
     
