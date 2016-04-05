@@ -82,7 +82,7 @@ class SurveyTable_VC: Table_VC {
         if let detail = segue.destinationViewController as? SurveyDetail_TVC{
             
             detail.itemData = [ NSIndexPath.init(forRow: 0, inSection: 0) : selectedItemData]
-            
+            print(itemData)
         }
     }
 }

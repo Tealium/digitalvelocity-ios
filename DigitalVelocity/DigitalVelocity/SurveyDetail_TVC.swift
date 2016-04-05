@@ -16,8 +16,9 @@ class SurveyDetail_TVC: Table_VC {
         
         eventDataType = EventDataType.Question
         super.viewDidLoad()
-        
+        print(EventDataType.Question)
         setupNavigationItemsForController()
+        navigationItem.title = "Survey Detail"
     }
     
     override func viewWillAppear(animated: Bool) {
