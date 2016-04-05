@@ -48,6 +48,12 @@ class TableDataSource: NSObject {
         filteredCategories = filterCategories(sortedCategories)
     }
     
+    
+    func forceRefresh(completion:(successful:Bool, error:NSError?) ->())->Void{
+        // Meant to be overwritten by subclass - pulls from offsite, regardless of local
+        
+    }
+    
     func refresh(completion:(successful:Bool, error:NSError?) ->())->Void{
         // Meant to be overwritten by subclass
 
