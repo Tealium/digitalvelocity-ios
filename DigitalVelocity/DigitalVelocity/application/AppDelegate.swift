@@ -30,12 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.statusBarStyle = UIStatusBarStyle.LightContent
         
         // Load Data 
-//        EventDataStore.sharedInstance().loadRemoteData()
         EventLocationStore.sharedInstance().loadRemoteData(){ }
         
         // Beacons
         beaconManager.start(application, launchOptions: launchOptions)
-        
+
+        // Push notifications - needs to be called well after Analytics has started
+        Push.start(application, launchOptions: launchOptions)
+
         // Login?
         if User.sharedInstance.isLoggedIn() || User.sharedInstance.skipCount > 2{
             
@@ -102,7 +104,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Analytics.sleep()
         Content.sleep()
-//        beaconManager.startBackgroundRanging(nil)
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -110,8 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Analytics.wake(application)
         Content.wake()
-//        beaconManager.stopBackgroundRanging(nil)
-//        beaconManager.startRanging(nil)
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

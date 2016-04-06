@@ -82,17 +82,19 @@ class ParseHandler: NSObject {
     
     // MARK: PUSH
     
-    func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken:NSData){
+    func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken:NSData, completion:(successful: Bool, error:NSError?)->()){
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
         installation.saveInBackgroundWithBlock { (successful, error) -> Void in
-            if error != nil{
-                TEALLog.log("\(error?.localizedDescription)")
-            } else {
+            
+            if successful == true{
                 self.areRegisteredForPush = true
                 TEALLog.log("Registered for push with token:\(deviceToken)")
                 self.registerForChannel(self.keyEveryone)
             }
+            
+            completion(successful:successful, error:error)
+
         }
     }
     
@@ -102,7 +104,7 @@ class ParseHandler: NSObject {
         if let savedChannels = ci.channels{
             for savedChannel in savedChannels{
                 if savedChannel as? NSString == channel{
-                    //                        TEALLog.log("\(channel) Parse Push channel already registered.")
+                    TEALLog.log("Already registered to Parse channel:\(channel).")
                     return
                 }
             }
@@ -113,7 +115,11 @@ class ParseHandler: NSObject {
             if error != nil{
                 TEALLog.log("Problem saving push registeration data to Parse:\(error?.localizedDescription)")
             }
+            
+            TEALLog.log("Did register for Parse channel: \(channel): \(successful)")
+            
         })
+        
         
     }
     
@@ -308,18 +314,27 @@ class ParseHandler: NSObject {
         
         query.findObjectsInBackgroundWithBlock { (pfObjects, error) -> Void in
         
+            var returnDictionary = [NSObject:AnyObject]()
+            
             if let pfObjects = pfObjects {
                 
                 guard let pfObject = pfObjects[0] as? PFObject else {
                     // No object found
-                    completion(dictionary:[NSObject:AnyObject](), error:nil)
+                    
+                    let error = NSError.init(domain: "com.tealium", code: 400, userInfo:[ NSLocalizedDescriptionKey:"No PFObjects found for \(className):\(key):\(value)"])
+                    
+                    completion(dictionary:returnDictionary, error:error)
+                    
                     return
                 }
                 
                 let dictionaryObject = ParseConverter.dictionaryFromPFObject(pfObject)
                 
-                completion(dictionary:dictionaryObject, error: error)
+                returnDictionary.addEntriesFrom(dictionaryObject)
+                
             }
+            
+            completion(dictionary:returnDictionary, error:error)
         
         }
         
