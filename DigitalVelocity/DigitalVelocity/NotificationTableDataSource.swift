@@ -13,6 +13,12 @@ class NotificationTableDataSource: TableDataSource {
     
     var notifications : Notifications = Notifications()
     
+    override func forceRefresh(completion: (successful: Bool, error: NSError?) -> ()) {
+        
+        self.refresh(completion)
+        
+    }
+    
     override func refresh(completion:(successful:Bool, error:NSError?) ->())->Void{
         let na = notifications.all()
         if na.isEmpty{

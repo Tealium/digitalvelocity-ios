@@ -63,7 +63,6 @@
 		7181D7131A966F6A004EDF7E /* BlackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 7181D7121A966F6A004EDF7E /* BlackBG.png */; };
 		718223101A9BA64200E164C8 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7182230F1A9BA64200E164C8 /* FontAwesome.otf */; };
 		71854CCA1AB6917300D819E0 /* Training.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71854CC91AB6917300D819E0 /* Training.jpg */; };
-		71A17C221CAC44EC00003B29 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A17C211CAC44EC00003B29 /* UserData.swift */; };
 		71B0B8EA1CAB261D00213DEA /* UIColor+TealiumAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B0B8E91CAB261D00213DEA /* UIColor+TealiumAdditions.m */; };
 		71B939CF1C7B5D1300948DBC /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B939CE1C7B5D1300948DBC /* Analytics.swift */; };
 		71B939D11C7B5D1B00948DBC /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B939D01C7B5D1B00948DBC /* Push.swift */; };
@@ -219,7 +218,6 @@
 		7181D7121A966F6A004EDF7E /* BlackBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackBG.png; sourceTree = "<group>"; };
 		7182230F1A9BA64200E164C8 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		71854CC91AB6917300D819E0 /* Training.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Training.jpg; sourceTree = "<group>"; };
-		71A17C211CAC44EC00003B29 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = DigitalVelocity/UserData.swift; sourceTree = SOURCE_ROOT; };
 		71B0B8E81CAB261D00213DEA /* UIColor+TealiumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TealiumAdditions.h"; sourceTree = "<group>"; };
 		71B0B8E91CAB261D00213DEA /* UIColor+TealiumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TealiumAdditions.m"; sourceTree = "<group>"; };
 		71B939CE1C7B5D1300948DBC /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -589,7 +587,6 @@
 				71B939D21C7B5D2300948DBC /* ContentModification.swift */,
 				71B939DE1C7B696700948DBC /* Content.swift */,
 				715F395D1AC1D73B00E958F7 /* Config.swift */,
-				71A17C211CAC44EC00003B29 /* UserData.swift */,
 			);
 			name = DataHandling;
 			path = ../Assets;
@@ -858,6 +855,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					7150ABEE1A82DFF500BEDFB7 = {
@@ -1079,7 +1079,6 @@
 				71D8F54A1B0411C700A5391F /* Favorites.swift in Sources */,
 				37BCCCFB1AC87A4300196851 /* Welcome_VC.swift in Sources */,
 				710D107E1B14DA7D000A2B52 /* NotificationTableDataSource.swift in Sources */,
-				71A17C221CAC44EC00003B29 /* UserData.swift in Sources */,
 				E77929C71AC1E23300A56862 /* LocationDataLayout.swift in Sources */,
 				E77929CE1AC1E23300A56862 /* SponsorsTable_VC.swift in Sources */,
 				37BCCCEA1AC8798300196851 /* AgendaFontAwesomeCell.swift in Sources */,
@@ -1208,6 +1207,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1243,6 +1243,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1270,7 +1271,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DonkyUI_SDK",
 				);
-				OTHER_SWIFT_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tealium.digitalvelocity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
