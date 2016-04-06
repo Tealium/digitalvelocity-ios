@@ -11,6 +11,9 @@ import UIKit
 class SurveyQuestionCell: DVBaseTableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
