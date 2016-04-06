@@ -39,6 +39,19 @@ public let tealiumDemoTraceIdKey = "com.tealium.demo.traceId"
 
 class Analytics {
     
+    class func vid()->String?{
+        
+        let tealium = Tealium.instanceForKey(tealiumBGInstanceID)
+        
+        guard let uuid = tealium?.persistentDataSourcesCopy()[TEALDataSourceKey_VisitorID] as? String else {
+            
+            TEALLog.log("Problem retrieving UUID from tealium persistence copy: \(tealium?.persistentDataSourcesCopy())")
+            return nil
+        }
+        
+        return uuid
+    }
+    
     class func updateTealiumDemoInstance(account: String, profile: String, environment: String) -> Bool{
         
         // Enable, disable or update Demo Instance

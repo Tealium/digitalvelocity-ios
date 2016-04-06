@@ -75,13 +75,24 @@ class Table_VC: UITableViewController {
     }
 
     func forceRefresh() {
-        dataSource?.forceRefresh({ (successful, error) -> () in
+        
+        guard let dataSource = dataSource else {
+        
+            refreshControl?.endRefreshing()
+            return
+        }
+        
+        dataSource.forceRefresh({ (successful, error) -> () in
+            
             self.refresh()
+        
         })
+        
     }
     
     // Only refreshes from local data
     func refresh() {
+        
         dataSource?.refresh { (successful, error) -> () in
             
             if successful == true {
@@ -98,7 +109,6 @@ class Table_VC: UITableViewController {
         
         self.cleanupItemData()
         self.itemData.removeAll(keepCapacity: false)
-//        TEALLog.log("Datasource refreshed:\(self.dataSource?.description)")
         self.tableView.reloadData()
         refreshControl?.endRefreshing()
 
