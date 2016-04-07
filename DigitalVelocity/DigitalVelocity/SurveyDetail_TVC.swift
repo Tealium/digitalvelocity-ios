@@ -24,6 +24,7 @@ class SurveyDetail_TVC: Table_VC {
     var selectedAnswer: String = ""
 //    var answerLabel : UILabel = UILabel(frame: CGRectMake(0,0,0,0))
     var questionID: String = ""
+    var answerDictionary = [NSIndexPath : AnyObject]() //questionID : selectedAnswer
     
     override func viewDidLoad() {
         
@@ -100,7 +101,9 @@ class SurveyDetail_TVC: Table_VC {
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
-    
+        for (key,value) in answerDictionary {
+            executeTrackCall(value as! String, indexForCell: key )
+        }
     
     }
     
@@ -156,6 +159,9 @@ class SurveyDetail_TVC: Table_VC {
         }
     }
 
+    func executeTrackCall(answer: String, indexForCell : NSIndexPath){
+        
+    }
 }
 
 extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
@@ -163,7 +169,18 @@ extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
     func SurveyQuestionCellAnswerTapped(cell: SurveyQuestionCell) {
         
         TEALLog.log("Survey cell answer tapped: \(cell.optionalData)")
+        print(cell.optionalData[SurveyQuestionCellKey_Answer])
+        guard let index = cell.optionalData[SurveyQuestionCellKey_IndexPath] as? NSIndexPath else{
+            TEALLog.log("index path missing for survey question cell")
+            return
+        }
         
-        // TODO: store answers into dictionary? for submission delivery later
+        guard let answer = cell.optionalData[SurveyQuestionCellKey_Answer] as? String else{
+            TEALLog.log("answer missing for survey question cell")
+            return
+        }
+        
+        answerDictionary[index] = answer
+        
     }
 }
