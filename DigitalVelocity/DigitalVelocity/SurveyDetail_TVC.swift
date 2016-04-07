@@ -12,15 +12,18 @@ class SurveyDetail_TVC: Table_VC {
     
     //TODO: get buttons to be assicated with an answer than save the answer
     // UI feedback on buttons select and unselect
-    // get submit to show with questions  (array.count + 1?)
     // save answers when sumbit button is pressed and update check box on original VC
 
+   
     let QuestionCellReuseID: String = "SurveyQuestionCell"
     let SubmitButtonReuseID: String = "SubmitButtonCell"
-
-    var selectionButton: UIButton = UIButton(frame: CGRectMake(0,0,0,0))
+    var numOfElements: Int = 0
+    var selectionButton: DownStateButton!
     let screen = UIScreen.mainScreen()
     var titleLabel: UILabel = UILabel(frame: CGRectMake(0,0,0,0))
+    var selectedAnswer: String = ""
+    var answerLabel : UILabel = UILabel(frame: CGRectMake(0,0,0,0))
+    var questionID: String = ""
     
     override func viewDidLoad() {
         
@@ -47,120 +50,82 @@ class SurveyDetail_TVC: Table_VC {
     }
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        
-   //     let surveyDetail = cellDataForTableView(tableView, indexPath: indexPath)
-    
-        //NEED A REFERENCE TO DATA SOURCE - arra
-    
-        
-        if  let cell: SubmitButtonCell = tableView.dequeueReusableCellWithIdentifier(SubmitButtonReuseID) as? SubmitButtonCell {
-        
-//        if surveyDetail.title != nil {
-//            
-//            let cell:SurveyQuestionCell = tableView.dequeueReusableCellWithIdentifier(QuestionCellReuseID) as! SurveyQuestionCell
-//                
-//                configureCell(cell, data: surveyDetail)
-                return cell
-        } else {
-            let cell = MessageCell(reuseIdentifier: "blank")
-            cell.setupWithMessage("No Content Available")
+        let cell = MessageCell(reuseIdentifier: "blank")
+        if indexPath.row == numOfElements {
+            if let cell: SubmitButtonCell = tableView.dequeueReusableCellWithIdentifier(SubmitButtonReuseID) as? SubmitButtonCell {
             return cell
+            }
+        }else{
+       let surveyDetail = cellDataForTableView(tableView, indexPath: indexPath)
+            if surveyDetail.title != nil {
+            
+            let cell:SurveyQuestionCell = tableView.dequeueReusableCellWithIdentifier(QuestionCellReuseID) as! SurveyQuestionCell
+                
+                configureCell(cell, data: surveyDetail)
+                return cell
+            }
         }
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         numOfElements = (dataSource?.numberOfRows(section))!
+        
+            return numOfElements + 1
         
     }
     
-
     
-//    func isASurveyQuestion(cellData: CellData) -> Bool {
-//        
-//        // Display only question data matching the survey's question ids
-//        let index = NSIndexPath(forRow: 0, inSection: 0)
-//        
-//        guard let surveyCellData = self.itemData[index] else {
-//            
-//            TEALLog.log("Survey cell data missing from survey detail tvc.")
-//            
-//            return false
-//            
-//        }
-//        
-//        guard let questionIds = surveyCellData.data?[ph.keyQuestionIds] as? [String] else {
-//        
-//            TEALLog.log("Question ids missing from survey data for survey: \(surveyCellData)")
-//            
-//            return false
-//            
-//        }
-//        
-//        for questionId in questionIds {
-//            
-//            if cellData.objectId == questionId {
-//                return true
-//            }
-//            
-//        }
-//        
-//        // Question is for another survey
-//        
-//        return false
-//        
-//    }
-      func configureCell(cell:SurveyQuestionCell, data:CellData) {
+    func configureCell(cell:SurveyQuestionCell, data:CellData) {
         
         let question = data.title
         cell.titleLabel.text = question
         
+        
         // For array of answer options to this question
         guard let answersArray = data.data?[ph.keyAnswers] else {
-        
+            
             TEALLog.log("No answers available for question: \(question)")
             
             return
         }
         
         TEALLog.log("Answers for question: \(question): \(answersArray)")
-    
+      
+        cell.setUp(answersArray as! NSArray)
+        
+        var buttonY: CGFloat = 20
         for var i = 0; i < answersArray.count; i++ {
-            let answerString: String = answersArray[i] as! String
-            let height = CGFloat(i*60) + 50
-            let answerView: UIView = buildAnswersView(CGRectMake(5, height, screen.bounds.width, 50), answer: answerString)
-            answerView.tag = i
-            cell.contentView.addSubview(answerView)
+            print(answersArray[i])
+            buttonY = buttonY + 43
+            let answerLabel = buildAnswersLabel(buttonY)
+            answerLabel.text = answersArray[i] as? String
+            cell.contentView.addSubview(answerLabel)
         }
+                
     }
     
-    func buildAnswersView(frameView : CGRect, answer: String) -> UIView {
+    func buildAnswersLabel(height: CGFloat) -> UILabel{
        
-        let answerLabel = UILabel(frame: CGRectMake(50, 15, 300.0, 40.0))
-        answerLabel.backgroundColor = UIColor.redColor()
-        answerLabel.text = answer
-        
-        selectionButton = UIButton(frame: CGRectMake(5, 10, 40, 40))
-        selectionButton.setTitle("\u{f118}", forState: UIControlState.Normal)
-        selectionButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        selectionButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 40)
-        selectionButton.addTarget(self, action: "selectionButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        let answerView: UIView = UIView(frame: frameView)
-        answerView.addSubview(selectionButton)
-        answerView.addSubview(answerLabel)
-        
-        return answerView
+        answerLabel = UILabel(frame: CGRectMake(60, height, screen.bounds.width - 60, 30.0))
+        var incrementedTag : Int = 0
+        incrementedTag += 1
+        return answerLabel
     }
     
-    func selectionButtonPressed() {
-        
-        selectionButton.setTitle("\u{f207}", forState: UIControlState.Selected)
-        selectionButton.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-        selectionButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 40)
-    }
     
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
-        //TODO-// add save functionality, get a reference to the buttons clicked....
+        
     
-        
-        
+    
     }
+    
+    func constructDictionary (questionID: Int , answerChoosen: String)-> NSDictionary{
+        var dict = [questionID: answerChoosen]
+        return dict
+    }
+  
     func saveSurveyAnswers(answer: String){
       
         if let survey = surveyCellData(){
@@ -200,5 +165,46 @@ class SurveyDetail_TVC: Table_VC {
         self.refreshLocal()
     }
  
-    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == numOfElements { //submit button height
+            return 90
+        }else{
+        return 240.0
+        }
+    }
+
+    //    func isASurveyQuestion(cellData: CellData) -> Bool {
+    //
+    //        // Display only question data matching the survey's question ids
+    //        let index = NSIndexPath(forRow: 0, inSection: 0)
+    //
+    //        guard let surveyCellData = self.itemData[index] else {
+    //
+    //            TEALLog.log("Survey cell data missing from survey detail tvc.")
+    //
+    //            return false
+    //
+    //        }
+    //
+    //        guard let questionIds = surveyCellData.data?[ph.keyQuestionIds] as? [String] else {
+    //
+    //            TEALLog.log("Question ids missing from survey data for survey: \(surveyCellData)")
+    //
+    //            return false
+    //
+    //        }
+    //
+    //        for questionId in questionIds {
+    //
+    //            if cellData.objectId == questionId {
+    //                return true
+    //            }
+    //
+    //        }
+    //        
+    //        // Question is for another survey
+    //        
+    //        return false
+    //        
+    //    }
 }
