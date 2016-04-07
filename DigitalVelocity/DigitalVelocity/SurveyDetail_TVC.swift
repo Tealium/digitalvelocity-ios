@@ -19,10 +19,10 @@ class SurveyDetail_TVC: Table_VC {
     let SubmitButtonReuseID: String = "SubmitButtonCell"
     var numOfElements: Int = 0
     var selectionButton: DownStateButton!
-    let screen = UIScreen.mainScreen()
+//    let screen = UIScreen.mainScreen()
     var titleLabel: UILabel = UILabel(frame: CGRectMake(0,0,0,0))
     var selectedAnswer: String = ""
-    var answerLabel : UILabel = UILabel(frame: CGRectMake(0,0,0,0))
+//    var answerLabel : UILabel = UILabel(frame: CGRectMake(0,0,0,0))
     var questionID: String = ""
     
     override func viewDidLoad() {
@@ -61,12 +61,14 @@ class SurveyDetail_TVC: Table_VC {
             
             let cell:SurveyQuestionCell = tableView.dequeueReusableCellWithIdentifier(QuestionCellReuseID) as! SurveyQuestionCell
                 
-                configureCell(cell, data: surveyDetail)
+                configureCell(cell, data: surveyDetail, indexPath: indexPath)
+                cell.surveyDelegate = self
                 return cell
             }
         }
         return cell
     }
+
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          numOfElements = (dataSource?.numberOfRows(section))!
@@ -76,14 +78,14 @@ class SurveyDetail_TVC: Table_VC {
     }
     
     
-    func configureCell(cell:SurveyQuestionCell, data:CellData) {
+    func configureCell(cell:SurveyQuestionCell, data:CellData, indexPath:NSIndexPath) {
         
         let question = data.title
         cell.titleLabel.text = question
         
         
         // For array of answer options to this question
-        guard let answersArray = data.data?[ph.keyAnswers] else {
+        guard let answersArray = data.data?[ph.keyAnswers] as? NSArray else {
             
             TEALLog.log("No answers available for question: \(question)")
             
@@ -91,29 +93,10 @@ class SurveyDetail_TVC: Table_VC {
         }
         
         TEALLog.log("Answers for question: \(question): \(answersArray)")
-      
-        cell.setUp(answersArray as! NSArray)
+
+        cell.setUp(indexPath, answersArray: answersArray)
         
-        var buttonY: CGFloat = 20
-        for var i = 0; i < answersArray.count; i++ {
-            print(answersArray[i])
-            buttonY = buttonY + 43
-            let answerLabel = buildAnswersLabel(buttonY)
-            answerLabel.text = answersArray[i] as? String
-            cell.contentView.addSubview(answerLabel)
-        }
-                
     }
-    
-    func buildAnswersLabel(height: CGFloat) -> UILabel{
-       
-        answerLabel = UILabel(frame: CGRectMake(60, height, screen.bounds.width - 60, 30.0))
-        var incrementedTag : Int = 0
-        incrementedTag += 1
-        return answerLabel
-    }
-    
-    
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
@@ -169,42 +152,18 @@ class SurveyDetail_TVC: Table_VC {
         if indexPath.row == numOfElements { //submit button height
             return 90
         }else{
-        return 240.0
+            return 240.0
         }
     }
 
-    //    func isASurveyQuestion(cellData: CellData) -> Bool {
-    //
-    //        // Display only question data matching the survey's question ids
-    //        let index = NSIndexPath(forRow: 0, inSection: 0)
-    //
-    //        guard let surveyCellData = self.itemData[index] else {
-    //
-    //            TEALLog.log("Survey cell data missing from survey detail tvc.")
-    //
-    //            return false
-    //
-    //        }
-    //
-    //        guard let questionIds = surveyCellData.data?[ph.keyQuestionIds] as? [String] else {
-    //
-    //            TEALLog.log("Question ids missing from survey data for survey: \(surveyCellData)")
-    //
-    //            return false
-    //
-    //        }
-    //
-    //        for questionId in questionIds {
-    //
-    //            if cellData.objectId == questionId {
-    //                return true
-    //            }
-    //
-    //        }
-    //        
-    //        // Question is for another survey
-    //        
-    //        return false
-    //        
-    //    }
+}
+
+extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
+    
+    func SurveyQuestionCellAnswerTapped(cell: SurveyQuestionCell) {
+        
+        TEALLog.log("Survey cell answer tapped: \(cell.optionalData)")
+        
+        // TODO: store answers into dictionary? for submission delivery later
+    }
 }

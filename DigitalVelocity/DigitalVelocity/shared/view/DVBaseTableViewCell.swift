@@ -19,6 +19,7 @@ class DVBaseTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteStatus: UIButton?
 
     var delegate: DVTableViewCellDelegate?
+    var optionalData = [ String : AnyObject]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
