@@ -14,6 +14,7 @@
 		22BD45401C7E24CD0086309C /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 22BD453F1C7E24CD0086309C /* credentials.json */; };
 		22D9783F1CAF233000E0E636 /* SubmitButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */; };
 		22D978411CAF248E00E0E636 /* SurveyQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */; };
+		22D978C11CB6A61D00E0E636 /* DownStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D978C01CB6A61D00E0E636 /* DownStateButton.swift */; };
 		22F2EB8A1CAEF0D0003F48DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F2EB891CAEF0D0003F48DB /* Main.storyboard */; };
 		37022D821AC5C88D00CED019 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37022D811AC5C88D00CED019 /* MessageCell.swift */; };
 		3785AAA01AC6899400CDF588 /* EventDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3785AA9F1AC6899400CDF588 /* EventDataStore.swift */; };
@@ -167,6 +168,7 @@
 		22BD453F1C7E24CD0086309C /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials.json; sourceTree = "<group>"; };
 		22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonCell.swift; sourceTree = "<group>"; };
 		22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyQuestionCell.swift; sourceTree = "<group>"; };
+		22D978C01CB6A61D00E0E636 /* DownStateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownStateButton.swift; sourceTree = "<group>"; };
 		22F2EB891CAEF0D0003F48DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		248E0DD92F440A7634A19CF8 /* Pods-DigitalVelocity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalVelocity.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalVelocity/Pods-DigitalVelocity.release.xcconfig"; sourceTree = "<group>"; };
 		37022D811AC5C88D00CED019 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				221957AF1CAC4D6300BE23BA /* SurveyBaseCell.swift */,
 				22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */,
 				22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */,
+				22D978C01CB6A61D00E0E636 /* DownStateButton.swift */,
 			);
 			name = Survey;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				71B0B8EA1CAB261D00213DEA /* UIColor+TealiumAdditions.m in Sources */,
 				E77929D31AC1E23300A56862 /* TEALProgressView.swift in Sources */,
 				22D978411CAF248E00E0E636 /* SurveyQuestionCell.swift in Sources */,
+				22D978C11CB6A61D00E0E636 /* DownStateButton.swift in Sources */,
 				711370B91C7528F600EA9A48 /* Demo_VC.swift in Sources */,
 				E77929C61AC1E23300A56862 /* EventLocation_VC.swift in Sources */,
 				714CDC2C1AB00E3C00E7CA68 /* Extensions.swift in Sources */,

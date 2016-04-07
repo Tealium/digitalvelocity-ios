@@ -11,7 +11,7 @@ import UIKit
 class SurveyTable_VC: Table_VC {
     
     let surveyReuseID: String = "SurveyCell"
-    
+  
     override func viewDidLoad() {
         
         eventDataType = EventDataType.Survey
@@ -23,7 +23,6 @@ class SurveyTable_VC: Table_VC {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let survey = cellDataForTableView(tableView, indexPath: indexPath)
-        print(survey)
         if survey.title != nil {
             let cell: SurveyBaseCell  = tableView.dequeueReusableCellWithIdentifier(surveyReuseID) as! SurveyBaseCell
             configureCell(cell, data: survey)
@@ -82,7 +81,6 @@ class SurveyTable_VC: Table_VC {
         if let detail = segue.destinationViewController as? SurveyDetail_TVC{
             
             detail.itemData = [ NSIndexPath.init(forRow: 0, inSection: 0) : selectedItemData]
-            
         }
     }
 }
