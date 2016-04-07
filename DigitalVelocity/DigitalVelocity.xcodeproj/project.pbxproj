@@ -1275,7 +1275,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DonkyUI_SDK",
 				);
-				OTHER_SWIFT_FLAGS = "-D DEBUG";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tealium.digitalvelocity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
