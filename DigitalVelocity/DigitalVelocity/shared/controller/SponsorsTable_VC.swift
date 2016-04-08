@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class SponsorsTable_VC: Table_VC {
 
@@ -17,6 +18,7 @@ class SponsorsTable_VC: Table_VC {
         super.viewDidLoad()
     }
     
+    // MARK:
     // MARK: UITableViewDatasource Methods
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -28,7 +30,8 @@ class SponsorsTable_VC: Table_VC {
             let cell:SponsorCell = tableView.dequeueReusableCellWithIdentifier(sponsorCellReuseID) as! SponsorCell
 
             configureCell(cell, data: sponsor)
-
+            cell.setup(indexPath)
+            
             return cell
         } else {
             let cell = MessageCell(reuseIdentifier: "blank")
@@ -51,8 +54,8 @@ class SponsorsTable_VC: Table_VC {
         cell.titleLabel.text    = data.title
         cell.subtitleLabel.text = data.subtitle
         cell.iconView.image     = UIImage(data: data.imageData)
-        
         cell.delegate = self
+        cell.sponsorDelegate = self
         
         if data.url != nil{
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
@@ -61,6 +64,7 @@ class SponsorsTable_VC: Table_VC {
         }
 
         cell.titleLabel.sizeToFit()
+
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -69,7 +73,62 @@ class SponsorsTable_VC: Table_VC {
         
         if selectedItemData?.url != nil{
             performSegueWithIdentifier(menuOptions.surveyDetail.storyboardId, sender: self)
+            
         }
+    }
+    
+    func openEmail(email:String, message:String?){
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([email])
+            
+            if let message = message {
+                mail.setMessageBody(message, isHTML: false)
+            }
+            
+            presentViewController(mail, animated: true, completion: nil)
+        } else {
+            // show failure alert
+            TEALLog.log("MFMailComposer can not send mail.")
+        }
+        
     }
 }
 
+// MARK:
+// MARK: DELEGATES
+extension SponsorsTable_VC : SponsorCellDelegate {
+    
+    func sponsorCellDemoRequested(index: NSIndexPath) {
+        
+        let cellData = cellDataForTableView(self.tableView, indexPath: index)
+        
+        // Pass the email info to the button cell
+        guard let email = cellData.data[ph.keyEmail] as? String else {
+            TEALLog.log("Email address missing from demo requested data: \(cellData)")
+            return
+        }
+        
+        var message : String?
+        
+        if let emailMessage = cellData.data[ph.keyEmailMessage] as? String {
+            message = emailMessage
+        }
+        
+        self.openEmail(email, message: message)
+        
+    }
+    
+}
+
+extension SponsorsTable_VC : MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        
+        controller.dismissViewControllerAnimated(true, completion: nil)
+
+        
+    }
+}

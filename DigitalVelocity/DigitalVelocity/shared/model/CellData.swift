@@ -16,7 +16,7 @@ class CellData : NSObject {
 
     var categoryId: String?
     var createdAt : NSDate = NSDate()
-    var data :[ String : AnyObject ]?    // Generic data container
+    var data = [ String : AnyObject ]()    // Generic data container
     var endDate: NSDate?
     var fontAwesomeValue: String?
     var imageData: NSData = DefaultTransparentImageData
