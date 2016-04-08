@@ -16,6 +16,8 @@ class SurveyDetail_TVC: Table_VC {
     let SubmitButtonReuseID: String = "SubmitButtonCell"
     var numOfElements: Int = 0
     var answerDictionary = [NSIndexPath : AnyObject]() //questionID : selectedAnswer
+    var indexPathLastRow = NSIndexPath(forRow: 0, inSection: 0)
+    var savedSurveyData = [String: String]()
     
     // MARK:
     // MARK: LIFECYCLE
@@ -26,16 +28,19 @@ class SurveyDetail_TVC: Table_VC {
         super.viewDidLoad()
         setupNavigationItemsForController()
      
-        
+    //    self.savedSurveyData = self.loadSurveyAnswers()
+
         if let surveryTitle = surveyCellData()?.title {
             navigationItem.title = surveryTitle
         }
-        
+     
+       self.refreshControl = nil
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.filterQuestions()
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -43,21 +48,29 @@ class SurveyDetail_TVC: Table_VC {
         self.cleanupItemData()
         super.viewWillDisappear(animated)
     }
+    
    
     // MARK:
     // MARK: TABLEVIEW DELEGATE
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == numOfElements { //submit button height
+        if indexPath == indexPathLastRow { //submit button height
             return 90
-        }else{
+        }
+        else{
             return 240.0
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+  
         let cell = MessageCell(reuseIdentifier: "blank")
-        if indexPath.row == numOfElements {
+
+        let lastSectionIndex : NSInteger = tableView.numberOfSections - 1
+        let lastRowIndex: NSInteger = tableView.numberOfRowsInSection(lastSectionIndex) - 1
+        indexPathLastRow = NSIndexPath(forRow: lastRowIndex, inSection: lastSectionIndex)
+        
+        if(indexPath.section == lastSectionIndex) {
             if let cell: SubmitButtonCell = tableView.dequeueReusableCellWithIdentifier(SubmitButtonReuseID) as? SubmitButtonCell {
             return cell
             }
@@ -76,45 +89,61 @@ class SurveyDetail_TVC: Table_VC {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         numOfElements = (dataSource?.numberOfRows(section))!
-        
-            return numOfElements + 1
-        
+        numOfElements = (dataSource?.numberOfRows(section))!
+        return numOfElements
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        guard let numOfElements = dataSource?.numberOfSections() else{
+            return 0
+        }
+        return numOfElements + 1
     }
     
     func configureCell(cell:SurveyQuestionCell, data:CellData, indexPath:NSIndexPath) {
         
         let question = data.title
         cell.titleLabel.text = question
-        
+        cell.questionID = data.objectId
         
         // For array of answer options to this question
         guard let answersArray = data.data[ph.keyAnswers] as? NSArray else {
-            
             TEALLog.log("No answers available for question: \(question)")
-            
             return
         }
         
         TEALLog.log("Answers for question: \(question): \(answersArray)")
-
-        cell.setUp(indexPath, answersArray: answersArray)
         
+        let preselectedAnswer = self.loadSurveyAnswers()[cell.questionID]
+       
+        cell.setUp(indexPath, answersArray: answersArray, preSelectedAnswer: preselectedAnswer)
     }
     
-    // MARK:
     // MARK: PERSISTENCE
   
-    func saveSurveyAnswers(answer: String){
-      
-        if let survey = surveyCellData(){
-           //ToDo
-        }
+    let savedSurveyAnswerKey = "com.digitalvelocity.surveyanswers"
     
-        let mydictionary: Dictionary = [answer: "value"]
+    func saveSurveyAnswers(){
+      
+        guard let surveyID = self.surveyCellData()?.objectId else{
+            return
+        }
+        let mydictionary: Dictionary = [savedSurveyAnswerKey: [surveyID :self.savedSurveyData]]
         NSUserDefaults.standardUserDefaults().setValuesForKeysWithDictionary(mydictionary)
         NSUserDefaults.standardUserDefaults().synchronize()
 
+    }
+    
+
+    func loadSurveyAnswers() -> [String: String]{
+        guard let surveyID = self.surveyCellData()?.objectId else{
+            return [:]
+        }
+        
+        if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey(savedSurveyAnswerKey)?.objectForKey(surveyID) {
+            return dictionary as! [String: String]
+        }
+        return [:]
     }
  
     // MARK: SUBMIT
@@ -123,7 +152,19 @@ class SurveyDetail_TVC: Table_VC {
         for (key,value) in answerDictionary {
             executeTrackCall(value as! String, indexForCell: key )
         }
+    
+        self.saveSurveyAnswers()
+        self.showAlertController()
+    }
+    
+    func showAlertController(){
+      
+        let alertController = UIAlertController(title: "Congratulations", message: "You have submitted your Survey", preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            self.navigationController?.popViewControllerAnimated(true)
+        }))
         
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func executeTrackCall(answer: String, indexForCell : NSIndexPath){
@@ -158,6 +199,7 @@ class SurveyDetail_TVC: Table_VC {
         data[keyQuestionId] = questionId
         data[keyAnswer] = answer
         
+        
         // Optional data
         if let surveyTitle = surveyData.data[ph.keyTitle] as? String {
             data[keySurveyTitle] = surveyTitle
@@ -172,7 +214,7 @@ class SurveyDetail_TVC: Table_VC {
         }
         
         Analytics.track(keySurveyComplete, isView: false, data: data)
-        
+ 
     }
     
     // MARK: HELPERS
@@ -210,6 +252,7 @@ extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
     
     func SurveyQuestionCellAnswerTapped(cell: SurveyQuestionCell) {
         
+        
         TEALLog.log("Survey cell answer tapped: \(cell.optionalData)")
         print(cell.optionalData[SurveyQuestionCellKey_Answer])
         guard let index = cell.optionalData[SurveyQuestionCellKey_IndexPath] as? NSIndexPath else{
@@ -222,8 +265,10 @@ extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
             return
         }
         
-        answerDictionary[index] = answer
+           answerDictionary[index] = answer
+        
+        self.savedSurveyData[cell.questionID] = answer
         
     }
-    
+
 }

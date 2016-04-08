@@ -11,18 +11,7 @@ import UIKit
 class DownStateButton : UIButton {
     
     var myAlternateButton:Array<DownStateButton>?
-    
-    var downStateImage:String? = "weapon.png"{
-        
-        didSet{
-            
-            if downStateImage != nil {
-                
-                self.setImage(UIImage(named: downStateImage!), forState: UIControlState.Selected)
-            }
-        }
-    }
-    
+
     func unselectAlternateButtons(){
         
         if myAlternateButton != nil {

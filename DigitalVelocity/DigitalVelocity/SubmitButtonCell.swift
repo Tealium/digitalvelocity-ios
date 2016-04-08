@@ -15,7 +15,6 @@ class SubmitButtonCell: DVBaseTableViewCell {
             submitButton.layer.borderWidth = 2
             submitButton.layer.borderColor = UIColor_TealiumBlue.CGColor
             submitButton.accessibilityIdentifier = "Save Button"
-
         }
     }
     override func awakeFromNib() {

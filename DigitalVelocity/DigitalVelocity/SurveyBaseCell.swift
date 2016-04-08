@@ -12,7 +12,9 @@ class SurveyBaseCell: DVBaseTableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconLabel: UILabel!
-   
+    
+    var questionID: String!
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -24,8 +26,6 @@ class SurveyBaseCell: DVBaseTableViewCell {
         iconLabel.textColor = UIColor.grayColor()
         
         iconLabel.lineBreakMode = NSLineBreakMode.ByClipping
-    
-
     }
   
     func updateIconWithFontAwesome(unicode unicode: String) {

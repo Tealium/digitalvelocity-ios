@@ -11,13 +11,14 @@ import UIKit
 class SurveyTable_VC: Table_VC {
     
     let surveyReuseID: String = "SurveyCell"
-  
+    var isSurveyCompleted = false
     override func viewDidLoad() {
         
         eventDataType = EventDataType.Survey
         super.viewDidLoad()
-
         setupNavigationItemsForController()
+        isSurveyCompleted = true
+    
     }
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,14 +35,30 @@ class SurveyTable_VC: Table_VC {
         }
     }
     
+    
     func configureCell(cell:SurveyBaseCell, data:CellData) {
         
         cell.titleLabel.text  = data.title
         cell.delegate = self
         cell.titleLabel.sizeToFit()
+        cell.questionID = data.objectId
+        
+        if (isSurveyCompleted == true){
+            cell.updateIconWithFontAwesome(unicode: "f046")
+        }
         cell.updateIconWithFontAwesome(unicode: "f096")
         
     }
+  
+    // MARK: HELPERS
+    func surveyCellData()-> CellData? {
+        let index = NSIndexPath(forRow: 0, inSection: 0)
+        if let cellData = self.itemData[index] {
+            return cellData
+        }
+        return nil
+    }
+
   
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 96.0
@@ -82,6 +99,21 @@ class SurveyTable_VC: Table_VC {
             
             detail.itemData = [ NSIndexPath.init(forRow: 0, inSection: 0) : selectedItemData]
         }
+    }
+//MARK
+//Persistence
+    let savedSurveyAnswerKey = "com.digitalvelocity.surveyanswers"
+
+    func loadSurveyAnswers() -> [String: String]{
+        guard let surveyID = self.surveyCellData()?.objectId else{
+            return [:]
+        }
+      
+        if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey(savedSurveyAnswerKey)?.objectForKey(surveyID) {
+            isSurveyCompleted = true
+            return dictionary as! [String: String]
+        }
+        return [:]
     }
 }
 

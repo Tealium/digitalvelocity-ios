@@ -29,6 +29,7 @@ class SurveyQuestionCell: DVBaseTableViewCell {
   
     var questionAnswerDictionary = [DownStateButton:String]()
     var surveyDelegate : SurveyQuestionCellDelegate?
+    var questionID: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,8 +38,12 @@ class SurveyQuestionCell: DVBaseTableViewCell {
         option2Button?.myAlternateButton = [option3Button, option4Button, option1Button]
         option3Button?.myAlternateButton = [option1Button, option2Button, option4Button]
         option4Button?.myAlternateButton = [option1Button, option2Button, option3Button]
-
         
+        option1Button.hidden = true
+        option2Button.hidden = true
+        option3Button.hidden = true
+        option4Button.hidden = true
+    
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -47,14 +52,26 @@ class SurveyQuestionCell: DVBaseTableViewCell {
         // Configure the view for the selected state
     }
 
-    func setUp(index:NSIndexPath, answersArray: NSArray){
+    func setUp(index:NSIndexPath, answersArray: NSArray, preSelectedAnswer:String?){
         
         self.optionalData[SurveyQuestionCellKey_IndexPath] = index
         
+        
         let buttonArray: NSMutableArray = [option1Button, option2Button, option3Button, option4Button]
+        
         for var i = 0; i < answersArray.count; i++ {
-            self.questionAnswerDictionary.addEntriesFrom([buttonArray[i] as! DownStateButton: answersArray[i] as! String] )
+            let answer = answersArray[i] as! String
+            let button = buttonArray[i] as! DownStateButton
+            
+            self.questionAnswerDictionary.addEntriesFrom([button:answer])
+            
+            if answer == preSelectedAnswer{
+                button.selected = true
+            }
+            
+            button.hidden = false
         }
+        
         print("Question-Answer dictionary: \(self.questionAnswerDictionary)")
         
         var buttonY: CGFloat = 20
@@ -65,6 +82,8 @@ class SurveyQuestionCell: DVBaseTableViewCell {
             answerLabel.text = answersArray[i] as? String
             self.contentView.addSubview(answerLabel)
         }
+    
+        
     }
     
     func buildAnswersLabel(height: CGFloat) -> UILabel{
@@ -82,9 +101,10 @@ class SurveyQuestionCell: DVBaseTableViewCell {
         return answerLabel
     }
     
-    @IBAction func buttonSelected(sender: AnyObject) {
+    @IBAction func buttonSelected(sender: DownStateButton) {
         
-        guard let answer = self.questionAnswerDictionary[sender as! DownStateButton] else {
+        
+        guard let answer = self.questionAnswerDictionary[sender ] else {
             TEALLog.log("Survey button selected: no answer associated with button: \(sender) in questionAnswerDictionary: \(self.questionAnswerDictionary)")
             return
         }
