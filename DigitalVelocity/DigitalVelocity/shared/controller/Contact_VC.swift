@@ -17,10 +17,16 @@ class Contact_VC: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var callButton: UIButton!
     
-    private let twitterURL = "twitter://search?query=%23digitalvelocity2015"
-    private let facebookURL = "fb://events/479789605497021"
-    private let callURL = "tel://8776136976"
+    var contactData = [ NSObject : AnyObject]()
     
+    private let twitterURLPrefix = "twitter://search?query=%23"
+    private let twitterEventId = "digitalvelocity2016"
+    private let facebookURLPrefix = "fb://events/"
+    private let facebookEventId = "479789605497021"
+    private let callNumber = "8587791344"
+    
+    // MARK:
+    // MARK: SETUP
     override func viewDidLoad(){
         super.viewDidLoad()
         
@@ -35,17 +41,19 @@ class Contact_VC: UIViewController {
         makeRoundedButton(callButton)
         
         setupMenuNavigationForController()
+        
+        getContactInfo()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     
       
-        if canOpenURL(twitterURL){
+        if canOpenURL(twitterURL()){
             enableButton(twitterButton)
         }
         
-        if canOpenURL(facebookURL){
+        if canOpenURL(facebookURL()){
             enableButton(facebookButton)
         }
         
@@ -63,6 +71,18 @@ class Contact_VC: UIViewController {
         }
         
         Analytics.trackView(self)
+    }
+
+    func getContactInfo() {
+        ph.fetchSpecificRecord("Contact", key: "location", value: "SD") { (dictionary, error) -> () in
+            
+            if let _ = error {
+                TEALLog.log("Error getting contact info: \(error)")
+                // Use defaults
+            }
+            
+            self.contactData.addEntriesFrom(dictionary)
+        }
     }
     
     func disableButton(button:UIButton){
@@ -85,19 +105,18 @@ class Contact_VC: UIViewController {
         button.layer.cornerRadius = button.frame.size.width/2
     }
     
-    
+    // MARK:
+    // MARK: ACTIONS
     @IBAction func twitter() {
 
         Analytics.trackEvent("Contact Twitter Button Tapped")
-        
-        requestOpenURLWithString(twitterURL)
+        requestOpenURLWithString(twitterURL())
     }
     
     @IBAction func facebook() {
         
         Analytics.trackEvent("Contact Facebook Button Tapped")
-        
-        requestOpenURLWithString(facebookURL)
+        requestOpenURLWithString(facebookURL())
     }
     
     @IBAction func email() {
@@ -106,15 +125,17 @@ class Contact_VC: UIViewController {
         
         if MFMailComposeViewController.canSendMail() {
 
-            let emailTitle  = "Digital Velocity Question"
-            let messageBody = ""
-            let toRecipents = ["digitalvelocity@tealium.com"]
+            let emailSubject = self.contactData[ph.keyEmailHeader] as? String ?? "Digital Velocity Question"
+            
+            let emailAddress = self.contactData[ph.keyEmail] as? String ?? "digitalvelocity@tealium.com"
+           
+            let emailBody = self.contactData[ph.keyEmailMessage] as? String ?? ""
             
             let mc = MFMailComposeViewController()
             mc.mailComposeDelegate = self
-            mc.setSubject(emailTitle)
-            mc.setMessageBody(messageBody, isHTML: false)
-            mc.setToRecipients(toRecipents)
+            mc.setSubject(emailSubject)
+            mc.setMessageBody(emailBody, isHTML: false)
+            mc.setToRecipients([emailAddress])
             
             self.presentViewController(mc, animated: true, completion: nil)
         }
@@ -124,9 +145,15 @@ class Contact_VC: UIViewController {
         
         Analytics.trackEvent("Contact Call Button Tapped")
         
-        requestOpenURLWithString(callURL)
+        let number = self.contactData["phoneNumber"] as? String ?? callNumber
+        let actual = "tel://" + number
+        
+        requestOpenURLWithString(actual)
     }
     
+    
+    // MARK:
+    // MARK: HELPERS
     func canOpenURL(urlString:String)->Bool{
         if let url = NSURL(string: urlString) {
             
@@ -147,10 +174,26 @@ class Contact_VC: UIViewController {
             }
         }
     }
+    
+    func facebookURL() -> String {
+        
+        let facebook = self.contactData["facebook"] as? String ?? facebookEventId
+        let actual = facebookURLPrefix + facebook
+        return actual
+        
+    }
+    
+    func twitterURL() -> String {
+        
+        let twitter = self.contactData["twitter"] as? String ?? twitterEventId
+        let actual = twitterURLPrefix + twitter
+        return actual
+        
+    }
 }
 
+// MARK:
 // MARK: MFMailComposerVC Delegate
-
 extension Contact_VC: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {

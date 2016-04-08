@@ -316,6 +316,10 @@ class ParseConverter {
             cell.data[ph.keyEmail] = email
         }
         
+        if let emailHeader = pfo[ph.keyEmailHeader] as? String {
+            cell.data[ph.keyEmailHeader] = emailHeader
+        }
+        
         if let emailMessage = pfo[ph.keyEmailMessage] as? String {
             cell.data[ph.keyEmailMessage] = emailMessage
         }

@@ -29,6 +29,7 @@ class SponsorsTable_VC: Table_VC {
 
             let cell:SponsorCell = tableView.dequeueReusableCellWithIdentifier(sponsorCellReuseID) as! SponsorCell
 
+            // TODO: unify this setup
             configureCell(cell, data: sponsor)
             cell.setup(indexPath)
             
@@ -64,6 +65,13 @@ class SponsorsTable_VC: Table_VC {
         }
 
         cell.titleLabel.sizeToFit()
+        
+        // If no email data we're going to hide the request demo button
+        if let email = data.data[ph.keyEmail] as? String where email != ""{
+            cell.requestDemoButton.hidden = false
+        } else {
+            cell.requestDemoButton.hidden = true
+        }
 
     }
 
@@ -77,12 +85,16 @@ class SponsorsTable_VC: Table_VC {
         }
     }
     
-    func openEmail(email:String, message:String?){
+    func openEmail(email:String, header:String?, message:String?){
         
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients([email])
+            
+            if let header = header {
+                mail.setSubject(header)
+            }
             
             if let message = message {
                 mail.setMessageBody(message, isHTML: false)
@@ -111,13 +123,7 @@ extension SponsorsTable_VC : SponsorCellDelegate {
             return
         }
         
-        var message : String?
-        
-        if let emailMessage = cellData.data[ph.keyEmailMessage] as? String {
-            message = emailMessage
-        }
-        
-        self.openEmail(email, message: message)
+        self.openEmail(email, header:cellData.data[ph.keyEmailHeader] as? String, message: cellData.data[ph.keyEmailMessage] as? String)
         
     }
     
