@@ -283,6 +283,9 @@ class ParseConverter {
         return cellDatas
     }
     
+    // TODO: This is moderately terrible, should just take all pf object data and
+    // put it into a dictionary property and use keys to extract from CellData,
+    // see the dictionaryFromPFObject for reference.
     class func cellDataForPFObject(pfo:PFObject)->CellData?{
         let cell = CellData()
         
@@ -294,12 +297,7 @@ class ParseConverter {
         
         // Answers
         if let answers = pfo[ph.keyAnswers] as? [String]{
-            
-            if cell.data == nil {
-                cell.data = [ String : AnyObject]()
-            }
-            
-            cell.data![ph.keyAnswers] = answers
+            cell.data[ph.keyAnswers] = answers
         }
         
         // CreatedAt
@@ -312,6 +310,14 @@ class ParseConverter {
         // CategoryId
         if let cid = pfo[ph.keyCategoryId] as? String{
             cell.categoryId = cid
+        }
+        
+        if let email = pfo[ph.keyEmail] as? String {
+            cell.data[ph.keyEmail] = email
+        }
+        
+        if let emailMessage = pfo[ph.keyEmailMessage] as? String {
+            cell.data[ph.keyEmailMessage] = emailMessage
         }
         
         // Title
@@ -403,9 +409,7 @@ class ParseConverter {
         // Survey questions
         if let surveyQuestionIds = pfo[ph.keyQuestionIds] as? [String] {
             
-            var data = [String: AnyObject]()
-            data[ph.keyQuestionIds] = surveyQuestionIds
-            cell.data = data
+            cell.data[ph.keyQuestionIds] = surveyQuestionIds
             
         }
         

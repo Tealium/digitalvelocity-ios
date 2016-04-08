@@ -37,6 +37,7 @@ class ParseHandler: NSObject {
     let keyCreatedAt = "createdAt"
     let keyDescription = "description"
     let keyEmail = "email"
+    let keyEmailMessage = "emailMessage"
     let keyEnd = "end"
     let keyEndDate = "endDate"
     let keyEveryone = "everyone"

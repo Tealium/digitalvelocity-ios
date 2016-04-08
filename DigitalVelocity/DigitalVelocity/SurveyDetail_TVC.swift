@@ -10,21 +10,15 @@ import UIKit
 
 class SurveyDetail_TVC: Table_VC {
     
-    //TODO: get buttons to be assicated with an answer than save the answer
-    // UI feedback on buttons select and unselect
-    // save answers when sumbit button is pressed and update check box on original VC
+    // TODO: save answers when sumbit button is pressed and update check box on original VC
 
-   
     let QuestionCellReuseID: String = "SurveyQuestionCell"
     let SubmitButtonReuseID: String = "SubmitButtonCell"
     var numOfElements: Int = 0
-    var selectionButton: DownStateButton!
-//    let screen = UIScreen.mainScreen()
-    var titleLabel: UILabel = UILabel(frame: CGRectMake(0,0,0,0))
-    var selectedAnswer: String = ""
-//    var answerLabel : UILabel = UILabel(frame: CGRectMake(0,0,0,0))
-    var questionID: String = ""
     var answerDictionary = [NSIndexPath : AnyObject]() //questionID : selectedAnswer
+    
+    // MARK:
+    // MARK: LIFECYCLE
     
     override func viewDidLoad() {
         
@@ -50,6 +44,17 @@ class SurveyDetail_TVC: Table_VC {
         super.viewWillDisappear(animated)
     }
    
+    // MARK:
+    // MARK: TABLEVIEW DELEGATE
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == numOfElements { //submit button height
+            return 90
+        }else{
+            return 240.0
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = MessageCell(reuseIdentifier: "blank")
         if indexPath.row == numOfElements {
@@ -57,19 +62,18 @@ class SurveyDetail_TVC: Table_VC {
             return cell
             }
         }else{
-       let surveyDetail = cellDataForTableView(tableView, indexPath: indexPath)
-            if surveyDetail.title != nil {
+       let questionCellData = cellDataForTableView(tableView, indexPath: indexPath)
+            if questionCellData.title != nil {
             
             let cell:SurveyQuestionCell = tableView.dequeueReusableCellWithIdentifier(QuestionCellReuseID) as! SurveyQuestionCell
                 
-                configureCell(cell, data: surveyDetail, indexPath: indexPath)
+                configureCell(cell, data: questionCellData, indexPath: indexPath)
                 cell.surveyDelegate = self
                 return cell
             }
         }
         return cell
     }
-
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          numOfElements = (dataSource?.numberOfRows(section))!
@@ -78,7 +82,6 @@ class SurveyDetail_TVC: Table_VC {
         
     }
     
-    
     func configureCell(cell:SurveyQuestionCell, data:CellData, indexPath:NSIndexPath) {
         
         let question = data.title
@@ -86,7 +89,7 @@ class SurveyDetail_TVC: Table_VC {
         
         
         // For array of answer options to this question
-        guard let answersArray = data.data?[ph.keyAnswers] as? NSArray else {
+        guard let answersArray = data.data[ph.keyAnswers] as? NSArray else {
             
             TEALLog.log("No answers available for question: \(question)")
             
@@ -99,18 +102,8 @@ class SurveyDetail_TVC: Table_VC {
         
     }
     
-    @IBAction func submitButtonPressed(sender: AnyObject) {
-        
-        for (key,value) in answerDictionary {
-            executeTrackCall(value as! String, indexForCell: key )
-        }
-    
-    }
-    
-    func constructDictionary (questionID: Int , answerChoosen: String)-> NSDictionary{
-        var dict = [questionID: answerChoosen]
-        return dict
-    }
+    // MARK:
+    // MARK: PERSISTENCE
   
     func saveSurveyAnswers(answer: String){
       
@@ -123,11 +116,70 @@ class SurveyDetail_TVC: Table_VC {
         NSUserDefaults.standardUserDefaults().synchronize()
 
     }
+ 
+    // MARK: SUBMIT
+    @IBAction func submitButtonPressed(sender: AnyObject) {
+        
+        for (key,value) in answerDictionary {
+            executeTrackCall(value as! String, indexForCell: key )
+        }
+        
+    }
     
+    func executeTrackCall(answer: String, indexForCell : NSIndexPath){
+
+        // Keys
+        let keySurveyComplete = "survey_complete"
+        let keySurveyId = "survey_id"
+        let keySurveyTitle = "survey_title"
+        let keyQuestionId = "survey_question_id"
+        let keyQuestionTitle = "survey_question"
+        let keyAnswer = "survey_answer"
+        
+        // Required Data
+        guard let surveyData = surveyCellData() else {
+            TEALLog.log("Execute track call ERROR: survey data missing.")
+            return
+        }
+        guard let surveyId = surveyData.objectId else {
+            TEALLog.log("Execute track call ERROR: Survey data missing object id.")
+            return
+        }
+        
+        let questionCellData = cellDataForTableView(self.tableView, indexPath: indexForCell)
+        guard let questionId = questionCellData.objectId else {
+            TEALLog.log("Execute track call ERROR: Question id missing.")
+            return
+        }
+        
+        
+        var data = [ String : String ]()
+        data[keySurveyId] = surveyId
+        data[keyQuestionId] = questionId
+        data[keyAnswer] = answer
+        
+        // Optional data
+        if let surveyTitle = surveyData.data[ph.keyTitle] as? String {
+            data[keySurveyTitle] = surveyTitle
+        } else {
+            TEALLog.log("Execute track call ERROR: Survey missing or illformatted title.")
+        }
+        
+        if let questionTitle = questionCellData.title  {
+            data[keyQuestionTitle] = questionTitle
+        } else {
+            TEALLog.log("Execute track call ERROR: Question title missing.")
+        }
+        
+        Analytics.track(keySurveyComplete, isView: false, data: data)
+        
+    }
+    
+    // MARK: HELPERS
     func surveyCellData()-> CellData? {
         let index = NSIndexPath(forRow: 0, inSection: 0)
         if let cellData = self.itemData[index] {
-                return cellData
+            return cellData
         }
         return nil
     }
@@ -142,7 +194,7 @@ class SurveyDetail_TVC: Table_VC {
             return
         }
         
-        guard let questionIds = surveyCellData.data?[ph.keyQuestionIds] as? [String] else {
+        guard let questionIds = surveyCellData.data[ph.keyQuestionIds] as? [String] else {
             TEALLog.log("No question ids for survey: \(surveyCellData)")
             return
         }
@@ -150,20 +202,10 @@ class SurveyDetail_TVC: Table_VC {
         self.dataSource?.searchTerms = questionIds
         self.refreshLocal()
     }
- 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == numOfElements { //submit button height
-            return 90
-        }else{
-            return 240.0
-        }
-    }
-
-    func executeTrackCall(answer: String, indexForCell : NSIndexPath){
-        
-    }
 }
 
+// MARK:
+// MARK: SURVEY QUESTION CELL DELEGATE
 extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
     
     func SurveyQuestionCellAnswerTapped(cell: SurveyQuestionCell) {
@@ -183,4 +225,5 @@ extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
         answerDictionary[index] = answer
         
     }
+    
 }
