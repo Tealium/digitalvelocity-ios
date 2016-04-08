@@ -95,6 +95,8 @@ class SurveyQuestionCell: DVBaseTableViewCell {
         }
         
         self.optionalData[SurveyQuestionCellKey_Answer] = answer
+        print(self.optionalData)
+        
         
         delegate.SurveyQuestionCellAnswerTapped(self)
         
