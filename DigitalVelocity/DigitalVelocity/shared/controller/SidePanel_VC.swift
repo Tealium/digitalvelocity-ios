@@ -32,7 +32,7 @@ class SidePanel_VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         options = MenuOption.allOptions()
-        tableView.scrollEnabled = false
+        tableView.scrollEnabled = true
         tableView.reloadData()
         
         // hack for hiding insets 
