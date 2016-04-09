@@ -11,14 +11,17 @@ import UIKit
 class SurveyTable_VC: Table_VC {
     
     let surveyReuseID: String = "SurveyCell"
-    var isSurveyCompleted = false
     override func viewDidLoad() {
         
         eventDataType = EventDataType.Survey
         super.viewDidLoad()
         setupNavigationItemsForController()
-        isSurveyCompleted = true
     
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
     }
    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -43,13 +46,27 @@ class SurveyTable_VC: Table_VC {
         cell.titleLabel.sizeToFit()
         cell.questionID = data.objectId
         
-        if (isSurveyCompleted == true){
+        if (isSurveyCompleted(data) == true){
             cell.updateIconWithFontAwesome(unicode: "f046")
+        } else {
+            cell.updateIconWithFontAwesome(unicode: "f096")
         }
-        cell.updateIconWithFontAwesome(unicode: "f096")
+        
+    }
+    
+    func isSurveyCompleted(data:CellData) -> Bool {
+        
+        let answers = surveyAnswers(data)
+        
+        if answers.count == 0 {
+            return false
+        }
+        
+        return true
         
     }
   
+    // MARK:
     // MARK: HELPERS
     func surveyCellData()-> CellData? {
         let index = NSIndexPath(forRow: 0, inSection: 0)
@@ -97,23 +114,26 @@ class SurveyTable_VC: Table_VC {
         
         if let detail = segue.destinationViewController as? SurveyDetail_TVC{
             
-            detail.itemData = [ NSIndexPath.init(forRow: 0, inSection: 0) : selectedItemData]
+            detail.surveyCellData = selectedItemData
+            
         }
     }
-//MARK
-//Persistence
-    let savedSurveyAnswerKey = "com.digitalvelocity.surveyanswers"
+    
+//MARK:
+//MARK: PERSISTENCE
 
-    func loadSurveyAnswers() -> [String: String]{
-        guard let surveyID = self.surveyCellData()?.objectId else{
+    func surveyAnswers(data:CellData) -> [String: String]{
+        
+        guard let surveyID = data.objectId else{
             return [:]
         }
       
-        if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey(savedSurveyAnswerKey)?.objectForKey(surveyID) {
-            isSurveyCompleted = true
-            return dictionary as! [String: String]
+        guard let dictionary = NSUserDefaults.standardUserDefaults().objectForKey(SAVED_SURVEY_ANSWER_KEY)?.objectForKey(surveyID) else {
+            return [:]
         }
-        return [:]
+        
+        return dictionary as! [ String : String]
+
     }
 }
 

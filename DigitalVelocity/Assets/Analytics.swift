@@ -52,20 +52,19 @@ class Analytics {
         return uuid
     }
     
-    class func updateTealiumDemoInstance(account: String, profile: String, environment: String) -> Bool{
+    class func updateTealiumDemoInstance(account: String?, profile: String?, environment: String?) -> Bool{
         
         // Enable, disable or update Demo Instance
-        let submissionDict  = [tealiumAccountKey : account,
-            tealiumProfileKey: profile ,
-            tealiumEnvironmentKey: environment] as NSDictionary!
+        var submissionDict  = [ String : String ]()
         
-        // Stop if no change in demo settings
-        if let demoDict = Analytics.currentDemoConfig(){
-            
-            if (submissionDict.isEqualToDictionary(demoDict)) {
-                TEALLog.log("subissiondictionary equals demoDictionary")
-                return false
-            }
+        if let account = account {
+            submissionDict[tealiumAccountKey] = account
+        }
+        if let profile = profile {
+            submissionDict[tealiumProfileKey] = profile
+        }
+        if let env = environment {
+            submissionDict[tealiumEnvironmentKey] = env
         }
         
         // Save new demo settings
@@ -95,21 +94,12 @@ class Analytics {
             traceString = traceId
         }
         
-        // Stop if update trace id equals existing
-        if let currentTraceId = self.currentTraceId()  {
-            
-            if currentTraceId == traceString {
-                return false
-            }
-            
-        }
-        
         // Enable or disable Trace
         if traceString != ""  {
             Analytics.startTrace(traceString)
             print(traceString)
             
-        }else{
+        } else{
             
             Analytics.stopTrace()
         }
@@ -175,12 +165,14 @@ class Analytics {
     private class func setupTealiumDemoInstance() {
         
         guard let demoConfig = self.currentDemoConfig()else{
-            
+            destroyDemoInstance()
             return
         }
         
         guard let account = demoConfig[tealiumAccountKey] as? String else {
-            
+
+            destroyDemoInstance()
+
             // TODO: error handling
             
             return
@@ -188,6 +180,8 @@ class Analytics {
         
         guard let profile = demoConfig[tealiumProfileKey] as? String else {
             
+            destroyDemoInstance()
+
             // TODO: error handling
             
             return
@@ -195,6 +189,8 @@ class Analytics {
         
         guard let environment = demoConfig[tealiumEnvironmentKey] as? String else {
             
+            destroyDemoInstance()
+
             // TODO: error handling
             
             return
@@ -248,11 +244,11 @@ class Analytics {
     }
     
     class func destroyDemoInstance() {
-        
-        // For testing
-        
+                
         Tealium.destroyInstanceForKey(tealiumDemoInstanceID)
 
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(tealiumDemoUserDefaultsConfigKey)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     
@@ -307,6 +303,7 @@ class Analytics {
         trackData.addEntriesFrom(self.additionalTrackData())
         
         let tealiumInstance = Tealium.instanceForKey(tealiumDemoInstanceID);
+        
         let tealiumBGInstance = Tealium.instanceForKey(tealiumBGInstanceID);
         
         if tealiumInstance == nil{

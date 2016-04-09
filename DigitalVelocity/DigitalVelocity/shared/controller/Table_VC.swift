@@ -130,7 +130,8 @@ class Table_VC: UITableViewController {
                 if let lastPositions = s.lastPositions[title]{
                     // Key on 2nd index due possibly to first being masked by nav bar. Scrolling to first index will appear incorrect to user
                     if lastPositions.count < 2 {
-                        // No last position data
+                        // No last position data - scroll to top
+                        self.tableView.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: false)
                         return
                     }
                     
@@ -279,7 +280,6 @@ class Table_VC: UITableViewController {
             if let indexPath = itemData.indexPath {
 
                 if let paths = tableView.indexPathsForVisibleRows {
-//                if let paths = tableView.indexPathsForVisibleRows as? [NSIndexPath] {
                 
                     if paths.contains(indexPath) {
                         

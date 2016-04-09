@@ -8,16 +8,19 @@
 
 import UIKit
 
+let SAVED_SURVEY_ANSWER_KEY = "com.digitalvelocity.surveyanswers"
+
 class SurveyDetail_TVC: Table_VC {
     
-    // TODO: save answers when sumbit button is pressed and update check box on original VC
-
     let QuestionCellReuseID: String = "SurveyQuestionCell"
     let SubmitButtonReuseID: String = "SubmitButtonCell"
     var numOfElements: Int = 0
-    var answerDictionary = [NSIndexPath : AnyObject]() //questionID : selectedAnswer
+    
+    // TODO: answerDictionary and savedSurveyData should be combined
+    var answerDictionary = [NSIndexPath : AnyObject]() // for tracking calls
     var indexPathLastRow = NSIndexPath(forRow: 0, inSection: 0)
-    var savedSurveyData = [String: String]()
+    var savedSurveyData = [String: String]() // question id : answer
+    var surveyCellData : CellData!
     
     // MARK:
     // MARK: LIFECYCLE
@@ -28,9 +31,7 @@ class SurveyDetail_TVC: Table_VC {
         super.viewDidLoad()
         setupNavigationItemsForController()
      
-    //    self.savedSurveyData = self.loadSurveyAnswers()
-
-        if let surveryTitle = surveyCellData()?.title {
+        if let surveryTitle = surveyCellData.title {
             navigationItem.title = surveryTitle
         }
      
@@ -72,10 +73,10 @@ class SurveyDetail_TVC: Table_VC {
         
         if(indexPath.section == lastSectionIndex) {
             if let cell: SubmitButtonCell = tableView.dequeueReusableCellWithIdentifier(SubmitButtonReuseID) as? SubmitButtonCell {
-            return cell
+                return cell
             }
         }else{
-       let questionCellData = cellDataForTableView(tableView, indexPath: indexPath)
+            let questionCellData = cellDataForTableView(tableView, indexPath: indexPath)
             if questionCellData.title != nil {
             
             let cell:SurveyQuestionCell = tableView.dequeueReusableCellWithIdentifier(QuestionCellReuseID) as! SurveyQuestionCell
@@ -120,27 +121,39 @@ class SurveyDetail_TVC: Table_VC {
     }
     
     // MARK: PERSISTENCE
-  
-    let savedSurveyAnswerKey = "com.digitalvelocity.surveyanswers"
     
     func saveSurveyAnswers(){
       
-        guard let surveyID = self.surveyCellData()?.objectId else{
+        guard let surveyID = self.surveyCellData.objectId else{
             return
         }
-        let mydictionary: Dictionary = [savedSurveyAnswerKey: [surveyID :self.savedSurveyData]]
-        NSUserDefaults.standardUserDefaults().setValuesForKeysWithDictionary(mydictionary)
+        
+        // TODO: If answers resubmitted, does not save properly. Original answers
+        // continue to reload upon next visit
+        
+        self.savedSurveyData.addEntriesFrom(loadSurveyAnswers())
+
+        var finalDictionary = [ String : AnyObject]()
+        
+        if let existingSavedSurveys = NSUserDefaults.standardUserDefaults().objectForKey(SAVED_SURVEY_ANSWER_KEY) as? [ String : AnyObject]{
+            
+            finalDictionary.addEntriesFrom(existingSavedSurveys)
+            
+        }
+        
+        finalDictionary.addEntriesFrom([surveyID :self.savedSurveyData])
+        
+        NSUserDefaults.standardUserDefaults().setObject(finalDictionary, forKey: SAVED_SURVEY_ANSWER_KEY)
         NSUserDefaults.standardUserDefaults().synchronize()
 
     }
-    
 
     func loadSurveyAnswers() -> [String: String]{
-        guard let surveyID = self.surveyCellData()?.objectId else{
+        guard let surveyID = self.surveyCellData.objectId else{
             return [:]
         }
         
-        if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey(savedSurveyAnswerKey)?.objectForKey(surveyID) {
+        if let dictionary = NSUserDefaults.standardUserDefaults().objectForKey(SAVED_SURVEY_ANSWER_KEY)?.objectForKey(surveyID) {
             return dictionary as! [String: String]
         }
         return [:]
@@ -178,16 +191,13 @@ class SurveyDetail_TVC: Table_VC {
         let keyAnswer = "survey_answer"
         
         // Required Data
-        guard let surveyData = surveyCellData() else {
-            TEALLog.log("Execute track call ERROR: survey data missing.")
-            return
-        }
-        guard let surveyId = surveyData.objectId else {
+        guard let surveyId = surveyCellData.objectId else {
             TEALLog.log("Execute track call ERROR: Survey data missing object id.")
             return
         }
         
         let questionCellData = cellDataForTableView(self.tableView, indexPath: indexForCell)
+        
         guard let questionId = questionCellData.objectId else {
             TEALLog.log("Execute track call ERROR: Question id missing.")
             return
@@ -201,7 +211,7 @@ class SurveyDetail_TVC: Table_VC {
         
         
         // Optional data
-        if let surveyTitle = surveyData.data[ph.keyTitle] as? String {
+        if let surveyTitle = surveyCellData.data[ph.keyTitle] as? String {
             data[keySurveyTitle] = surveyTitle
         } else {
             TEALLog.log("Execute track call ERROR: Survey missing or illformatted title.")
@@ -217,24 +227,8 @@ class SurveyDetail_TVC: Table_VC {
  
     }
     
-    // MARK: HELPERS
-    func surveyCellData()-> CellData? {
-        let index = NSIndexPath(forRow: 0, inSection: 0)
-        if let cellData = self.itemData[index] {
-            return cellData
-        }
-        return nil
-    }
-    
     // Filter only for survey questions
     func filterQuestions() {
-        
-        let index = NSIndexPath(forRow: 0, inSection: 0)
-        
-        guard let surveyCellData = self.itemData[index] else {
-            TEALLog.log("No survey data for survey detail: \(self)")
-            return
-        }
         
         guard let questionIds = surveyCellData.data[ph.keyQuestionIds] as? [String] else {
             TEALLog.log("No question ids for survey: \(surveyCellData)")
@@ -265,7 +259,7 @@ extension SurveyDetail_TVC : SurveyQuestionCellDelegate {
             return
         }
         
-           answerDictionary[index] = answer
+        answerDictionary[index] = answer
         
         self.savedSurveyData[cell.questionID] = answer
         
