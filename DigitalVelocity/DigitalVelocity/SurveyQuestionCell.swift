@@ -103,7 +103,6 @@ class SurveyQuestionCell: DVBaseTableViewCell {
     
     @IBAction func buttonSelected(sender: DownStateButton) {
         
-        
         guard let answer = self.questionAnswerDictionary[sender ] else {
             TEALLog.log("Survey button selected: no answer associated with button: \(sender) in questionAnswerDictionary: \(self.questionAnswerDictionary)")
             return
@@ -115,8 +114,6 @@ class SurveyQuestionCell: DVBaseTableViewCell {
         }
         
         self.optionalData[SurveyQuestionCellKey_Answer] = answer
-        print(self.optionalData)
-        
         
         delegate.SurveyQuestionCellAnswerTapped(self)
         

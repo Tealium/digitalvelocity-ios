@@ -37,13 +37,8 @@ class DownStateButton : UIButton {
     
     func toggleButton(){
         
-        if self.selected==false{
-            
-            self.selected = true
-        }else {
-            
-            self.selected = false
-        }
+        self.selected = !self.selected
+        
     }
 }
 

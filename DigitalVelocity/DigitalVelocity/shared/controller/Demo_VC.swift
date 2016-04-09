@@ -151,54 +151,23 @@ class Demo_VC: UIViewController {
         self.profileTextField.backgroundColor = UIColor.clearColor()
         self.environmentTextField.backgroundColor = UIColor.clearColor()
         
-        guard let accountEntryTemp = self.accountTextField.text else{
-            return
-        }
-        
-        guard let profileEntryTemp = self.profileTextField.text else{
-            return
-        }
-        
-        guard let environmentEntryTemp = self.environmentTextField.text else{
-            return
-        }
-        
-        if (self.audienceStreamTextField.text != "" &&
-            !accountEntryTemp.isEmpty &&
-            !profileEntryTemp.isEmpty &&
-            !environmentEntryTemp.isEmpty) {
-            self.presentAudienceStreamAlert()
-            return
-        }
-        
-        if (self.audienceStreamTextField.text != "" &&
-            accountEntryTemp.isEmpty ||
-            profileEntryTemp.isEmpty ||
-            environmentEntryTemp.isEmpty){
-            self.presentAudienceStreamAlertFailure()
-            return
-        }
+        let accountEntryTemp = self.accountTextField.text
+        let profileEntryTemp = self.profileTextField.text
+        let environmentEntryTemp = self.environmentTextField.text
         
         //checking for empty strings
-        if accountEntryTemp.isEmpty {
+        if accountEntryTemp?.isEmpty == true{
             self.accountTextField.backgroundColor = UIColor.redColor()
             self.presentEmptyFieldAlert()
-            return
-        }
-        
-        if profileEntryTemp.isEmpty{
+        } else if profileEntryTemp?.isEmpty == true{
             self.profileTextField.backgroundColor = UIColor.redColor()
             self.presentEmptyFieldAlert()
-            return
-        }
-        
-        if environmentEntryTemp.isEmpty{
+        } else if environmentEntryTemp?.isEmpty == true {
             self.environmentTextField.backgroundColor = UIColor.redColor()
             self.presentEmptyFieldAlert()
-            return
+        } else {
+            self.presentSuccessAlert()
         }
-        
-        self.presentSuccessAlert()
         
         Analytics.updateTealiumDemoInstance(accountEntryTemp , profile: profileEntryTemp, environment: environmentEntryTemp)
         
@@ -215,7 +184,7 @@ class Demo_VC: UIViewController {
     //MARK: AlertController Methods
     
     func presentEmptyFieldAlert(){
-        let alertController = UIAlertController(title: "Unable to Update Your Account", message: "You must fill in all fields in order to save", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Demo account disabled", message: "Fill in all fields to enable", preferredStyle: .Alert)
         let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         
         alertController.addAction(okAction)

@@ -106,6 +106,7 @@ class TEALBeaconsManager: CLLocationManager {
     }
     
     func startMonitoringRegions(){
+        
         if canMonitor() == false{
             return
         }
@@ -271,8 +272,11 @@ class TEALBeaconsManager: CLLocationManager {
         // Are we within the allowed monitoring date and time range?
         let now = NSDate()
         let nowInterval = now.timeIntervalSince1970
-        if nowInterval < config.startMonitoringDate.timeIntervalSince1970 || nowInterval > config.stopMonitoringDate.timeIntervalSince1970{
-            TEALLog.log("Can not monitor, outside of monitoring dates of \(config.startMonitoringDate.timeIntervalSince1970) and \(config.stopMonitoringDate.timeIntervalSince1970), now:\(nowInterval)")
+        let startMonitoringInterval = self.config.startMonitoringDate.timeIntervalSince1970
+        let stopMonitoringInterval = self.config.stopMonitoringDate.timeIntervalSince1970
+        
+        if nowInterval < startMonitoringInterval || nowInterval > stopMonitoringInterval{
+            TEALLog.log("Can not monitor, outside of monitoring dates of \(startMonitoringInterval) and \(stopMonitoringInterval), now:\(nowInterval)")
             return false
         }
         
