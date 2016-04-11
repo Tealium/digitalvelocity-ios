@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1338,25 +1338,6 @@
                                                 <action selector="buttonSelected:" destination="SfZ-az-0UL" eventType="touchUpInside" id="T1Q-lg-E6g"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwp-t1-cCy" customClass="DownStateButton" customModule="DigitalVelocity" customModuleProvider="target">
-                                            <rect key="frame" x="26" y="61" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="Wbi-My-pOp"/>
-                                                <constraint firstAttribute="height" constant="30" id="dQM-ea-AOj"/>
-                                                <constraint firstAttribute="width" constant="30" id="kAK-dS-Ggz"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="30"/>
-                                            <color key="tintColor" red="0.58327323720000002" green="0.58327323720000002" blue="0.58327323720000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="">
-                                                <color key="titleColor" red="0.58327323720000002" green="0.58327323720000002" blue="0.58327323720000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <state key="selected" title="">
-                                                <color key="titleColor" red="0.58327323720000002" green="0.58327323720000002" blue="0.58327323720000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="buttonSelected:" destination="SfZ-az-0UL" eventType="touchUpInside" id="daG-qU-2A0"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lv-Nw-32K" customClass="DownStateButton" customModule="DigitalVelocity" customModuleProvider="target">
                                             <rect key="frame" x="26" y="106" width="30" height="30"/>
                                             <constraints>
@@ -1373,23 +1354,39 @@
                                                 <action selector="buttonSelected:" destination="SfZ-az-0UL" eventType="touchUpInside" id="aau-II-at0"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPI-wC-wnx" customClass="DownStateButton" customModule="DigitalVelocity" customModuleProvider="target">
+                                            <rect key="frame" x="26" y="61" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="06a-o5-S3O"/>
+                                                <constraint firstAttribute="height" constant="30" id="3DL-KB-qOQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="30"/>
+                                            <color key="tintColor" red="0.58327323720000002" green="0.58327323720000002" blue="0.58327323720000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="">
+                                                <color key="titleColor" red="0.58327323720000002" green="0.58327323720000002" blue="0.58327323720000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <state key="selected" title=""/>
+                                            <connections>
+                                                <action selector="buttonSelected:" destination="SfZ-az-0UL" eventType="touchUpInside" id="aFp-lw-TVD"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Mrg-Vf-yql" firstAttribute="top" secondItem="qWs-VA-oRV" secondAttribute="topMargin" constant="4" id="4ik-GO-yM7"/>
                                         <constraint firstItem="nAv-ag-fEm" firstAttribute="top" secondItem="3Lv-Nw-32K" secondAttribute="bottom" constant="15" id="4vO-nx-vcJ"/>
                                         <constraint firstItem="HmX-Nh-w9o" firstAttribute="top" secondItem="nAv-ag-fEm" secondAttribute="bottom" constant="15" id="IWf-3d-VXW"/>
-                                        <constraint firstItem="Kwp-t1-cCy" firstAttribute="leading" secondItem="qWs-VA-oRV" secondAttribute="leadingMargin" constant="18" id="a1U-0a-3RX"/>
+                                        <constraint firstItem="ZPI-wC-wnx" firstAttribute="leading" secondItem="qWs-VA-oRV" secondAttribute="leadingMargin" constant="18" id="SS0-Ia-TY6"/>
+                                        <constraint firstItem="ZPI-wC-wnx" firstAttribute="top" secondItem="Mrg-Vf-yql" secondAttribute="bottom" constant="14" id="Z6p-a0-qun"/>
                                         <constraint firstItem="3Lv-Nw-32K" firstAttribute="leading" secondItem="qWs-VA-oRV" secondAttribute="leadingMargin" constant="18" id="bNL-Vt-C9e"/>
                                         <constraint firstItem="Mrg-Vf-yql" firstAttribute="leading" secondItem="qWs-VA-oRV" secondAttribute="leadingMargin" constant="7" id="gI4-jm-wmi"/>
-                                        <constraint firstItem="3Lv-Nw-32K" firstAttribute="top" secondItem="Kwp-t1-cCy" secondAttribute="bottom" constant="15" id="iSo-KE-Afg"/>
                                         <constraint firstItem="HmX-Nh-w9o" firstAttribute="leading" secondItem="qWs-VA-oRV" secondAttribute="leadingMargin" constant="18" id="mQq-6B-MZe"/>
                                         <constraint firstItem="nAv-ag-fEm" firstAttribute="leading" secondItem="qWs-VA-oRV" secondAttribute="leadingMargin" constant="18" id="nVc-xW-IIF"/>
-                                        <constraint firstItem="Kwp-t1-cCy" firstAttribute="top" secondItem="Mrg-Vf-yql" secondAttribute="bottom" constant="14" id="seR-W8-52Y"/>
+                                        <constraint firstItem="3Lv-Nw-32K" firstAttribute="top" secondItem="ZPI-wC-wnx" secondAttribute="bottom" constant="15" id="u3f-XQ-hdW"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Mrg-Vf-yql" secondAttribute="trailing" constant="1" id="v0B-Vd-Tiw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="option1Button" destination="Kwp-t1-cCy" id="oxo-DD-JMc"/>
+                                    <outlet property="option1Button" destination="ZPI-wC-wnx" id="esM-hO-yiz"/>
                                     <outlet property="option2Button" destination="3Lv-Nw-32K" id="3IC-KZ-asl"/>
                                     <outlet property="option3Button" destination="nAv-ag-fEm" id="ljw-Al-PXF"/>
                                     <outlet property="option4Button" destination="HmX-Nh-w9o" id="gRY-kA-YnW"/>
@@ -1432,7 +1429,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n37-xF-ols" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2781" y="1102"/>
+            <point key="canvasLocation" x="2740" y="944"/>
         </scene>
         <!--Side PanelVC-->
         <scene sceneID="F62-5n-smi">
