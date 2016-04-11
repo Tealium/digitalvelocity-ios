@@ -420,7 +420,13 @@ class TEALBeaconsManager: CLLocationManager {
         
         var finalData = [ NSObject : AnyObject]()
         
-        finalData.addEntriesFrom(User.sharedInstance.vipData)
+        let vipData = User.sharedInstance.vipData
+        
+        if NSJSONSerialization.isValidJSONObject(vipData) == false {
+            TEALLog.log("VIP data not valid json: \(vipData)")
+        } else {
+            finalData.addEntriesFrom(User.sharedInstance.vipData)
+        }
         
         finalData.addEntriesFrom(data)
         
@@ -608,7 +614,12 @@ extension TEALBeaconsManager: CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
         TEALLog.log("Exited beacon region: \(region.description)")
+        
+        if let currentImprint = self.imprintCurrent {
+            self.confirmedLeftImprint(currentImprint)
+        }
         
         if UIApplication.sharedApplication().applicationState == UIApplicationState.Active{
             stopRanging()

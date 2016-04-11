@@ -130,11 +130,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TEALLog.log("notification received:\(userInfo.description)")
         Push.application(application, didReceiveRemoteNotification: userInfo)
+        showNotificationAlert(userInfo)
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         TEALLog.log("notification with FetchHandler received:\(userInfo.description)")
         Push.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
+        showNotificationAlert(userInfo)
+    }
+    
+    
+    func showNotificationAlert(userInfo: [NSObject : AnyObject]){
+        
+        guard let aps = userInfo["aps"] as? NSDictionary else {
+            
+            TEALLog.log("Push notification did not have expected aps key:\(userInfo)")
+            return
+            
+        }
+        
+        guard let alert = aps["alert"] as? String else{
+            
+            TEALLog.log("Push notification did not have expexted alerty key:\(userInfo)")
+            return
+        }
+        
+        let alertController = UIAlertController(title: "Digital Velocity", message: alert, preferredStyle: .Alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            
+        }))
+        
+        self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+        
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+            Int64(3.0 * Double(NSEC_PER_SEC)))
+        
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            alertController.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

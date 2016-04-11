@@ -424,33 +424,31 @@ class ParseConverter {
         
         var allKeyValues = [ NSObject : AnyObject]()
         
-        if let objectId = pfo.objectId {
+        if let objectId = pfo.objectId as? NSString {
             allKeyValues[ph.keyObjectId] = objectId
         }
         
-        if let createdAt = pfo.createdAt {
-            allKeyValues[ph.keyCreatedAt] = createdAt
-        }
-        
-        if let updatedAt = pfo.updatedAt {
-            allKeyValues[ph.keyUpdatedAt] = updatedAt
-        }
+//        if let createdAt = pfo.createdAt as? String {
+//            allKeyValues[ph.keyCreatedAt] = createdAt
+//        }
+//        
+//        if let updatedAt = pfo.updatedAt as? String {
+//            allKeyValues[ph.keyUpdatedAt] = updatedAt
+//        }
         
         let keys = pfo.allKeys()
         
         for key in keys {
             
-            guard let key = key as? String else {
+            if let key = key as? String {
             
-                continue
-                
+                if let value = pfo.valueForKey(key) as? String {
+                    
+                    allKeyValues[key] = value
+                    
+                }
             }
-            
-            if let value = pfo.valueForKey(key){
-                
-                allKeyValues[key] = value
-                
-            }
+
         }
         
         return allKeyValues

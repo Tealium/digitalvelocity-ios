@@ -35,8 +35,8 @@ class Config{
     var syncRate: Double = 60       // 1 minute default
     var startMonitoring : Int = 5   // 5am
     var stopMonitoring: Int =   20  // 10pm
-    var startMonitoringDate: NSDate = NSDate().dateByAddingTimeInterval(-86400)    // default yesterday to disable
-    var stopMonitoringDate: NSDate = NSDate()     // default today to disable
+    var startMonitoringDate: NSDate = NSDate().dateByAddingTimeInterval(-86400)    // default yesterday to enable
+    var stopMonitoringDate: NSDate = NSDate().dateByAddingTimeInterval(+3600)     // default later today to enable
     var welcomeDescription : String = ""
     var welcomeTitle: String = ""
     var welcomeSubtitle: String = ""
