@@ -171,7 +171,9 @@ class Demo_VC: UIViewController {
         
         Analytics.updateTealiumDemoInstance(accountEntryTemp , profile: profileEntryTemp, environment: environmentEntryTemp)
         
-        Analytics.updateDemoTraceId(self.audienceStreamTextField.text)
+        let traceId = self.audienceStreamTextField.text
+        
+        Analytics.updateDemoTraceId(traceId)
         
         Analytics.trackEvent("Demo Save Button Tapped")
         

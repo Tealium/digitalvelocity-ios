@@ -9,7 +9,7 @@
 import UIKit
 
 public let defaultImageName = "DV_Icon_40x40"
-public let defaultTransparentImageName = "DV_Icon_t_40x40"
+public let defaultTransparentImageName = "DV_Icon_t_180x180"
 
 public let defaultImagePath = NSBundle.mainBundle().pathForResource(defaultImageName, ofType: "png")
 public let defaultTransparentImagePath = NSBundle.mainBundle().pathForResource(defaultTransparentImageName, ofType: "png")

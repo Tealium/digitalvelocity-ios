@@ -97,10 +97,10 @@ class Analytics {
         // Enable or disable Trace
         if traceString != ""  {
             Analytics.startTrace(traceString)
-            print(traceString)
+            print("Trace started for: \(traceString)")
             
         } else{
-            
+            print("Trace stopped.")
             Analytics.stopTrace()
         }
         
