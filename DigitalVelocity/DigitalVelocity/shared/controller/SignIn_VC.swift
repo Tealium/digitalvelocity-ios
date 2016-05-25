@@ -65,6 +65,7 @@ class SignIn_VC: UIViewController {
             User.sharedInstance.email = emailString
             if User.sharedInstance.isValidEmail(emailString){
                 login()
+
             } else {
                 let alert = UIAlertView(title: "Invalid Email Address", message: nil, delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
@@ -76,12 +77,12 @@ class SignIn_VC: UIViewController {
         User.sharedInstance.skipCount++
         emailTextField.resignFirstResponder()
         login()
+
     }
     
     private func login(){
         NSNotificationCenter.defaultCenter().postNotificationName(loginSuccessfulNotification, object: nil)
     }
-    
     
 }
 
