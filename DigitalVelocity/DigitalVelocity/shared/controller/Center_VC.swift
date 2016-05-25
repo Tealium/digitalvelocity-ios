@@ -31,11 +31,11 @@ class Center_VC: Welcome_Web_VC {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC: AnyObject = segue.destinationViewController
-        if let navItem = destinationVC.navigationItem {
-            navItem.hidesBackButton = true
+//        if let navItem = destinationVC.navigationItem {
+            destinationVC.navigationItem?.hidesBackButton = true
             if let so = selectedOption{
-                navItem.title = so.title
-            }
+                destinationVC.navigationItem?.title = so.title
+//            }
         }
     }
 

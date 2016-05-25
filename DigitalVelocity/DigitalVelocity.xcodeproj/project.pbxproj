@@ -42,13 +42,11 @@
 		711370B01C74CB3E00EA9A48 /* TEALLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711370AE1C74CB3E00EA9A48 /* TEALLog.swift */; };
 		711370B21C74CB5900EA9A48 /* TEALCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711370B11C74CB5900EA9A48 /* TEALCredentials.swift */; };
 		711370B31C74D02900EA9A48 /* TEALLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711370AE1C74CB3E00EA9A48 /* TEALLog.swift */; };
-		711370B71C74D1AF00EA9A48 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 711370B61C74D1AF00EA9A48 /* credentials.json */; };
 		711370B91C7528F600EA9A48 /* Demo_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711370B81C7528F600EA9A48 /* Demo_VC.swift */; };
 		711AAC061A8E85C8007F6703 /* ParseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711AAC051A8E85C8007F6703 /* ParseHandler.swift */; };
 		711B83E21B0BD47500227B06 /* DVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B83E11B0BD47500227B06 /* DVViewController.swift */; };
 		7129B8971ACB0689002E6039 /* ParseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7129B8961ACB0689002E6039 /* ParseConverter.swift */; };
 		7139DC131C7626560079BCA1 /* TealiumIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7139DC121C7626560079BCA1 /* TealiumIOS.framework */; };
-		7139DC141C76440F0079BCA1 /* TealiumIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7139DC121C7626560079BCA1 /* TealiumIOS.framework */; };
 		7139DC151C76440F0079BCA1 /* TealiumIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7139DC121C7626560079BCA1 /* TealiumIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		713FADCA1A98178D00BF5869 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713FADC91A98178D00BF5869 /* MessageUI.framework */; };
 		714A196D1AB24854005B5EE6 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714A196C1AB24854005B5EE6 /* GlobalConstants.swift */; };
@@ -309,7 +307,6 @@
 				713FADCA1A98178D00BF5869 /* MessageUI.framework in Frameworks */,
 				4BF66E9A6A9A2ED61644A5F1 /* libPods-DigitalVelocity.a in Frameworks */,
 				E73C6A021B012F69002E2274 /* Crashlytics.framework in Frameworks */,
-				7139DC141C76440F0079BCA1 /* TealiumIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,7 +842,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Tealium;
 				TargetAttributes = {
 					2236EF921C8E327800FA5B84 = {
@@ -920,7 +917,6 @@
 				7150ABEA1A82DFF500BEDFB7 /* LaunchScreen.xib in Resources */,
 				71F200651A93C64800887D1B /* DV_Icon_180x180.png in Resources */,
 				71F200591A93B46A00887D1B /* MyriadPro-Semibold.otf in Resources */,
-				711370B71C74D1AF00EA9A48 /* credentials.json in Resources */,
 				71D606A21A93AC18008BDFE2 /* Hard-Rock-Hotel-Banquet-Hall.jpg in Resources */,
 				71D606A41A93AC18008BDFE2 /* Hard-Rock+Gaslamp.jpg in Resources */,
 				71F200581A93B46A00887D1B /* MyriadPro-Regular.otf in Resources */,

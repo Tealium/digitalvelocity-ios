@@ -51,12 +51,16 @@ class NotificationsTable_VC: Table_VC {
             if notification.title != nil && notification.title != ""{
                 cell.textLabel?.text = notification.title
                 cell.detailTextLabel?.text = notification.timeReceivedString()
+            } else {
+                cell.textLabel?.text = "No Notifications Yet"
             }
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.delegate = self
 
             return cell
+            
         } else {
+            
             return UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "blank")
         }
     }

@@ -109,10 +109,11 @@ class CellData : NSObject {
         if startDate != nil && endDate != nil{
             timeFormatter.dateStyle = NSDateFormatterStyle.NoStyle
             timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            timeFormatter.timeZone = NSTimeZone(abbreviation: "UTC")
+            timeFormatter.timeZone = NSTimeZone.localTimeZone()
             let start = timeFormatter.stringFromDate(startDate!)
             let end = timeFormatter.stringFromDate(endDate!)
-            return "\(start) - \(end)"
+            let abb = NSTimeZone.localTimeZone().abbreviation ?? ""
+            return "\(start) - \(end) \(abb)"
         }
         
         // Legacy fallback
