@@ -13,15 +13,18 @@ class Web_VC: UIViewController {
     @IBOutlet weak var progress: TEALProgressView!
     @IBOutlet weak var webView: UIWebView!
     
+    
+    var shouldShowErrorMessage : Bool = false
     var url: NSURL?
     let btn = UIButton()
+    let errorLabel: UILabel = UILabel()
+
     
     // MARK: Setup
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         if progress.finishedLoading == false {
-            print(" in Web VC")
             if let u = url {
                 loadWebView(u)
             }
@@ -47,16 +50,38 @@ class Web_VC: UIViewController {
         btn.hidden = true
         
         Analytics.trackView(self)
-        
-     }
+    
+    }
     
     func back(sender: UIBarButtonItem) {
         if self.webView.canGoBack {
             self.webView.goBack()
         }
     }
-
-    // TODO: Replace with NSURLSession -> download content with actual progress-> load into webview when done
+    
+    func showErrorMessage(shouldShow: Bool)  {
+        
+        if (shouldShow == false) {
+            errorLabel.hidden = true
+            return
+        }
+        if errorLabel.text != nil && errorLabel.text !=  "" {
+            errorLabel.hidden = false
+            return
+        }
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        
+        errorLabel.frame = CGRectMake(20, screenHeight/3, screenWidth - 40, 40)
+        errorLabel.textColor = UIColor.whiteColor()
+        errorLabel.textAlignment = NSTextAlignment.Center
+        errorLabel.text = "Please connect to the Internet"
+        webView.opaque = false
+        webView.backgroundColor = UIColor.blackColor()
+        webView.addSubview(errorLabel)
+        
+        }
+  
 }
 
 
@@ -67,10 +92,12 @@ extension Web_VC: UIWebViewDelegate {
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         
+        self.showErrorMessage(true)
         TEALLog.logError(error)
         
         progress.finishedLoading = true
-    }
+        
+        }
     
     func webViewDidStartLoad(webView: UIWebView) {
         progress.startProgress()
@@ -78,6 +105,8 @@ extension Web_VC: UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
   
+        showErrorMessage(false)
+        
         let cookieJar : NSHTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
         for cookie in cookieJar.cookies! as [NSHTTPCookie]{
             if (cookie.name == "page_title") {
