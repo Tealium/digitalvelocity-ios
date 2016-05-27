@@ -50,8 +50,14 @@ class TEALCredentials {
     
     private class func credentials() -> [String: String] {
     
+        #if DEBUG
+            let filename = "credentials_dev"
+        #else
+            let filename = "credentials"
+        #endif
+        
         var credentials = [String:String]()
-        guard let path = NSBundle.mainBundle().pathForResource("credentials", ofType: "json") else {
+        guard let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") else {
             
             self.logError("No credentials.json file found in project bundle.")
             

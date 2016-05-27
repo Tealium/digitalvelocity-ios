@@ -63,6 +63,7 @@
 		7181D7131A966F6A004EDF7E /* BlackBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 7181D7121A966F6A004EDF7E /* BlackBG.png */; };
 		718223101A9BA64200E164C8 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7182230F1A9BA64200E164C8 /* FontAwesome.otf */; };
 		71854CCA1AB6917300D819E0 /* Training.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 71854CC91AB6917300D819E0 /* Training.jpg */; };
+		71922D951CF86BD60077EE99 /* credentials_dev.json in Resources */ = {isa = PBXBuildFile; fileRef = 71922D941CF86BD60077EE99 /* credentials_dev.json */; };
 		71B0B8EA1CAB261D00213DEA /* UIColor+TealiumAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B0B8E91CAB261D00213DEA /* UIColor+TealiumAdditions.m */; };
 		71B939CF1C7B5D1300948DBC /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B939CE1C7B5D1300948DBC /* Analytics.swift */; };
 		71B939D11C7B5D1B00948DBC /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B939D01C7B5D1B00948DBC /* Push.swift */; };
@@ -220,6 +221,7 @@
 		7181D7121A966F6A004EDF7E /* BlackBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackBG.png; sourceTree = "<group>"; };
 		7182230F1A9BA64200E164C8 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		71854CC91AB6917300D819E0 /* Training.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Training.jpg; sourceTree = "<group>"; };
+		71922D941CF86BD60077EE99 /* credentials_dev.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials_dev.json; sourceTree = "<group>"; };
 		71B0B8E81CAB261D00213DEA /* UIColor+TealiumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TealiumAdditions.h"; sourceTree = "<group>"; };
 		71B0B8E91CAB261D00213DEA /* UIColor+TealiumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TealiumAdditions.m"; sourceTree = "<group>"; };
 		71B939CE1C7B5D1300948DBC /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				221957A11CAAFB5500BE23BA /* Slider Menu */,
 				221957A21CAAFB5F00BE23BA /* Notifications */,
 				22BD453F1C7E24CD0086309C /* credentials.json */,
+				71922D941CF86BD60077EE99 /* credentials_dev.json */,
 				71D606941A93ABE9008BDFE2 /* Assets */,
 				7181D7141A9688CB004EDF7E /* DataHandling */,
 				E77929BA1AC1E23300A56862 /* shared */,
@@ -925,6 +928,7 @@
 				71D606A41A93AC18008BDFE2 /* Hard-Rock+Gaslamp.jpg in Resources */,
 				71F200581A93B46A00887D1B /* MyriadPro-Regular.otf in Resources */,
 				71EA66F21B1681D9008FE97F /* config.plist in Resources */,
+				71922D951CF86BD60077EE99 /* credentials_dev.json in Resources */,
 				7181D7131A966F6A004EDF7E /* BlackBG.png in Resources */,
 				71D606A51A93AC18008BDFE2 /* Hard-Rock-Exterior@2x.jpg in Resources */,
 				7150ABE71A82DFF400BEDFB7 /* Images.xcassets in Resources */,
@@ -1282,6 +1286,10 @@
 					"$(PROJECT_DIR)/Vendor/Fabric",
 					"$(PROJECT_DIR)/Vendor/Tealium",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/DigitalVelocity/application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1289,7 +1297,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DonkyUI_SDK",
 				);
-				OTHER_SWIFT_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tealium.digitalvelocity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
