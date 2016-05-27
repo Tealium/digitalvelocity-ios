@@ -13,6 +13,9 @@ public let keyConfigExitThreshold = "exitThreshold"
 public let keyConfigWelcomeTitle = "welcomeTitle"
 public let keyConfigWelcomeDescription = "welcomeDescription"
 public let keyConfigWelcomeSubtitle = "welcomeSubtitle"
+public let keyConfigOverrideAccount = "accountOverride"
+public let keyConfigOverrideProfile = "profileOverride"
+public let keyConfigOverrideEnv = "envOverride"
 public let keyConfigPOIRefreshCycle = "poiRefreshCycle"
 public let keyConfigPurge = "purge"
 public let keyConfigRssi = "rssiThreshold"
@@ -28,6 +31,9 @@ class Config{
     var enterThreshold : Double = 5.0
     var exitThreshold : Double = 10.0
     var isDefault : Bool = true
+    var overrideAccount : String?
+    var overrideProfile : String?
+    var overrideEnv : String?
     var poiRefreshCycle : Double = 10.0 // seconds before sending a in_poi message
     var rssiThreshold: Int = -250
     var shouldPurge: Bool = false
@@ -46,7 +52,7 @@ class Config{
         
     }
     func description()-> String{
-        return "isDefault:\(isDefault), enterThreshold:\(enterThreshold), exitThreshold:\(exitThreshold), poiRefreshCycle:\(poiRefreshCycle), rssi:\(rssiThreshold), purge:\(shouldPurge), scanRate:\(scanRate), syncRate:\(syncRate), startMonitoring:\(startMonitoring), startMonitoringDate:\(startMonitoringDate), stopMonitoring:\(stopMonitoring), stopMonitoringDate:\(stopMonitoringDate), welcomeTitle:\(welcomeTitle), welcomeDescription:\(welcomeDescription), welcomeSubtitle:\(welcomeSubtitle), updatedAt:\(updatedAt)"
+        return "isDefault:\(isDefault), enterThreshold:\(enterThreshold), exitThreshold:\(exitThreshold), poiRefreshCycle:\(poiRefreshCycle), rssi:\(rssiThreshold), purge:\(shouldPurge), scanRate:\(scanRate), syncRate:\(syncRate), startMonitoring:\(startMonitoring), startMonitoringDate:\(startMonitoringDate), stopMonitoring:\(stopMonitoring), stopMonitoringDate:\(stopMonitoringDate), welcomeTitle:\(welcomeTitle), welcomeDescription:\(welcomeDescription), welcomeSubtitle:\(welcomeSubtitle), updatedAt:\(updatedAt), accountOverride:\(overrideAccount), profileOverride:\(overrideProfile), envOverride:\(overrideEnv)"
     }
     
     func isEqualToConfig(otherConfig:Config)->Bool{
@@ -54,7 +60,7 @@ class Config{
     }
     
     func serialize()-> [String:AnyObject]{
-        let dict = [
+        var dict = [
             keyConfigEnterThreshold : enterThreshold,
             keyConfigExitThreshold : exitThreshold,
             keyConfigRssi : rssiThreshold,
@@ -68,8 +74,19 @@ class Config{
             keyConfigSyncRate : syncRate,
             keyConfigWelcomeDescription : welcomeDescription,
             keyConfigWelcomeSubtitle : welcomeSubtitle,
-            keyConfigWelcomeTitle : welcomeTitle
-        ]
+            keyConfigWelcomeTitle : welcomeTitle,
+        ] as [String:AnyObject]
+        
+        // Optional overrides
+        if let oa = overrideAccount {
+            if let op = overrideProfile {
+                if let oe = overrideEnv {
+                    dict[keyConfigOverrideAccount] = oa
+                    dict[keyConfigOverrideProfile] = op
+                    dict[keyConfigOverrideEnv] = oe
+                }
+            }
+        }
         
         return dict
     }
@@ -152,6 +169,18 @@ class Config{
         
         if let x = dictionary[keyConfigUpdatedAt] as? NSDate{
             config.updatedAt = x
+        }
+        
+        if let x = dictionary[keyConfigOverrideAccount] as? String {
+            config.overrideAccount = x
+        }
+        
+        if let x = dictionary[keyConfigOverrideProfile] as? String {
+            config.overrideProfile = x
+        }
+        
+        if let x = dictionary[keyConfigOverrideEnv] as? String {
+            config.overrideEnv = x
         }
         
         return config
