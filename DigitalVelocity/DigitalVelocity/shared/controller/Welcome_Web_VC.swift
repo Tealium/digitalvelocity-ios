@@ -29,12 +29,12 @@ class Welcome_Web_VC : Web_VC{
     }
     
     override func viewDidLoad() {
-        
+                
         if let email =  User.sharedInstance.email {
             saveEmailCookie(email)
-          //  saveVisitorIDCookie()
+            saveVisitorIDCookie()
         }else{
-            //saveVisitorIDCookie()
+            saveVisitorIDCookie()
         }
         
         if progress.finishedLoading == false {
@@ -56,8 +56,8 @@ class Welcome_Web_VC : Web_VC{
     
     func saveEmailCookie(email: String){
         let cookieProperties =  [
-            NSHTTPCookieDomain: "digitalvelocity.tealium.com",
             NSHTTPCookiePath: "/",
+            NSHTTPCookieDomain: "digitalvelocity.tealium.com",
             NSHTTPCookieName: "user_email",
             NSHTTPCookieValue: email,
             NSHTTPCookieSecure: "TRUE",
@@ -77,8 +77,8 @@ class Welcome_Web_VC : Web_VC{
         }
         
         let cookieProperties =  [
-            NSHTTPCookieDomain: "digitalvelocity.tealium.com",
             NSHTTPCookiePath: "/",
+            NSHTTPCookieDomain: "digitalvelocity.tealium.com",
             NSHTTPCookieName: "visitor_id",
             NSHTTPCookieValue: visitorId ,
             NSHTTPCookieSecure: "TRUE",

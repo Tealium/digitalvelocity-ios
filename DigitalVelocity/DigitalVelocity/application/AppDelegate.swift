@@ -55,7 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             showLogin()
         }
         
+        processNotificationFromLaunchOptions(launchOptions)
+   
         return true
+
     }
     
     func restartBGAnalytics(notification: NSNotification) {
@@ -81,6 +84,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
+    
+    func processNotificationFromLaunchOptions(launchOptions : [NSObject: AnyObject]?) {
+        
+        guard let options = launchOptions else{
+            return
+        
+        }
+        
+        guard let notification = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? UILocalNotification else{
+            return
+        
+        }
+        
+        guard let userInfo = notification.userInfo else {
+            return
+        
+        }
+        guard let aps = userInfo["aps"] as? NSDictionary else {
+            TEALLog.log("Push notification did not have expected aps key:\(userInfo)")
+            return
+            
+        }
+        
+        guard let alert = aps["alert"] as? String else{
+            
+            TEALLog.log("Push notification did not have expexted alerty key:\(userInfo)")
+            return
+        }
+        
+        EventDataStore.sharedInstance().notificationsDatasource().notifications.addNotification(alert)
+        
+    }
+
     func showLogin(){
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
