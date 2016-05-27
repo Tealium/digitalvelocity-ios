@@ -151,11 +151,34 @@ class Analytics {
         
     }
     
+    class func restartTealiumBGInstance(account: String, profile: String, env: String){
+        // If current BG instance doesn't have same account/profile/env - destroy
+        Tealium.destroyInstanceForKey(tealiumBGInstanceID)
+        
+        // Restart TealiumBGInstance
+        setupTealiumBGInstance()
+    }
+    
     private class func setupTealiumBGInstance() {
         
-        let account = TEALCredentials.idFor(TealiumAccount)
-        let profile = TEALCredentials.idFor(TealiumProfile)
-        let env = TEALCredentials.idFor(TealiumEnv)
+        // Default Tealium BG Instance
+        var account = TEALCredentials.idFor(TealiumAccount)
+        var profile = TEALCredentials.idFor(TealiumProfile)
+        var env = TEALCredentials.idFor(TealiumEnv)
+        
+        // Check for override
+        let savedConfig = Config.loadConfig()
+        if let oa = savedConfig.overrideAccount {
+            if let op = savedConfig.overrideProfile {
+                if let oe = savedConfig.overrideEnv {
+                    account = oa
+                    profile = op
+                    env = oe
+                }
+            }
+        }
+        
+        TEALLog.log("Starting Tealium BG Instance for \(account)/\(profile)/\(env)")
         
         let config = TEALConfiguration.init(account: account, profile: profile, environment: env)
         

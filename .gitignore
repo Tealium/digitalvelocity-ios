@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io
 
 credentials.json
+credentials_dev.json
 
 ### Swift / Objective-C ###
 # Xcode

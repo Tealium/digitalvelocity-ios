@@ -18,10 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        #if DEBUG
+            TEALLog.enableLogs(true)
+        #endif
         
         // Begin Audience Stream + Parse
         Analytics.launch(application, launchOptions: launchOptions)
         Content.launch()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(restartBGAnalytics(_:)), name: notificationKeyConfigData, object: nil)
         
         // Crashlytics
         Fabric.with([Crashlytics()])
@@ -52,6 +56,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+    }
+    
+    func restartBGAnalytics(notification: NSNotification) {
+        
+        guard let config = notification.object as? Config else {
+            // notification did not have required object
+            return
+        }
+        
+        guard let oa = config.overrideAccount else {
+            return
+        }
+        
+        guard let op = config.overrideProfile else {
+            return
+        }
+        
+        guard let oe = config.overrideEnv else {
+            return
+        }
+        
+        Analytics.restartTealiumBGInstance(oa, profile: op, env: oe)
+
     }
     
     func showLogin(){

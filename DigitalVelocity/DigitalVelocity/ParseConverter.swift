@@ -113,6 +113,22 @@ class ParseConverter {
             conversionError = true
         }
         
+        // Optional Tealium BG instance account/profile/env override
+        if let ao = object[keyConfigOverrideAccount] as? String {
+            
+            if let po = object[keyConfigOverrideProfile] as? String {
+                
+                if let eo = object[keyConfigOverrideEnv] as? String {
+                    
+                    // only commit override data if all elements available
+                    config.overrideAccount = ao
+                    config.overrideProfile = po
+                    config.overrideEnv = eo
+                    
+                }
+            }
+        }
+        
         config.updatedAt = object.updatedAt!
         config.isDefault = false
         

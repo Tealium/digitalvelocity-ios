@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 let PARSE_CLASS_KEY_ATTENDEE = "Attendee"
 let PARSE_CLASS_KEY_CATEGORY = "Category"
 let PARSE_CLASS_KEY_COMPANY = "Company"
@@ -226,9 +225,8 @@ class ParseHandler: NSObject {
     func loadConfig(){
         
         self.config = Config.loadConfig()
+        
         fetch(PARSE_CLASS_KEY_CONFIG, lastUpdatedAt: nil, completion: { (pfObjects, error) -> () in
-            if error != nil{
-            }
             
             self.updateConfig(pfObjects)
             self.loadAll()
@@ -410,15 +408,22 @@ class ParseHandler: NSObject {
     }
 
     private func updateConfig(objects:[PFObject]){
+        
         if objects.count == 0 {
             TEALLog.log("No PFObjects provided to updateConfig call")
             return
         }
         
         let newConfig = ParseConverter.configFromPFObject(objects[0])
+        
         if self.config.isEqualToConfig(newConfig) == false{
+            
             self.config = newConfig
+            self.config.save()
+            
+            TEALLog.log("New Config detected:\(self.config)")
             NSNotificationCenter.defaultCenter().postNotificationName(notificationKeyConfigData, object: self.config)
+            
         }
         
         if (self.config.shouldPurge == true){
