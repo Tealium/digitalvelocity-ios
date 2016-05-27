@@ -84,6 +84,10 @@ class SignIn_VC: UIViewController {
         NSNotificationCenter.defaultCenter().postNotificationName(loginSuccessfulNotification, object: nil)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
 }
 
 extension SignIn_VC: UITextFieldDelegate {
