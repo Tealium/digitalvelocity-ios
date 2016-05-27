@@ -12,6 +12,7 @@
 		221957B01CAC4D6300BE23BA /* SurveyBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221957AF1CAC4D6300BE23BA /* SurveyBaseCell.swift */; };
 		2236EF961C8E327800FA5B84 /* DigitalVelocityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2236EF951C8E327800FA5B84 /* DigitalVelocityUITests.swift */; };
 		22BD45401C7E24CD0086309C /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 22BD453F1C7E24CD0086309C /* credentials.json */; };
+		22BE5DA21CEE2C6300063BCD /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = 22BE5DA11CEE2C6300063BCD /* credentials.json */; };
 		22D9783F1CAF233000E0E636 /* SubmitButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */; };
 		22D978411CAF248E00E0E636 /* SurveyQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */; };
 		22D978C11CB6A61D00E0E636 /* DownStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D978C01CB6A61D00E0E636 /* DownStateButton.swift */; };
@@ -164,6 +165,7 @@
 		2236EF951C8E327800FA5B84 /* DigitalVelocityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalVelocityUITests.swift; sourceTree = "<group>"; };
 		2236EF971C8E327800FA5B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22BD453F1C7E24CD0086309C /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials.json; sourceTree = "<group>"; };
+		22BE5DA11CEE2C6300063BCD /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials.json; sourceTree = "<group>"; };
 		22D9783E1CAF233000E0E636 /* SubmitButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitButtonCell.swift; sourceTree = "<group>"; };
 		22D978401CAF248E00E0E636 /* SurveyQuestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyQuestionCell.swift; sourceTree = "<group>"; };
 		22D978C01CB6A61D00E0E636 /* DownStateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownStateButton.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		221957A11CAAFB5500BE23BA /* Slider Menu */ = {
 			isa = PBXGroup;
 			children = (
+				22BE5DA11CEE2C6300063BCD /* credentials.json */,
 				37BCCCEC1AC87A4300196851 /* Center_VC.swift */,
 				37BCCCF01AC87A4300196851 /* SidePanel_VC.swift */,
 				37BCCCEF1AC87A4300196851 /* Settings_VC.swift */,
@@ -543,8 +546,8 @@
 				221957A31CAAFB7400BE23BA /* Sponsors */,
 				221957A51CAAFB8600BE23BA /* Demo */,
 				221957A41CAAFB8000BE23BA /* Contact */,
-				221957A21CAAFB5F00BE23BA /* Notifications */,
 				221957A11CAAFB5500BE23BA /* Slider Menu */,
+				221957A21CAAFB5F00BE23BA /* Notifications */,
 				22BD453F1C7E24CD0086309C /* credentials.json */,
 				71D606941A93ABE9008BDFE2 /* Assets */,
 				7181D7141A9688CB004EDF7E /* DataHandling */,
@@ -917,7 +920,8 @@
 				7150ABEA1A82DFF500BEDFB7 /* LaunchScreen.xib in Resources */,
 				71F200651A93C64800887D1B /* DV_Icon_180x180.png in Resources */,
 				71F200591A93B46A00887D1B /* MyriadPro-Semibold.otf in Resources */,
-				71D606A21A93AC18008BDFE2 /* Hard-Rock-Hotel-Banquet-Hall.jpg in Resources */,
+				711370B71C74D1AF00EA9A48 /* credentials.json in Resources */,
+ 				71D606A21A93AC18008BDFE2 /* Hard-Rock-Hotel-Banquet-Hall.jpg in Resources */,
 				71D606A41A93AC18008BDFE2 /* Hard-Rock+Gaslamp.jpg in Resources */,
 				71F200581A93B46A00887D1B /* MyriadPro-Regular.otf in Resources */,
 				71EA66F21B1681D9008FE97F /* config.plist in Resources */,

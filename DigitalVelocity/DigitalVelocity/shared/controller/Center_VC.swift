@@ -23,24 +23,21 @@ class Center_VC: Welcome_Web_VC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        
         setupMenuNavigationForController()
         menuOptionSelected(MenuOption.allOptions()[0])
         
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationVC: AnyObject = segue.destinationViewController
-//        if let navItem = destinationVC.navigationItem {
-            destinationVC.navigationItem?.hidesBackButton = true
-            if let so = selectedOption{
-                destinationVC.navigationItem?.title = so.title
-//            }
-        }
+
+        let destinationVC: UIViewController = segue.destinationViewController
+        let navItem = destinationVC.navigationItem
+        navItem.hidesBackButton = true
+        let so = selectedOption
+        navItem.title = so!.title
     }
-
+       
 }
-
 // MARK: SidePanel Delegate
 extension Center_VC: SidePanel_VC_Delegate{
     func menuOptionSelected(menuOption: MenuOption){
@@ -94,6 +91,8 @@ extension Center_VC: SidePanel_VC_Delegate{
     }
     
 }
+
+
 
 class FadeSegue: UIStoryboardSegue {
     
