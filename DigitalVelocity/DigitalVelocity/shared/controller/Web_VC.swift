@@ -78,7 +78,6 @@ extension Web_VC: UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
   
-        let cookie = NSHTTPCookie()
         let cookieJar : NSHTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
         for cookie in cookieJar.cookies! as [NSHTTPCookie]{
             if (cookie.name == "page_title") {

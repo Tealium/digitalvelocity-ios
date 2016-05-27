@@ -45,7 +45,7 @@ class TEALBeaconsManager: CLLocationManager {
     override init() {
         super.init()
         locationManager.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateConfig:", name: notificationKeyConfigData, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateConfig(_:)), name: notificationKeyConfigData, object: nil)
     }
     
     func start(application:UIApplication, launchOptions:[NSObject:AnyObject]?){
@@ -266,6 +266,7 @@ class TEALBeaconsManager: CLLocationManager {
     private func canMonitor()->Bool{
         
         #if DEBUG
+            TEALLog.log("DEBUG mode detected: Permitting beacon ranging.")
             return true
         #endif
         
@@ -595,7 +596,12 @@ extension TEALBeaconsManager: CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, rangingBeaconsDidFailForRegion region: CLBeaconRegion, withError error: NSError) {
-        TEALLog.log("Ranging Beacons failed for beacon region: \(region.description) error: \(error.localizedDescription)")
+        
+        TEALLog.log("Ranging Beacons failed for beacon region: \(region.description) error: \(error.localizedDescription), shutting down further beacon detection.")
+        
+        self.stopRanging()
+        self.stopBackgroundRanging(nil)        
+        
     }
     
     func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {

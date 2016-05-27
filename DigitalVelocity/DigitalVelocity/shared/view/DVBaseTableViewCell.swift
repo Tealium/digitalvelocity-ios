@@ -70,7 +70,8 @@ class DVBaseTableViewCell: UITableViewCell {
         button.titleLabel?.font = FontAwesomeHelper.fontAwesomeForSize(16)
 
         button.setTitle("\u{f041}", forState: UIControlState.Normal)
-        button.addTarget(self, action: "accessoryTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+
+        button.addTarget(self, action:#selector(accessoryTapped(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         button.layer.cornerRadius = CGRectGetMidY(button.frame)
         
