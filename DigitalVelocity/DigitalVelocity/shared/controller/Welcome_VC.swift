@@ -28,6 +28,10 @@ class Welcome_VC: UIViewController {
         setupMenuNavigationForController()
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         Analytics.trackView(self)

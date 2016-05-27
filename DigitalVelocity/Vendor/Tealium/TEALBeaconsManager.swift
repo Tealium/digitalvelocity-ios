@@ -48,6 +48,10 @@ class TEALBeaconsManager: CLLocationManager {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateConfig(_:)), name: notificationKeyConfigData, object: nil)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     func start(application:UIApplication, launchOptions:[NSObject:AnyObject]?){
         self.addBeaconRegionForRanging("Estimote Beacons", uuidString: "b9407f30-f5f8-466e-aff9-25556b57fe6d")
         
