@@ -58,7 +58,7 @@ class Table_VC: UITableViewController {
     
     func setupRefresh() {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("forceRefresh"), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(forceRefresh), forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refreshControl
     }
     

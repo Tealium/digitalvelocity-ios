@@ -20,8 +20,9 @@ class Welcome_VC: UIViewController {
         let image = UIImage(named: defaultImageName)
         
         navigationItem.titleView =  UIImageView(image: image)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newDataAvailable:", name: notificationKeyConfigData, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "noDataYetAvailable:", name: notificationKeyNoConfigDataYet, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(newDataAvailable(_:)), name: notificationKeyConfigData, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(noDataYetAvailable(_:)), name: notificationKeyNoConfigDataYet, object: nil)
 
         newDataAvailable(nil)
         setupMenuNavigationForController()

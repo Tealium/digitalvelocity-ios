@@ -17,6 +17,7 @@ let TealiumEnv = "tealium_env"
 let ParseAppId = "parse_app_id"
 let ParseClientId = "parse_client_id"
 let DonkyApiId = "donky_api_id"
+var _credentials : [String : String]?
 
 class TEALCredentials {
     
@@ -39,24 +40,35 @@ class TEALCredentials {
         
         let credentials = self.credentials()
         
-        guard let account = credentials[key] else {
+        guard let idValue = credentials[key] else {
             self.logError("No credential value for key: \(key)")
             return ""
         }
                 
-        return account
+        return idValue
         
     }
     
     private class func credentials() -> [String: String] {
     
+        // check class property to see if this exists already
+        if let c = _credentials {
+            // Credentials already loaded
+            return c
+        }
+        
+        // Retrieve debug or release credentials
+        var filename = "credentials"
+        print("RELEASE mode detected: using credentials.json")
+        
         #if DEBUG
-            let filename = "credentials_dev"
-        #else
-            let filename = "credentials"
+            filename = "credentials_dev"
+            // Breakpoints acting wierd with macros, print instead
+            print("DEBUG mode detected: using credentials_dev.json")
         #endif
         
         var credentials = [String:String]()
+        
         guard let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") else {
             
             self.logError("No credentials.json file found in project bundle.")
@@ -95,7 +107,10 @@ class TEALCredentials {
             self.logError("Credentials.json parsing error: \(JSONError)")
         }
         
-        return credentials
+        // Set property so we don't have to do this check on preceeding calls
+        _credentials = credentials
+        
+        return _credentials!
         
     }
 

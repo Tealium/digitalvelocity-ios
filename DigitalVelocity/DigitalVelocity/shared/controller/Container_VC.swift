@@ -56,8 +56,9 @@ class Container_VC: UIViewController {
         addChildViewController(centerNavigationController)
         
         centerNavigationController.didMoveToParentViewController(self)
+                
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)) )
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
         centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
         
     }

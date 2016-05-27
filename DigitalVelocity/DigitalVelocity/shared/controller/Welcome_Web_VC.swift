@@ -51,12 +51,7 @@ class Welcome_Web_VC : Web_VC{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
-        if let tealium = Tealium.instanceForKey(tealiumBGInstanceID){
-            saveVisitorIDCookie()
-        }else {
-            print("Tealium instance does not exist")
-        }
+        saveVisitorIDCookie()
     }
     
     func saveEmailCookie(email: String){
@@ -75,13 +70,17 @@ class Welcome_Web_VC : Web_VC{
 }
 
     func saveVisitorIDCookie() {
-        let tealium = Tealium.instanceForKey(tealiumBGInstanceID)
-        print (tealium)
+        
+        guard let visitorId = Tealium.instanceForKey(tealiumBGInstanceID)?.visitorIDCopy() else{
+            // visitor id not available.
+            return
+        }
+        
         let cookieProperties =  [
             NSHTTPCookieDomain: "digitalvelocity.tealium.com",
             NSHTTPCookiePath: "/",
             NSHTTPCookieName: "visitor_id",
-            NSHTTPCookieValue: tealium?.visitorIDCopy() as! AnyObject ,
+            NSHTTPCookieValue: visitorId ,
             NSHTTPCookieSecure: "TRUE",
             ]
         

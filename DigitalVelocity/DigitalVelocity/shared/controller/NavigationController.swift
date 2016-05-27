@@ -40,7 +40,7 @@ class NavigationController: UINavigationController {
     private func menuButton()->UIBarButtonItem{
         
         if _menuButton == nil{
-            _menuButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "handleMenuButton:")
+            _menuButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(handleMenuButton(_:)))
             
             let font = FontAwesomeHelper.fontAwesomeForSize(28)
             let attributes  = NSDictionary(object: font, forKey: NSFontAttributeName)
