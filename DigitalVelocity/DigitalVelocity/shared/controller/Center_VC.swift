@@ -23,7 +23,6 @@ class Center_VC: Welcome_Web_VC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
-        setupMenuNavigationForController()
         menuOptionSelected(MenuOption.allOptions()[0])
         
     }
@@ -42,6 +41,8 @@ class Center_VC: Welcome_Web_VC {
 extension Center_VC: SidePanel_VC_Delegate{
     func menuOptionSelected(menuOption: MenuOption){
     
+//        self.view.backgroundColor = UIColor.grayColor()
+        
         delegate?.collapseSidePanels?()
         
         // Welcome

@@ -24,6 +24,7 @@ class Web_VC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMenuNavigationForController()
         if progress.finishedLoading == false {
             if let u = url {
                 loadWebView(u)
@@ -92,7 +93,15 @@ extension Web_VC: UIWebViewDelegate {
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         
-        self.showErrorMessage(true)
+//        print("Error: \(error), Code: \(error?.code)")
+        
+        // Only display no internet connection if that's the actual error code
+        if error?.code == -1009 {
+        
+            self.showErrorMessage(true)
+        
+        }
+        
         TEALLog.logError(error)
         
         progress.finishedLoading = true
@@ -107,18 +116,6 @@ extension Web_VC: UIWebViewDelegate {
   
         showErrorMessage(false)
         
-        let cookieJar : NSHTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
-        for cookie in cookieJar.cookies! as [NSHTTPCookie]{
-            if (cookie.name == "page_title") {
-                self.title = cookie.value
-            }
-        }
-        
-        if webView.canGoBack {
-            btn.hidden = false
-        }else {
-            btn.hidden = true
-        }
         progress.finishedLoading = true
         
     }
