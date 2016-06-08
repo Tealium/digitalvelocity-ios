@@ -13,7 +13,7 @@ import UIKit
  
 */
 extension UIViewController {
-
+    
     func setupMenuNavigationForController() {
         // Adds just menu icon
         if let navController = self.navigationController as? NavigationController {
@@ -26,6 +26,16 @@ extension UIViewController {
         if let navController = self.navigationController as? NavigationController {
             navController.addNavigationButtonsToViewController(self)
         }
+    }
+    
+    func hideKeyboardWhenTappedAround(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
 }
 

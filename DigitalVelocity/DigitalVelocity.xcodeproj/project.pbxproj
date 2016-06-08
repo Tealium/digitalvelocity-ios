@@ -30,7 +30,6 @@
 		37BCCCF81AC87A4300196851 /* SidePanel_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCF01AC87A4300196851 /* SidePanel_VC.swift */; };
 		37BCCCF91AC87A4300196851 /* SignIn_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCF11AC87A4300196851 /* SignIn_VC.swift */; };
 		37BCCCFA1AC87A4300196851 /* Web_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCF21AC87A4300196851 /* Web_VC.swift */; };
-		37BCCCFB1AC87A4300196851 /* Welcome_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCF31AC87A4300196851 /* Welcome_VC.swift */; };
 		37BCCCFD1AC87B9B00196851 /* AgendaItemImageDetail_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCFC1AC87B9B00196851 /* AgendaItemImageDetail_VC.swift */; };
 		37BCCCFF1AC87BD500196851 /* AgendaItemFontAwesomeDetail_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCCFE1AC87BD500196851 /* AgendaItemFontAwesomeDetail_VC.swift */; };
 		37BCCD021AC8865A00196851 /* FontAwesomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BCCD011AC8865A00196851 /* FontAwesomeHelper.swift */; };
@@ -45,6 +44,7 @@
 		711370B91C7528F600EA9A48 /* Demo_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711370B81C7528F600EA9A48 /* Demo_VC.swift */; };
 		711AAC061A8E85C8007F6703 /* ParseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711AAC051A8E85C8007F6703 /* ParseHandler.swift */; };
 		711B83E21B0BD47500227B06 /* DVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B83E11B0BD47500227B06 /* DVViewController.swift */; };
+		712572401D07378D0036789D /* DV EU Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7125723F1D07378D0036789D /* DV EU Background.jpg */; };
 		7129B8971ACB0689002E6039 /* ParseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7129B8961ACB0689002E6039 /* ParseConverter.swift */; };
 		7139DC131C7626560079BCA1 /* TealiumIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7139DC121C7626560079BCA1 /* TealiumIOS.framework */; };
 		7139DC151C76440F0079BCA1 /* TealiumIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7139DC121C7626560079BCA1 /* TealiumIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -185,7 +185,6 @@
 		37BCCCF01AC87A4300196851 /* SidePanel_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidePanel_VC.swift; path = shared/controller/SidePanel_VC.swift; sourceTree = "<group>"; };
 		37BCCCF11AC87A4300196851 /* SignIn_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = SignIn_VC.swift; path = shared/controller/SignIn_VC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		37BCCCF21AC87A4300196851 /* Web_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Web_VC.swift; path = shared/controller/Web_VC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		37BCCCF31AC87A4300196851 /* Welcome_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Welcome_VC.swift; path = shared/controller/Welcome_VC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		37BCCCFC1AC87B9B00196851 /* AgendaItemImageDetail_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaItemImageDetail_VC.swift; sourceTree = "<group>"; };
 		37BCCCFE1AC87BD500196851 /* AgendaItemFontAwesomeDetail_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaItemFontAwesomeDetail_VC.swift; sourceTree = "<group>"; };
 		37BCCD011AC8865A00196851 /* FontAwesomeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeHelper.swift; sourceTree = "<group>"; };
@@ -201,6 +200,7 @@
 		711370B81C7528F600EA9A48 /* Demo_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Demo_VC.swift; path = shared/controller/Demo_VC.swift; sourceTree = "<group>"; };
 		711AAC051A8E85C8007F6703 /* ParseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseHandler.swift; path = ../DigitalVelocity/ParseHandler.swift; sourceTree = "<group>"; };
 		711B83E11B0BD47500227B06 /* DVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = DVViewController.swift; path = shared/controller/DVViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7125723F1D07378D0036789D /* DV EU Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DV EU Background.jpg"; sourceTree = "<group>"; };
 		7129B8961ACB0689002E6039 /* ParseConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseConverter.swift; path = DigitalVelocity/ParseConverter.swift; sourceTree = SOURCE_ROOT; };
 		7139DC121C7626560079BCA1 /* TealiumIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TealiumIOS.framework; sourceTree = "<group>"; };
 		713FADC91A98178D00BF5869 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -409,7 +409,6 @@
 			children = (
 				71EA66F71B17C898008FE97F /* Welcome_Web_VC.swift */,
 				37BCCCF21AC87A4300196851 /* Web_VC.swift */,
-				37BCCCF31AC87A4300196851 /* Welcome_VC.swift */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -620,6 +619,7 @@
 		71D606951A93ABE9008BDFE2 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				7125723F1D07378D0036789D /* DV EU Background.jpg */,
 				7181D7121A966F6A004EDF7E /* BlackBG.png */,
 				71D6069E1A93AC18008BDFE2 /* Hard-Rock-Hotel-Banquet-Hall.jpg */,
 				71D6069F1A93AC18008BDFE2 /* Hard-Rock-Studio2.jpg */,
@@ -907,6 +907,7 @@
 				714A19731AB24E86005B5EE6 /* DV_Icon_t_40x40.png in Resources */,
 				71F2005B1A93C58200887D1B /* DV_Icon.png in Resources */,
 				22BD45401C7E24CD0086309C /* credentials.json in Resources */,
+				712572401D07378D0036789D /* DV EU Background.jpg in Resources */,
 				71F200611A93C64800887D1B /* DV_Icon_40x40.png in Resources */,
 				71F200571A93B46A00887D1B /* MyriadPro-Light.otf in Resources */,
 				71854CCA1AB6917300D819E0 /* Training.jpg in Resources */,
@@ -1097,7 +1098,6 @@
 				37BCCCFD1AC87B9B00196851 /* AgendaItemImageDetail_VC.swift in Sources */,
 				37BCCCF71AC87A4300196851 /* Settings_VC.swift in Sources */,
 				71D8F54A1B0411C700A5391F /* Favorites.swift in Sources */,
-				37BCCCFB1AC87A4300196851 /* Welcome_VC.swift in Sources */,
 				710D107E1B14DA7D000A2B52 /* NotificationTableDataSource.swift in Sources */,
 				E77929C71AC1E23300A56862 /* LocationDataLayout.swift in Sources */,
 				E77929CE1AC1E23300A56862 /* SponsorsTable_VC.swift in Sources */,

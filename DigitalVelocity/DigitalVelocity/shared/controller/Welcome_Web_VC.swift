@@ -20,9 +20,7 @@ class Welcome_Web_VC : Web_VC{
         }
         
         let encodedURLString = baseURLString.stringByRemovingPercentEncoding
-        
-//        let encodedURLString = baseURLString.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        
+                
         let url = NSURL(string: encodedURLString!)
         
         return url!
@@ -67,7 +65,6 @@ class Welcome_Web_VC : Web_VC{
         NSHTTPCookieStorage.sharedHTTPCookieStorage().setCookie(cookie!)
 
     }
-}
 
     func saveVisitorIDCookie() {
         
@@ -88,4 +85,28 @@ class Welcome_Web_VC : Web_VC{
         NSHTTPCookieStorage.sharedHTTPCookieStorage().setCookie(cookie!)
         
     }
+    
+    override func webViewDidFinishLoad(webView: UIWebView) {
+        
+        showErrorMessage(false)
+        
+        let cookieJar : NSHTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in cookieJar.cookies! as [NSHTTPCookie]{
+            
+            if (cookie.name == "page_title") {
+                self.title = cookie.value
+                print("Cookie: \(cookie)")
+            }
+        }
+        
+        if webView.canGoBack {
+            btn.hidden = false
+        }else {
+            btn.hidden = true
+        }
+        progress.finishedLoading = true
+        
+    }
+
+}
 

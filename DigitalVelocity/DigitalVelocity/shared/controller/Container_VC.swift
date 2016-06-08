@@ -120,6 +120,7 @@ class Container_VC: UIViewController {
 extension Container_VC: UINavigationControllerDelegate, NavigationControllerMenuDelegate{
     
     func menuToggleRequested() {
+        self.view.endEditing(true)
         toggleRightPanel()
     }
     

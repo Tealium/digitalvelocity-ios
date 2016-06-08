@@ -12,6 +12,9 @@ public let loginSuccessfulNotification = "loginSuccessful"
 
 class SignIn_VC: UIViewController {
 
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     @IBOutlet weak var emailTextField:UITextField! {
         didSet{
             let bottomLine = CALayer()
@@ -40,6 +43,7 @@ class SignIn_VC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
         if User.sharedInstance.email != nil{
             login()
@@ -49,11 +53,17 @@ class SignIn_VC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        emailTextField.becomeFirstResponder()
+        self.view.endEditing(false)
         
+        emailTextField.becomeFirstResponder()
         Analytics.trackView(self)
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.view.endEditing(true)
+    }
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         
         return UIStatusBarStyle.LightContent
@@ -74,18 +84,30 @@ class SignIn_VC: UIViewController {
     }
     
     @IBAction func skip(){
-        User.sharedInstance.skipCount++
-        emailTextField.resignFirstResponder()
+        User.sharedInstance.skipCount += 1
         login()
 
     }
     
     private func login(){
         NSNotificationCenter.defaultCenter().postNotificationName(loginSuccessfulNotification, object: nil)
+        self.dismissKeyboard()
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    override func hideKeyboardWhenTappedAround(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.backgroundImageView.addGestureRecognizer(tap)
+        self.view.addGestureRecognizer(tap)
+        
+    }
+    
+    override func dismissKeyboard() {
+        self.emailTextField.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
 }
@@ -97,6 +119,7 @@ extension SignIn_VC: UITextFieldDelegate {
             textField.text = text.lowercaseString
         }
     }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
     

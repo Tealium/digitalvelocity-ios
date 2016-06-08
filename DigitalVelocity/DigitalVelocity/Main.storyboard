@@ -137,20 +137,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJG-ow-Swl">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
+                                    <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68M-cB-e3u">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="tQB-3J-gZq" id="71Q-PB-HoN"/>
+                                        </connections>
+                                    </webView>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="RKc-nJ-Rcn" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="600" height="2"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </progressView>
-                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68M-cB-e3u">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="tQB-3J-gZq" id="71Q-PB-HoN"/>
-                                        </connections>
-                                    </webView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="height" secondItem="SJG-ow-Swl" secondAttribute="height" id="5XT-TP-It2"/>
                                     <constraint firstItem="68M-cB-e3u" firstAttribute="width" secondItem="RKc-nJ-Rcn" secondAttribute="width" id="D1I-1I-9yM"/>
@@ -168,7 +168,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SJG-ow-Swl" firstAttribute="width" secondItem="7uy-J0-X9i" secondAttribute="width" id="3S6-wl-8rQ"/>
                             <constraint firstItem="SJG-ow-Swl" firstAttribute="height" secondItem="7uy-J0-X9i" secondAttribute="height" constant="64" id="5to-Gr-mbk"/>
@@ -195,7 +195,6 @@
                         <segue destination="xec-ZL-45z" kind="custom" identifier="Sponsors" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="ajw-mi-ZDs"/>
                         <segue destination="bdL-jz-Hms" kind="custom" identifier="Notifications" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="xiN-2t-XBv"/>
                         <segue destination="Sey-ya-clM" kind="custom" identifier="Agenda" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="aWH-3p-V1j"/>
-                        <segue destination="W6d-LJ-2Ec" kind="custom" identifier="Welcome" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="k5I-MI-Cg7"/>
                         <segue destination="pPs-Kh-gl9" kind="custom" identifier="Chat" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="6dJ-dw-IpH"/>
                         <segue destination="y95-KB-Lps" kind="custom" identifier="Demo" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="Zar-jh-uab"/>
                         <segue destination="jkT-67-Kp8" kind="custom" identifier="Survey" customClass="FadeSegue" customModule="DigitalVelocity" customModuleProvider="target" id="6jp-Z8-1Ky"/>
@@ -203,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="km2-Tt-vFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="962"/>
+            <point key="canvasLocation" x="277" y="1050"/>
         </scene>
         <!--Chat Inbox View Controller-->
         <scene sceneID="d9v-Vq-rHF">
@@ -237,6 +236,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hard-Rock-Hotel-Banquet-Hall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="l7g-CP-hNH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="MwB-99-Y24"/>
+                                    <constraint firstAttribute="width" constant="600" id="cn4-8W-Uni"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dee-G0-vO0">
                                 <rect key="frame" x="116" y="250" width="368" height="40"/>
                                 <accessibility key="accessibilityConfiguration" identifier="Save Button" label="Save Button"/>
@@ -315,13 +321,6 @@
                                     <constraint firstAttribute="bottom" secondItem="HXp-CS-gSY" secondAttribute="bottom" constant="8" id="zcl-9w-3wB"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hard-Rock-Hotel-Banquet-Hall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="l7g-CP-hNH">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="MwB-99-Y24"/>
-                                    <constraint firstAttribute="width" constant="600" id="cn4-8W-Uni"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -380,7 +379,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hard-Rock-Exterior.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="w8R-d5-MAT">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DV EU Background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="w8R-d5-MAT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Convention Sign In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4e-HP-jne">
@@ -459,6 +458,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="w8R-d5-MAT" id="t8O-IN-GTq"/>
                         <outlet property="emailTextField" destination="eLn-oq-7ot" id="l0v-U1-3aB"/>
                         <outlet property="enterButton" destination="sEo-5w-Dtn" id="d1i-aD-i9e"/>
                         <outlet property="skipButton" destination="8UP-W3-wNU" id="4oo-Se-BtX"/>
@@ -709,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyk-ej-ShG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-691" y="3172"/>
+            <point key="canvasLocation" x="-691" y="3148"/>
         </scene>
         <!--Agenda Item Font Awesome DetailVC-->
         <scene sceneID="71f-7r-dsq">
@@ -1110,17 +1110,17 @@
                         <viewControllerLayoutGuide type="bottom" id="Hfg-0D-naA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="APd-eo-JPK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hT-pR-bZ5">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="Jqf-nr-SR7" id="eSz-7O-sag"/>
                                 </connections>
                             </webView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="gi7-sr-IYA" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.20000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="gi7-sr-IYA" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="2"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1153,7 +1153,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="progress" destination="gi7-sr-IYA" id="o77-hA-B0s"/>
                         <outlet property="webView" destination="9hT-pR-bZ5" id="qdk-Hf-gAL"/>
@@ -1161,7 +1161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ue-xr-PGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693" y="3201"/>
+            <point key="canvasLocation" x="717" y="3148"/>
         </scene>
         <!--ContactVC-->
         <scene sceneID="Kiv-Lw-gAK">
@@ -1631,57 +1631,11 @@
             </objects>
             <point key="canvasLocation" x="-1331" y="2225"/>
         </scene>
-        <!--Welcome WebVC-->
-        <scene sceneID="wHS-rj-ACh">
-            <objects>
-                <viewController storyboardIdentifier="Welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W6d-LJ-2Ec" customClass="Welcome_Web_VC" customModule="DigitalVelocity" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4oP-iI-V6v"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZYe-zy-trE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Aja-OD-vHM">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.20000000298023224" translatesAutoresizingMaskIntoConstraints="NO" id="ZvD-Af-VKk" customClass="TEALProgressView" customModule="DigitalVelocity" customModuleProvider="target">
-                                <rect key="frame" x="4" y="4" width="600" height="2"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="progressTintColor" red="0.0" green="0.48627450979999998" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </progressView>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abj-ff-9KI">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="W6d-LJ-2Ec" id="McM-Fu-RA2"/>
-                                </connections>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="abj-ff-9KI" firstAttribute="top" secondItem="ZvD-Af-VKk" secondAttribute="bottom" constant="-2" id="5bk-fi-I9N"/>
-                            <constraint firstAttribute="centerX" secondItem="abj-ff-9KI" secondAttribute="centerX" id="Lge-hf-gY4"/>
-                            <constraint firstItem="abj-ff-9KI" firstAttribute="height" secondItem="Aja-OD-vHM" secondAttribute="height" id="XcG-Fi-8uc"/>
-                            <constraint firstItem="abj-ff-9KI" firstAttribute="width" secondItem="Aja-OD-vHM" secondAttribute="width" id="cKE-03-e2r"/>
-                            <constraint firstItem="ZvD-Af-VKk" firstAttribute="leading" secondItem="Aja-OD-vHM" secondAttribute="leadingMargin" constant="-16" id="cbx-6o-PlO"/>
-                            <constraint firstItem="ZvD-Af-VKk" firstAttribute="width" secondItem="Aja-OD-vHM" secondAttribute="width" id="ixr-TR-V5f"/>
-                            <constraint firstAttribute="centerY" secondItem="abj-ff-9KI" secondAttribute="centerY" id="kt3-wV-oxY"/>
-                        </constraints>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="progress" destination="ZvD-Af-VKk" id="B66-aU-01A"/>
-                        <outlet property="webView" destination="abj-ff-9KI" id="YGL-fJ-Bch"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wO1-i1-Xq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2011" y="2223"/>
-        </scene>
     </scenes>
     <resources>
         <image name="BlackBG.png" width="40" height="40"/>
+        <image name="DV EU Background.jpg" width="2290" height="1520"/>
         <image name="DV_Icon_t_40x40.png" width="40" height="40"/>
-        <image name="Hard-Rock-Exterior.jpg" width="512" height="408"/>
         <image name="Hard-Rock-Hotel-Banquet-Hall.jpg" width="400" height="400"/>
         <image name="Training.jpg" width="960" height="717"/>
     </resources>

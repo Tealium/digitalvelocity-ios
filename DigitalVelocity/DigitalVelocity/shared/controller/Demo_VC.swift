@@ -94,6 +94,7 @@ class Demo_VC: UIViewController {
         accountTextField.becomeFirstResponder()
         
         setupMenuNavigationForController()
+        hideKeyboardWhenTappedAround()
         self.prepopulateTextFields()
         
         if !UIAccessibilityIsReduceTransparencyEnabled() {
@@ -117,6 +118,11 @@ class Demo_VC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         Analytics.trackView(self, data: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.view.endEditing(true)
     }
     
     //MARK: Private Methods
@@ -220,6 +226,13 @@ class Demo_VC: UIViewController {
         alertController.addAction(okAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    override func hideKeyboardWhenTappedAround(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.backgroundImageView.addGestureRecognizer(tap)
+        self.view.addGestureRecognizer(tap)
+        
     }
     
 }

@@ -234,6 +234,9 @@ class Table_VC: UITableViewController {
                     if let target = selectedItemData?.url {
                         web.url = target
                     }
+                    if let title = selectedItemData?.title {
+                        web.title = title
+                    }
                 }
             case menuOptions.location.storyboardId:
                 

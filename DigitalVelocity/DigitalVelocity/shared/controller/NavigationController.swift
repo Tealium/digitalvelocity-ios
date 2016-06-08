@@ -37,6 +37,7 @@ class NavigationController: UINavigationController {
         viewController.navigationItem.setRightBarButtonItems([self.menuButton(), self.filterButton()], animated: true);
     }
     
+    // This is the hamburger navigation button
     private func menuButton()->UIBarButtonItem{
         
         if _menuButton == nil{
@@ -58,7 +59,7 @@ class NavigationController: UINavigationController {
     private func filterButton()->UIBarButtonItem{
         
         if _filterButton == nil {
-            _filterButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "handleFilterButton:")
+            _filterButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(handleMenuButton(_:)))
             
             let font = FontAwesomeHelper.fontAwesomeForSize(28)
             let attributes  = NSDictionary(object: font, forKey: NSFontAttributeName)
@@ -77,6 +78,7 @@ class NavigationController: UINavigationController {
     func handleMenuButton(sender: AnyObject) {
         
         menuDelegate?.menuToggleRequested()
+        
     }
     
     func resetFilterButton(){
